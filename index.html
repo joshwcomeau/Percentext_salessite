@@ -3,52 +3,13 @@
 <head>
   <title>Text_Fill, working title</title>
   <script src="jquery_1.11.1.js"></script>
-  <script src="textfill_1.0.js"></script>
+  <script src="textperc_1.0.js"></script>
 </head>
 
 <body>
   <div style="width: 50%; border: 1px solid #CCC;" id="container">
     <h2><span style="border: 1px solid #AAA;" id="text_to_size">This text ought to take up 100% of the width.</span></h2>
   </div>
-
-
-
-<script>
-
-  function resize_text() {
-    var 
-    container = $("#container"),
-    text_to_size = $("#text_to_size");
-
-    // Shrink text, to make sure it can fit on 1 line
-    text_to_size.css("font-size", "12px")
-
-    var
-    c_width = container.width(),
-    t_width = text_to_size.width(),
-    t_ratio = t_width / c_width,
-    t_size = parseInt(text_to_size.css("font-size")),
-    new_font_size = (t_size / t_ratio) - 1;
-
-
-    text_to_size.css("font-size", new_font_size);
-  }
-
-
-  $(window).resize(resize_text);
-
-
-
-
-
-
-/*
-  16px    =     x
-  0.8          1.0
-
-*/
-</script>
-
 
 </body>
 </html>

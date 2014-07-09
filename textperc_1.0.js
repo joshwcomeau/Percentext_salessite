@@ -8,41 +8,28 @@
         textAlign: "center"
     }, options );
 
-    // Let's figure out what we're up to
-    var
-    container = this.parent();
 
     return this.each(function() {
+      // Our first job is to shrink the text down to mini-size. 
+      // This is done because when we retrieve the header's width, we want to make sure it fits on 1 line.
+      var 
+      starting_size = 9;
+      $(this).css("font-size", starting_size);
 
+      // It's variable time! Let's figure out who the major players are.
+      var
+      container         = $(this).parent(),
+      container_width   = container.width(),
+      text_width        = $(this).width(),
+      text_width_ratio  = text_width / container_width;
 
-      this.css()
+      // Data gathered, we now compute our new font size. 
+      // We're subtracting 1 to make sure it always stays below the requested percentage.
+      var
+      new_font_size     = (starting_size / text_width_ratio) - 1;
+
+      return $(this).css("font-size", new_font_size);
     });
     
   }
 }( jQuery ));
-
-
-
-function resize_text() {
-  var 
-  container = $("#container"),
-  text_to_size = $("#text_to_size");
-
-  // Shrink text, to make sure it can fit on 1 line
-  text_to_size.css("font-size", "12px")
-
-  var
-  c_width = container.width(),
-  t_width = text_to_size.width(),
-  t_ratio = t_width / c_width,
-  t_size = parseInt(text_to_size.css("font-size")),
-  new_font_size = (t_size / t_ratio) - 1;
-
-
-  text_to_size.css("font-size", new_font_size);
-}
-
-
-$(window).resize(resize_text);
-
-
