@@ -1,7 +1,7 @@
 (function ( $ ) {
 
 
-  $.fn.textPerc = function( options ) {
+  $.fn.percentext = function( options ) {
 
     // Let's set our default settings
     var settings = $.extend({}, $.fn.textPerc.defaults, options );
