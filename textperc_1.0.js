@@ -21,35 +21,36 @@
       container         = $elem.parent(),
       container_width   = container.width(),
       text_width        = $elem.width(),
-      text_width_ratio  = text_width / container_width,
-      font_increment    = 0.1;
+      text_width_ratio  = text_width / container_width;
 
 
 
       // Time to do our thing. This happens in two main parts. 
 
       // Part I: Broad Strokes.
-      // We do some math to get what ought to be the perfect font size, and substract 1.
+      // We do some math to get what ought to be the perfect font size. This will work most times.
       var broad_font_size = broad_strokes( $elem, starting_size, text_width_ratio);
-      // This is guaranteed to be anywhere from juuuuust about perfect, to significantly too small.
+      $elem.css("font-size", broad_font_size);
 
       // Part II: Incremental Increases.
-      // We're going to keep augmenting the font size by tiny increments, up to the point that it causes
-      // the header to split into 2 lines. Then, we'll revert the last change, getting the perfect font size.
+      // There are times where it might choose a font size that is a little too small.
+      // We'll increment it until we KNOW we've gone too far, and then reduce it by 1.
       var 
       starting_height      = $elem.height(),
       increasing_font_size = broad_font_size;
 
-      console.log(increasing_font_size);
+      console.log("Our initial font size is " + increasing_font_size);
+      console.log("Our 'while' condition is that " + $elem.height() + " must be less than " + starting_height*2 + " (which is " + starting_height + " times 2)");
 
       while ( $elem.height() < starting_height * 2 ) {
-        increasing_font_size += font_increment;
+        increasing_font_size++;
         $elem.css("font-size", increasing_font_size);
         console.log(increasing_font_size);
+        console.log("height is " + $elem.height() );
       }
 
       // We've gone one step too far. Let's undo that last iteration and call it a day!
-      increasing_font_size -= font_increment;
+      increasing_font_size--;
       $elem.css("font-size", increasing_font_size);
 
       // Gotta wash some dishes
