@@ -4,7 +4,7 @@
   $.fn.percentext = function( options ) {
 
     // Let's set our default settings
-    var settings = $.extend({}, $.fn.textPerc.defaults, options );
+    var settings = $.extend({}, $.fn.percentext.defaults, options );
 
     return this.each(function() {
       var
@@ -29,7 +29,7 @@
       // Part I: Broad Strokes.
       // We do some math to get what ought to be the perfect font size. This will work most times.
       var broad_font_size = broad_strokes( $elem, starting_size, text_width_ratio);
-      set_font(broad_font_size);  
+      set_font($elem, broad_font_size);  
 
       // Part II: Incremental Increases.
       // There are times where it might choose a font size that is a little too small.
@@ -40,11 +40,11 @@
 
       while ( $elem.height() < starting_height * 2 ) {
         increasing_font_size++;
-        set_font(increasing_font_size);
+        set_font($elem, increasing_font_size);
       }
       // We've gone one step too far. Let's undo that last iteration and call it a day!
       increasing_font_size--;
-      set_font(increasing_font_size);
+      set_font($elem, increasing_font_size);
 
 
       // Gotta brush your teeth before bed.
@@ -63,7 +63,7 @@
     });
   }
 
-  function set_font(font_size) {
+  function set_font($elem, font_size) {
     $elem.css("font-size", font_size);
   }
 
@@ -100,7 +100,7 @@
     console.log("There are " + obj.length + " item(s) selected with textPerc.")
   }
 
-  $.fn.textPerc.defaults = {
+  $.fn.percentext.defaults = {
     percentage: 100,
     alignment: "left"
   }
