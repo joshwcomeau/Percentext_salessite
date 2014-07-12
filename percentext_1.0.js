@@ -13,22 +13,19 @@
         letterSpacing: parseFloat($(this).css("letter-spacing"))
       };
 
-      // Immediately hide the text. THis is to avoid the text being shown incorrectly before
-      // any relevant webfonts have loaded.
-      $(this).css("visibility", "hidden")
+      // Immediately hide the text. 
+      // This is to avoid the text being shown incorrectly before any relevant webfonts have loaded.
+      $(this).css("visibility", "hidden");
 
 
-      $(window).bind("load", function() {
+      $(window).bind("load resize", function() {
         do_your_thang( elem, settings, defaults );
       });
       
-      $(window).resize(function() {
-        do_your_thang( elem, settings, defaults );
-      })
 
 
     });
-  }
+  };
 
   // FIRST LEVEL - Main function //
   // Performs setup, calculation, application and cleanup.
@@ -75,11 +72,13 @@
     desired_ratio             = settings.percentage / 100,
     max_width                 = container_width * desired_ratio,
     font_size_increment       = 1,
-    letter_spacing_increment  = 0.1;
+    letter_spacing_increment  = 0.1,
+    final_font_size,
+    final_letter_spacing;
 
     // Part I: Broad Strokes.
     // We do some math to get what ought to be the perfect font size. This will work most times.
-    var broad_font_size = first_pass( $elem, starting_size, text_width_ratio, desired_ratio );
+    var broad_font_size = first_pass( starting_size, text_width_ratio, desired_ratio );
     $elem.css("font-size", broad_font_size);
 
 
@@ -88,9 +87,9 @@
     // We'll increment it until we KNOW we've gone too far, and then reduce it by 1.
     if ( desired_ratio == 1 ) {
       var too_big_font_size = one_too_many( $elem, max_width, "font-size", broad_font_size, font_size_increment );  
-      var final_font_size = too_big_font_size - font_size_increment;
+      final_font_size = too_big_font_size - font_size_increment;
     } else {
-      var final_font_size = broad_font_size;
+      final_font_size = broad_font_size;
     }
 
     $elem.css("font-size", final_font_size);
@@ -100,11 +99,10 @@
     // Uses letter-spacing to get as precise a width as possible. Generally not necessary, but can be useful
     // on headers with lots of letters (since the difference between 10px and 11px font size is significant).
     var starting_letter_spacing = parseFloat($elem.css("letter-spacing"));
-    console.log( $elem.width() );
 
     if ( settings.preciseMode ) {
-      too_big_letter_spacing = one_too_many( $elem, max_width, "letter-spacing", starting_letter_spacing, letter_spacing_increment )
-      var final_letter_spacing = too_big_letter_spacing - letter_spacing_increment;
+      var too_big_letter_spacing = one_too_many( $elem, max_width, "letter-spacing", starting_letter_spacing, letter_spacing_increment );
+      final_letter_spacing = too_big_letter_spacing - letter_spacing_increment;
     } else {
       final_letter_spacing = starting_letter_spacing;
     }
@@ -130,18 +128,18 @@
     var $elem = $(elem);
     $elem.css("display", "inline");
 
-    console.log( "We want the text to be " + settings.percentage + "% of the width.")
+    console.log( "We want the text to be " + settings.percentage + "% of the width.");
     console.log( "The object is " + $elem.width() + "px wide. Its parent is " + $elem.parent().width() + "px wide. Therefore, it is " + ( $elem.width() / $elem.parent().width() ) * 100 + "% of the width." );
     console.log( "The object is:" );
     console.log( elem );
     console.log( "-------------" );
-    console.log("There are " + elem.length + " item(s) selected with textPerc.")
+    console.log("There are " + elem.length + " item(s) selected with textPerc.");
     $elem.css("display", "");
   }
 
 
   // THIRD LEVEL - Assorted helper functions
-  function first_pass( $elem, starting_size, text_width_ratio, desired_ratio ) {
+  function first_pass( starting_size, text_width_ratio, desired_ratio ) {
     // console.log( "starting size: " + starting_size );
     // console.log( "Text width ratio: " + text_width_ratio );
     // console.log( "Desired ratio: " + desired_ratio );
@@ -177,7 +175,7 @@
     percentage:   100,
     alignment:    "left",
     preciseMode:  true
-  }
+  };
 
 
 }( jQuery ));
