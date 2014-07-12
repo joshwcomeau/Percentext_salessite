@@ -1,20 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Text_Fill, working title</title>
+  <title>Percentext, a nifty little jQuery plugin.</title>
+  <link rel="stylesheet" href="reset.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="http://use.edgefonts.net/carter-one;raleway.js"></script>
   <script src="jquery_1.11.1.js"></script>
   <script src="percentext_1.0.js"></script>
+
 </head>
 
 <body>
   <div style="width: 100%; border: 1px solid #CCC;" id="container">
-    <h2 id="text_to_size" style="">This text ought to take up 100% of the width.This text ought to take up 100% of the width.This text ought to take up 100% of the width.</h2>
+    <h1 class="text_to_size_100" style="">This text ought to take up 100% of the width.</h1>
+    <h4 class="text_to_size_50">Alternatively, this text should only take up 50%</h4>
+    <h4 class="text_to_size_50">Same here, and it should be <strong>wider.</strong></h4>
   </div>
 
 
 <script>
 
-$("#text_to_size").percentext({alignment: 'center', percentage: 100});
+$(".text_to_size_100").percentext({percentage: 100});
+$(".text_to_size_50").percentext({percentage: 50});  
+
 
 </script>
 </body>

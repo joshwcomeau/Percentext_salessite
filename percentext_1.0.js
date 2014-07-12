@@ -14,8 +14,9 @@
       };
 
 
-
-      do_your_thang( elem, settings, defaults );
+      $(window).bind("load", function() {
+        do_your_thang( elem, settings, defaults );
+      });
       
       $(window).resize(function() {
         do_your_thang( elem, settings, defaults );
@@ -54,7 +55,7 @@
   function setup($elem, starting_size, settings, defaults) {
     $elem.css({
       display:        "inline",
-      visibility:     "hidden",
+      // visibility:     "hidden",
       fontSize:       starting_size,
       letterSpacing:  defaults.letterSpacing,
       textAlign:      settings.alignment,
@@ -115,7 +116,7 @@
   // Undoes our un-needed setup stuff.
   function cleanup( $elem ) {
     $elem.css({
-      display:    "",
+      // display:    "",
       whiteSpace: "",
       visibility: ""
     });
@@ -154,11 +155,11 @@
 
   function one_too_many( $elem, max_width, property, iterable, increment ) {
 
-    while ( $elem.width() <= max_width ) {
+    while ( $elem.width() < max_width ) {
       if ( property == 'letter-spacing' ) {
 
 
-        console.log("font size:" + iterable);
+        console.log("letter spacing:" + iterable);
         console.log("H2 width:" + $elem.width());
         console.log("Container width:" + max_width);
       }
