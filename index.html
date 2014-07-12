@@ -4,24 +4,23 @@
   <title>Percentext, a nifty little jQuery plugin.</title>
   <link rel="stylesheet" href="reset.css">
   <link rel="stylesheet" href="style.css">
-  <script src="http://use.edgefonts.net/arimo;raleway.js"></script>
+  <script src="http://use.edgefonts.net/raleway:n3,n5,n9;bowlby-one.js"></script>
   <script src="jquery_1.11.1.js"></script>
+  <script src="throttle-debounce_1.1.min.js"></script>
   <script src="percentext_1.0.js"></script>
 
 </head>
 
 <body>
-  <div style="width: 100%; border: 1px solid #CCC;" id="container">
-    <h1 class="text_to_size_100" style="">This text ought to take up 100% of the width.</h1>
-    <h4 class="text_to_size_50">Alternatively, this text should only take up 50%</h4>
-    <h4 class="text_to_size_50">Same here, and it should be <strong>wider.</strong></h4>
-  </div>
+  <section id="box_1" style="width: 90%; border: 1px solid #CCC;">
+    <h5>Introducing</h5>
+    <h1>Percentext.js</h1>
+  </section>
 
 
 <script>
 
-$(".text_to_size_100").percentext({percentage: 100});
-$(".text_to_size_50").percentext({percentage: 50});  
+$("h1").percentext({percentage: 100});
 
 
 </script>
