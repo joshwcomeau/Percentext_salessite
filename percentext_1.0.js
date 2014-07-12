@@ -13,6 +13,10 @@
         letterSpacing: parseFloat($(this).css("letter-spacing"))
       };
 
+      // Immediately hide the text. THis is to avoid the text being shown incorrectly before
+      // any relevant webfonts have loaded.
+      $(this).css("visibility", "hidden")
+
 
       $(window).bind("load", function() {
         do_your_thang( elem, settings, defaults );
@@ -55,7 +59,6 @@
   function setup($elem, starting_size, settings, defaults) {
     $elem.css({
       display:        "inline",
-      // visibility:     "hidden",
       fontSize:       starting_size,
       letterSpacing:  defaults.letterSpacing,
       textAlign:      settings.alignment,
@@ -116,7 +119,7 @@
   // Undoes our un-needed setup stuff.
   function cleanup( $elem ) {
     $elem.css({
-      // display:    "",
+      display:    "",
       whiteSpace: "",
       visibility: ""
     });
@@ -156,13 +159,11 @@
   function one_too_many( $elem, max_width, property, iterable, increment ) {
 
     while ( $elem.width() < max_width ) {
-      if ( property == 'letter-spacing' ) {
-
-
-        console.log("letter spacing:" + iterable);
-        console.log("H2 width:" + $elem.width());
-        console.log("Container width:" + max_width);
-      }
+      // if ( property == 'letter-spacing' ) {
+      //   console.log("letter spacing:" + iterable);
+      //   console.log("H2 width:" + $elem.width());
+      //   console.log("Container width:" + max_width);
+      // }
       iterable += increment;
       $elem.css(property, iterable);
     }
