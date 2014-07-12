@@ -7,8 +7,7 @@
     var settings = $.extend({}, $.fn.percentext.defaults, options );
 
     return this.each(function() {
-      var
-      elem = this
+      var elem = this
 
       do_your_thang( elem, settings );
       
@@ -25,23 +24,29 @@
   function do_your_thang(elem, settings) {
     var
     $elem = $(elem),
-    starting_size = 9;
+    starting_size = 6;
 
     // Preparation is key.
     setup( $elem, starting_size, settings );      
 
-    var 
-    desired_ratio = settings.percentage / 100,
-    final_font_size = calculate_font_size( $elem, starting_size, desired_ratio );
+    // Get the desired font size (most of the magic happens in this function call).
+    var final_font_size = calculate_font_size( $elem, starting_size, settings );
 
-    // Apply this final font size, and add the window resize 
+    // Precise Mode (optional)
+    // Uses letter-spacing to get as precise a width as possible. Generally not necessary, but can be useful
+    // on headers with lots of letters (since the difference between 10px and 11px font size is significant).
+    if ( settings.preciseMode ) {
+      letter_spacing = get_letter_spacing($elem)
+    }
+
+    // Apply this final font size, and add the window resize.
     set_font( $elem, final_font_size );
 
     // Gotta brush your teeth before bed.
     cleanup( $elem );
     
-    // Uncomment to spam the console with debug info
-    // debug( elem, settings );
+    // Uncomment to spam the console with debug info.
+    debug( elem, settings );
   }
 
 
@@ -50,17 +55,19 @@
   function setup($elem, starting_size, settings) {
     $elem.css({
       display:    "inline",
+      visibility: "hidden",
       fontSize:   starting_size,
       textAlign:  settings.alignment
     });
   }
 
-  function calculate_font_size($elem, starting_size, desired_ratio) {
+  function calculate_font_size($elem, starting_size, settings) {
     var
     container         = $elem.parent(),
     container_width   = container.width(),
     text_width        = $elem.width(),
-    text_width_ratio  = text_width / container_width;
+    text_width_ratio  = text_width / container_width,
+    desired_ratio     = settings.percentage / 100;
 
     // Part I: Broad Strokes.
     // We do some math to get what ought to be the perfect font size. This will work most times.
@@ -78,7 +85,12 @@
     }
 
     return final_font_size;
+  }
 
+  function get_letter_spacing($elem) {
+    var
+    starting_height = $elem.height(),
+    starting_spacing = 1;
   }
 
   function set_font($elem, font_size) {
@@ -87,7 +99,10 @@
 
   // Undoes our un-needed setup stuff.
   function cleanup( $elem ) {
-    $elem.css("display", "");
+    $elem.css({
+      display:    "",
+      visibility: "visible"
+    });
   }
 
   // Our debug function. For internal testing purposes only.
@@ -107,6 +122,9 @@
 
   // THIRD LEVEL - Assorted helper functions
   function first_pass( $elem, starting_size, text_width_ratio, desired_ratio ) {
+    console.log( "starting size: " + starting_size );
+    console.log( "Text width ratio: " + text_width_ratio );
+    console.log( "Desired ratio: " + desired_ratio );
     return Math.floor( (starting_size * desired_ratio) / text_width_ratio );
 
     // The way math works:
@@ -120,10 +138,10 @@
 
   function one_too_many( $elem, broad_font_size ) {
     var 
-    starting_height      = $elem.height(),
+    parent_width         = $elem.parent().width(),
     increasing_font_size = broad_font_size;
 
-    while ( $elem.height() < starting_height * 2 ) {
+    while ( $elem.width() <= parent_width ) {
       increasing_font_size++;
       set_font($elem, increasing_font_size);
     }
@@ -134,8 +152,9 @@
   
 
   $.fn.percentext.defaults = {
-    percentage: 100,
-    alignment: "left"
+    percentage:   100,
+    alignment:    "left",
+    preciseMode:  false
   }
 
 
