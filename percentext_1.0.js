@@ -9,18 +9,26 @@
     return this.each(function() {
       var 
       elem = this,
-      user_css = {
-        letterSpacing: parseFloat($(this).css("letter-spacing"))
-      };
+      user_css = {};
 
-      console.log(user_css.letterSpacing);
+      
+      // This next bit deals with LETTER-SPACING PRECEDENCE.
+      // - The highest precedence is the settings option. If percentext() is called with a 
+      //   value for letterspacing, we use that value for everything in the collection.
+      // - If they don't specify a value in the settings object, we take whatever CSS has 
+      //   been applied to each member of the collection.
+      if ( typeof settings.letterSpacing == 'object' ) {  // null is an object in JS
+        user_css.letterSpacing = parseFloat($(this).css("letter-spacing"));
+      } else {
+        user_css.letterSpacing = parseFloat(settings.letterSpacing);
+      }
 
 
       // Immediately hide the text. 
       // This is to avoid the text being shown incorrectly before any relevant webfonts have loaded.
       $(this).css("visibility", "hidden");
 
-
+      // Run our main function on load (after custom webfonts have been downloaded) and on resize.
       $(window).bind("load resize", function() {
         do_your_thang( elem, settings, user_css );  
       });
@@ -169,9 +177,10 @@
   
 
   $.fn.percentext.defaults = {
-    percentage:   100,
-    alignment:    "left",
-    preciseMode:  false
+    percentage:     100,
+    alignment:      "left",
+    preciseMode:    false,
+    letterSpacing:  -5
   };
 
 
