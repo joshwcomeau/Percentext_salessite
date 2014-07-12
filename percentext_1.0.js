@@ -35,9 +35,9 @@
     // Precise Mode (optional)
     // Uses letter-spacing to get as precise a width as possible. Generally not necessary, but can be useful
     // on headers with lots of letters (since the difference between 10px and 11px font size is significant).
-    if ( settings.preciseMode ) {
-      letter_spacing = get_letter_spacing($elem)
-    }
+    // if ( settings.preciseMode ) {
+    //   letter_spacing = get_letter_spacing($elem)
+    // }
 
     // Apply this final font size, and add the window resize.
     set_font( $elem, final_font_size );
@@ -46,7 +46,7 @@
     cleanup( $elem );
     
     // Uncomment to spam the console with debug info.
-    debug( elem, settings );
+    // debug( elem, settings );
   }
 
 
@@ -57,7 +57,8 @@
       display:    "inline",
       visibility: "hidden",
       fontSize:   starting_size,
-      textAlign:  settings.alignment
+      textAlign:  settings.alignment,
+      whiteSpace: "nowrap"
     });
   }
 
@@ -78,7 +79,7 @@
     // There are times where it might choose a font size that is a little too small.
     // We'll increment it until we KNOW we've gone too far, and then reduce it by 1.
     if ( desired_ratio == 1 ) {
-      var too_big_font_size = one_too_many( $elem, broad_font_size );  
+      var too_big_font_size = one_too_many( $elem, container_width, "font-size", broad_font_size );  
       var final_font_size = too_big_font_size - 1;
     } else {
       var final_font_size = broad_font_size;
@@ -89,8 +90,11 @@
 
   function get_letter_spacing($elem) {
     var
-    starting_height = $elem.height(),
-    starting_spacing = 1;
+    parent_width     = $elem.parent().width(),
+    starting_spacing = $elem.css("letter-spacing");
+
+
+
   }
 
   function set_font($elem, font_size) {
@@ -101,7 +105,8 @@
   function cleanup( $elem ) {
     $elem.css({
       display:    "",
-      visibility: "visible"
+      whiteSpace: "",
+      visibility: ""
     });
   }
 
@@ -136,17 +141,16 @@
     // desired_size = ( current_size * set_ratio ) / current_ratio
   }
 
-  function one_too_many( $elem, broad_font_size ) {
-    var 
-    parent_width         = $elem.parent().width(),
-    increasing_font_size = broad_font_size;
-
-    while ( $elem.width() <= parent_width ) {
-      increasing_font_size++;
-      set_font($elem, increasing_font_size);
+  function one_too_many( $elem, container_width, property, iterable ) {
+    while ( $elem.width() <= container_width ) {
+      console.log("font size:" + iterable);
+      console.log("H2 width:" + $elem.width());
+      console.log("Container width:" + container_width);
+      iterable++;
+      $elem.css(property, iterable);
     }
 
-    return increasing_font_size;
+    return iterable;
   } 
 
   
