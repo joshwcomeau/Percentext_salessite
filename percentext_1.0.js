@@ -69,6 +69,7 @@
     text_width                = $elem.width(),
     text_width_ratio          = text_width / container_width,
     desired_ratio             = settings.percentage / 100,
+    max_width                 = container_width * desired_ratio,
     font_size_increment       = 1,
     letter_spacing_increment  = 0.1;
 
@@ -82,7 +83,7 @@
     // There are times where it might choose a font size that is a little too small.
     // We'll increment it until we KNOW we've gone too far, and then reduce it by 1.
     if ( desired_ratio == 1 ) {
-      var too_big_font_size = one_too_many( $elem, container_width, "font-size", broad_font_size, font_size_increment );  
+      var too_big_font_size = one_too_many( $elem, max_width, "font-size", broad_font_size, font_size_increment );  
       var final_font_size = too_big_font_size - font_size_increment;
     } else {
       var final_font_size = broad_font_size;
@@ -98,7 +99,7 @@
     console.log( $elem.width() );
 
     if ( settings.preciseMode ) {
-      too_big_letter_spacing = one_too_many( $elem, container_width, "letter-spacing", starting_letter_spacing, letter_spacing_increment )
+      too_big_letter_spacing = one_too_many( $elem, max_width, "letter-spacing", starting_letter_spacing, letter_spacing_increment )
       var final_letter_spacing = too_big_letter_spacing - letter_spacing_increment;
     } else {
       final_letter_spacing = starting_letter_spacing;
@@ -151,15 +152,15 @@
     // desired_size = ( current_size * set_ratio ) / current_ratio
   }
 
-  function one_too_many( $elem, container_width, property, iterable, increment ) {
+  function one_too_many( $elem, max_width, property, iterable, increment ) {
 
-    while ( $elem.width() <= container_width ) {
+    while ( $elem.width() <= max_width ) {
       if ( property == 'letter-spacing' ) {
 
 
         console.log("font size:" + iterable);
         console.log("H2 width:" + $elem.width());
-        console.log("Container width:" + container_width);
+        console.log("Container width:" + max_width);
       }
       iterable += increment;
       $elem.css(property, iterable);
