@@ -8,7 +8,6 @@
 
     return this.each(function() {
       var 
-      elem = this,
       $elem = $(this),
       user_css = {};
 
@@ -25,15 +24,13 @@
       // the user_css object after the initial call.
       user_css = get_desired_spacing( $elem, user_css, settings );
 
-
-
       // Immediately hide the text. 
       // This is to avoid the text being shown incorrectly before any relevant webfonts have loaded.
-      $(this).css("visibility", "hidden");
+      $elem.css("visibility", "hidden");
 
       // Run our main function on load (after custom webfonts have been downloaded) and on resize.
       $(window).bind("load resize", function() {
-        do_your_thang( elem, settings, user_css );  
+        do_your_thang( $elem, settings, user_css );  
       });
 
 
@@ -43,12 +40,9 @@
 
   // FIRST LEVEL - Main function //
   // Performs setup, calculation, application and cleanup.
-  function do_your_thang(elem, settings, user_css) {
-    var
-    $elem = $(elem),
-    starting_size = 6;
+  function do_your_thang($elem, settings, user_css) {
+    var starting_size = 6;
 
-    
 
     // Preparation is key.
     setup( $elem, starting_size, settings );      
@@ -128,8 +122,6 @@
     if ( settings.preciseMode ) {
       var too_big_letter_spacing = increase_to_excess( $elem, max_width, "letter-spacing", user_css.letterSpacing, letter_spacing_increment );
       final_letter_spacing = too_big_letter_spacing - letter_spacing_increment;
-      console.log("unrounded: " + final_letter_spacing);
-      console.log("rounded: "  );
     } else {
       final_letter_spacing = user_css.letterSpacing;
     }
@@ -170,9 +162,9 @@
   function increase_to_excess( $elem, max_width, property, iterable, increment ) {
 
     while ( $elem.width() < max_width ) {
-      console.log(property + ": " + iterable);
-      console.log("H2 width:" + $elem.width());
-      console.log("Container width:" + max_width);
+      // console.log(property + ": " + iterable);
+      // console.log("H2 width:" + $elem.width());
+      // console.log("Container width:" + max_width);
       iterable += increment;
       $elem.css(property, iterable);
     }
