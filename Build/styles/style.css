@@ -45,6 +45,9 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
+*, *:before, *:after {
+  box-sizing: border-box; }
+
 #bgCanvas {
   position: fixed; }
 
@@ -66,3 +69,26 @@ table {
     #section_1 .title_area #title_caption {
       position: absolute;
       left: 15%; }
+
+.divider_with_icon {
+  position: relative;
+  top: 0;
+  left: 0;
+  margin: 1rem 1.5rem;
+  height: auto;
+  padding: 0;
+  line-height: 1; }
+  .divider_with_icon:before {
+    left: 0;
+    margin-left: -1.5rem; }
+  .divider_with_icon:after {
+    right: 0;
+    margin-right: -1.5rem; }
+  .divider_with_icon:before, .divider_with_icon:after {
+    position: absolute;
+    content: " ";
+    width: 50%;
+    top: 50%;
+    height: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08); }

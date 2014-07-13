@@ -1,7 +1,9 @@
 @import 'reset';
 @import 'variables';
 
-
+*, *:before, *:after {
+  box-sizing: border-box;
+}
 
 #bgCanvas {
   position: fixed;
@@ -33,6 +35,34 @@
       left: 15%;
     }
   }
+}
 
+.divider_with_icon {
+  position: relative;
+  top: 0;
+  left: 0;
+  margin: 1rem 1.5rem;
+  height: auto;
+  padding: 0;
+  line-height: 1;
 
+  &:before {
+    left: 0;
+    margin-left: -1.5rem;
+  }
+
+  &:after {
+    right: 0;
+    margin-right: -1.5rem;
+  }
+
+  &:before, &:after {
+    position: absolute;
+    content: " ";
+    width: 50%;
+    top: 50%;
+    height: 0;
+    border-top: 1px solid rgba(0,0,0,0.2);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
 }
