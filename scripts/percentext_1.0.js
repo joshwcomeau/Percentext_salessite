@@ -9,19 +9,22 @@
     return this.each(function() {
       var 
       elem = this,
+      $elem = $(this),
       user_css = {};
 
+
+      // This next bit deals with PRECEDENCE.
+      // - Users can specify custom CSS properties in TWO ways.
+      // - Adding CSS rules or inline styles is the low-precedence way.
+      // - Passing key-value pairs into the settings object is the high-precedence way.
+      // - For example, if the header has an inline style of letter-spacing: 5px, but
+      //   the user passes in letter-spacing: -10px when percentext() is called, the header
+      //   will have -10px letter spacing.
       
-      // This next bit deals with LETTER-SPACING PRECEDENCE.
-      // - The highest precedence is the settings option. If percentext() is called with a 
-      //   value for letterspacing, we use that value for everything in the collection.
-      // - If they don't specify a value in the settings object, we take whatever CSS has 
-      //   been applied to each member of the collection.
-      if ( typeof settings.letterSpacing == 'object' ) {  // null is an object in JS
-        user_css.letterSpacing = parseFloat($(this).css("letter-spacing"));
-      } else {
-        user_css.letterSpacing = parseFloat(settings.letterSpacing);
-      }
+      // This is done OUTSIDE the resize event handler because we want to avoid setting 
+      // the user_css object after the initial call.
+      user_css = get_desired_spacing( $elem, user_css, settings );
+
 
 
       // Immediately hide the text. 
@@ -58,6 +61,16 @@
 
     // Gotta brush your teeth before bed.
     cleanup( $elem );
+  }
+
+  function get_desired_spacing($elem, user_css, settings) {
+    if ( typeof settings.letterSpacing == 'object' ) {  // null is an object in JS
+      user_css.letterSpacing = parseFloat($elem.css("letter-spacing"));
+    } else {
+      user_css.letterSpacing = parseFloat(settings.letterSpacing);
+    }
+
+    return user_css;
   }
 
 
@@ -115,6 +128,8 @@
     if ( settings.preciseMode ) {
       var too_big_letter_spacing = increase_to_excess( $elem, max_width, "letter-spacing", user_css.letterSpacing, letter_spacing_increment );
       final_letter_spacing = too_big_letter_spacing - letter_spacing_increment;
+      console.log("unrounded: " + final_letter_spacing);
+      console.log("rounded: "  );
     } else {
       final_letter_spacing = user_css.letterSpacing;
     }
@@ -122,7 +137,7 @@
 
     return {
       fontSize:       final_font_size,
-      letterSpacing:  final_letter_spacing
+      letterSpacing:  precise_round(final_letter_spacing, 1) + "px"
     };
   }
 
@@ -174,13 +189,19 @@
     return iterable;
   }
 
+  function precise_round(num,decimals){
+    var sign = num >= 0 ? 1 : -1;
+    return (Math.round((num*Math.pow(10,decimals))+(sign*0.001))/Math.pow(10,decimals)).toFixed(decimals);
+  }
+
   
 
   $.fn.percentext.defaults = {
-    percentage:     100,
-    alignment:      "left",
-    preciseMode:    false,
-    letterSpacing:  0
+    percentage:       100,
+    alignment:        null,
+    preciseMode:      true,
+    letterSpacing:    null,
+    relativeSpacing:  true
   };
 
 
