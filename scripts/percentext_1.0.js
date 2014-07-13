@@ -92,16 +92,32 @@
     max_width                 = container_width * desired_ratio,
     font_size_increment       = 1,
     letter_spacing_increment  = 0.1,
-    final_font_size,
-    final_letter_spacing;
+    assumed_container_width   = 1000,
+    starting_letter_spacing,
+    final_letter_spacing,
+    final_font_size;
+    
 
     // Part I: Broad Strokes.
     // We do some math to get what ought to be the perfect font size. This will work most times.
     var broad_font_size = first_pass( starting_size, text_width_ratio, desired_ratio );
     $elem.css("font-size", broad_font_size);
 
-    // Take user-specified letter-spacing into account!
-    $elem.css("letter-spacing", user_css.letterSpacing);
+
+    //// Take user-specified letter-spacing into account!
+    // We're doing this AFTER Broad Strokes because initially we shrink the text to 6px.
+    // At 6px, 10px of letter spacing makes a MASSIVE difference in the size of the header.
+    // It's better to reset letter-spacing to 0px at the start, and apply our custom value here.
+
+    if ( settings.relativeSpacing ) {
+      starting_letter_spacing = get_relative_spacing( user_css.letterSpacing, container_width, assumed_container_width );
+    } else {
+      starting_letter_spacing = user_css.letterSpacing;
+    }
+
+    console.log(starting_letter_spacing)
+
+    $elem.css("letter-spacing", starting_letter_spacing);  
 
 
     // Now, we either need to decrease the font size if we have positive letter-spacing,
@@ -179,6 +195,11 @@
     }
 
     return iterable;
+  }
+
+  function get_relative_spacing(letter_spacing, container_width, assumed_container_width ) {
+    // The math: relative_letter_spacing / container_width = letter_spacing / assumed_container_width
+    return ( letter_spacing / assumed_container_width ) * container_width;
   }
 
   function precise_round(num,decimals){
