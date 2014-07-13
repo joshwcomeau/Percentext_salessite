@@ -108,15 +108,8 @@
     // We're doing this AFTER Broad Strokes because initially we shrink the text to 6px.
     // At 6px, 10px of letter spacing makes a MASSIVE difference in the size of the header.
     // It's better to reset letter-spacing to 0px at the start, and apply our custom value here.
-
-    if ( settings.relativeSpacing ) {
-      starting_letter_spacing = get_relative_spacing( user_css.letterSpacing, container_width, assumed_container_width );
-    } else {
-      starting_letter_spacing = user_css.letterSpacing;
-    }
-
-    console.log(starting_letter_spacing)
-
+    settings.relativeSpacing ? get_relative_spacing( user_css.letterSpacing, container_width, assumed_container_width ) : user_css.letterSpacing;
+  
     $elem.css("letter-spacing", starting_letter_spacing);  
 
 
