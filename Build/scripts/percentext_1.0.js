@@ -180,7 +180,7 @@
     percentage:     100,
     alignment:      "left",
     preciseMode:    false,
-    letterSpacing:  -5
+    letterSpacing:  0
   };
 
 

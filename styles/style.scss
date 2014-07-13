@@ -1,0 +1,38 @@
+@import 'reset';
+@import 'variables';
+
+
+
+#bgCanvas {
+  position: fixed;
+}
+
+#wrapper {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+
+}
+
+#section_1 {
+  position: relative;
+  background: $blue;
+  padding: 5%;
+
+  .title_area {
+    color: #FFF;
+    font-family: 'raleway', sans-serif;
+
+    #title {
+      font-weight: 900;
+    }
+    
+    #title_caption {
+      position: absolute;
+      left: 15%;
+    }
+  }
+
+
+}

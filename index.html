@@ -2,14 +2,16 @@
 <html>
 <head>
   <title>Percentext, a nifty little jQuery plugin.</title>
-  <link rel="stylesheet" href="styles/reset.css">
-  <link rel="stylesheet" href="styles/style.css">
+  <!-- @reload -->
+
+  <!-- @stylesheet style -->
+
   <script src="http://use.edgefonts.net/raleway:n3,n5,n9;bowlby-one.js"></script>
-  <script src="scripts/jquery_1.11.1.js"></script>
-  <script src="scripts/throttle-debounce_1.1.min.js"></script>
-  <script src="scripts/patternizr.min.js"></script>
-  <script src="scripts/patternizr_stripes.js"></script>
-  <script src="scripts/percentext_1.0.js"></script>
+  <!-- @javascript jquery_1.11.1 -->
+  <!-- @javascript throttle-debounce_1.1.min -->
+  <!-- @javascript patternizr.min -->
+  <!-- @javascript patternizr_stripes -->
+  <!-- @javascript percentext_1.0 -->
 
   <script>
   $(document).ready(function() {
@@ -48,6 +50,9 @@
     }
      
     init();
+
+    $("#title").percentext({letterSpacing: -6});
+    $("#title_caption").percentext({percentage: 40, letterSpacing: -2});
   });
   </script>
 
@@ -56,18 +61,22 @@
 <body>
   <canvas id="bgCanvas"></canvas>
   <div id="wrapper">
-    <section id="box_1">
-      <h5>Introducing</h5>
-      <h1 id="title">Percentext.js</h1>
+    <section id="section_1">
+      <div class="title_area">
+        <h5 id="title_caption">Allow me to introduce</h5>
+        <h1 id="title">Percentext.js</h1>
+        <div class="divider on_blue">
+          <i class="circular heart icon"></i>
+        </div>
+      </div>
     </section>
+
+    <section style="position: relative; height: 100%; margin-top: 100px; background: #000;"></section>
   </div>
 
 
-<script>
-
-// $("#title").percentext({percentage: 100});
-
-
-</script>
+  <footer>
+    <a href="/credits">Credits</a>
+  </footer>
 </body>
 </html>

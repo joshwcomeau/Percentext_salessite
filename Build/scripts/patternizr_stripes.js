@@ -3,7 +3,7 @@ stripes : [
     {
         color: '#DF4949',
         rotation: 333,
-        opacity: 85,
+        opacity: 100,
         mode: 'normal',
         width: 100,
         gap: 400,
@@ -12,7 +12,7 @@ stripes : [
     {
         color: '#E27A3F',
         rotation: 333,
-        opacity: 85,
+        opacity: 100,
         mode: 'normal',
         width: 100,
         gap: 400,
@@ -21,7 +21,7 @@ stripes : [
     {
         color: '#EFC94C',
         rotation: 333,
-        opacity: 85,
+        opacity: 100,
         mode: 'normal',
         width: 100,
         gap: 400,
@@ -30,7 +30,7 @@ stripes : [
     {
         color: '#45B29D',
         rotation: 333,
-        opacity: 85,
+        opacity: 100,
         mode: 'normal',
         width: 100,
         gap: 400,
@@ -39,7 +39,7 @@ stripes : [
     {
         color: '#30505C',
         rotation: 333,
-        opacity: 85,
+        opacity: 100,
         mode: 'normal',
         width: 100,
         gap: 400,
