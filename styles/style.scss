@@ -51,6 +51,27 @@
         font-weight: 700;
       }
     }
+
+    #main_button_holder {
+      text-align: center;
+      margin: 1rem 0;
+
+      & > div {
+        width: 200px;
+        display: inline-block;
+      }
+
+      #button_1_learn_more {
+        border-radius: 5px 0 0 5px;
+        background: $orange;
+      }
+
+      #button_2_github {
+        border-radius: 0 5px 5px 0;
+        background: $green;
+      }
+
+    }
   }
 }
 

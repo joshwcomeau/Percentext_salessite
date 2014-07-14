@@ -80,6 +80,18 @@ table {
       #section_1 .title_area #title_description em {
         color: #e27a3f;
         font-weight: 700; }
+    #section_1 .title_area #main_button_holder {
+      text-align: center;
+      margin: 1rem 0; }
+      #section_1 .title_area #main_button_holder > div {
+        width: 200px;
+        display: inline-block; }
+      #section_1 .title_area #main_button_holder #button_1_learn_more {
+        border-radius: 5px 0 0 5px;
+        background: #e27a3f; }
+      #section_1 .title_area #main_button_holder #button_2_github {
+        border-radius: 0 5px 5px 0;
+        background: #45b29d; }
 
 .top_black_bars {
   position: absolute;
