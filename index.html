@@ -51,8 +51,9 @@
      
     init();
 
-    $("#title").percentext({letterSpacing: -6});
-    $("#title_caption").percentext({percentage: 40, letterSpacing: -2});
+    // $("#title").percentext({letterSpacing: -6});
+    // $("#title_caption").percentext({percentage: 40, letterSpacing: -2});
+    $("#title_description").percentext({letterSpacing: -1})
   });
   </script>
 
@@ -62,12 +63,22 @@
   <canvas id="bgCanvas"></canvas>
   <div id="wrapper">
     <section id="section_1">
+
+      <div class="top_black_bars">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+      </div>
+
       <div class="title_area">
         <h5 id="title_caption">Allow me to introduce</h5>
-        <h1 id="title">Percentext.js</h1>
-        <div class="divider_with_icon">
-          <i class="circular heart icon"></i>
+        <h1 id="title">Percentext<span class="title_extension">.js</span></h1>
+        <div class="divider_with_icon" id="title_divider">
+          <div class="icon_holder">
+            <img src="percentext_icon.png" class="percentext_icon">
+          </div>
         </div>
+        <h6 id="title_description">The plug-and-play jQuery plugin that adjusts <em>font size</em> and <em>spacing</em>, so you can set a <em>percentage width</em> for your headers.
       </div>
     </section>
 
