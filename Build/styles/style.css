@@ -75,6 +75,11 @@ table {
       position: absolute;
       left: 11.7%;
       color: #e27a3f; }
+    #section_1 .title_area #title_description {
+      margin-top: 3rem; }
+      #section_1 .title_area #title_description em {
+        color: #e27a3f;
+        font-weight: 700; }
 
 .top_black_bars {
   position: absolute;
