@@ -24,6 +24,11 @@
       // the user_css object after the initial call.
       user_css = get_desired_spacing( $elem, user_css, settings );
 
+      // When we add negative letter spacing, for some reason FF/Chrome push the letters
+      // outside the header. By adding a negative left margin of the same amount, we 
+      // correct this strange bug.
+      user_css.marginLeft = parseInt($elem.css("margin-left"));
+
       // Immediately hide the text. 
       // This is to avoid the text being shown incorrectly before any relevant webfonts have loaded.
       $elem.css("visibility", "hidden");
@@ -95,6 +100,7 @@
     assumed_container_width   = 1000,
     starting_letter_spacing,
     final_letter_spacing,
+    final_left_margin,
     final_font_size;
     
 
@@ -136,10 +142,18 @@
       final_letter_spacing = user_css.letterSpacing;
     }
 
+    // Figure out our left margin, if our letter-spacing is negative
+    if ( final_letter_spacing < 0 ) {
+      final_left_margin = user_css.marginLeft + final_letter_spacing;
+    } else {
+      final_left_margin - user_css.marginLeft;
+    }
+
 
     return {
       fontSize:       final_font_size,
-      letterSpacing:  precise_round(final_letter_spacing, 1) + "px"
+      letterSpacing:  precise_round(final_letter_spacing, 1) + "px",
+      marginLeft:     Math.round(final_left_margin) + "px",
     };
   }
 
