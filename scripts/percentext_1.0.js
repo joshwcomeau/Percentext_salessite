@@ -116,12 +116,13 @@
     // It's better to reset letter-spacing to 0px at the start, and apply our custom value here.
 
     starting_letter_spacing = settings.relativeSpacing ? get_relative_spacing( user_css.letterSpacing, container_width, assumed_container_width ) : user_css.letterSpacing;
-
+    
     $elem.css("letter-spacing", starting_letter_spacing);  
 
 
     // Now, we either need to decrease the font size if we have positive letter-spacing,
     // or we need to increase it if it's negative or zero.
+
     if ( $elem.width() <= max_width ) {
       var too_big_font_size = increase_to_excess( $elem, max_width, "font-size", broad_font_size, font_size_increment );  
       final_font_size = too_big_font_size - font_size_increment;
@@ -132,14 +133,16 @@
     $elem.css("font-size", final_font_size);
 
 
+
+
     // Part III: Precise Mode (optional)
     // Uses letter-spacing to get as precise a width as possible. Generally not necessary, but can be useful
     // on headers with lots of letters (since the difference between 10px and 11px font size is significant).
     if ( settings.preciseMode ) {
-      var too_big_letter_spacing = increase_to_excess( $elem, max_width, "letter-spacing", user_css.letterSpacing, letter_spacing_increment );
+      var too_big_letter_spacing = increase_to_excess( $elem, max_width, "letter-spacing", starting_letter_spacing, letter_spacing_increment );
       final_letter_spacing = too_big_letter_spacing - letter_spacing_increment;
     } else {
-      final_letter_spacing = user_css.letterSpacing;
+      final_letter_spacing = starting_letter_spacing;
     }
 
     // Figure out our left margin, if our letter-spacing is negative
@@ -152,7 +155,7 @@
 
     return {
       fontSize:       final_font_size,
-      letterSpacing:  precise_round(final_letter_spacing, 1) + "px",
+      letterSpacing:  precise_round(final_letter_spacing, 2) + "px",
       marginLeft:     Math.round(final_left_margin) + "px",
     };
   }
@@ -186,9 +189,9 @@
   function increase_to_excess( $elem, max_width, property, iterable, increment ) {
 
     while ( $elem.width() < max_width ) {
-      // console.log(property + ": " + iterable);
-      // console.log("H2 width:" + $elem.width());
-      // console.log("Container width:" + max_width);
+      console.log(property + ": " + iterable);
+      console.log("H2 width:" + $elem.width());
+      console.log("Container width:" + max_width);
       iterable += increment;
       $elem.css(property, iterable);
     }
