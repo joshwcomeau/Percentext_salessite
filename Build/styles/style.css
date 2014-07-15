@@ -60,11 +60,12 @@ table {
 #section_1 {
   position: relative;
   background: #30505c;
-  padding: 5%; }
+  padding: 5%;
+  border-bottom: 2px solid #1f333a; }
   #section_1 .title_area {
     position: relative;
     z-index: 2;
-    color: #FFF;
+    color: #f0f0f0;
     font-family: 'raleway', sans-serif; }
     #section_1 .title_area #title {
       font-weight: 900;
@@ -75,23 +76,62 @@ table {
       position: absolute;
       left: 11.7%;
       color: #e27a3f; }
-    #section_1 .title_area #title_description {
-      margin-top: 3rem; }
-      #section_1 .title_area #title_description em {
+    #section_1 .title_area #title_description_desktop, #section_1 .title_area #title_description_mobile {
+      margin-top: 2rem; }
+      #section_1 .title_area #title_description_desktop em, #section_1 .title_area #title_description_mobile em {
         color: #e27a3f;
         font-weight: 700; }
     #section_1 .title_area #main_button_holder {
-      text-align: center;
-      margin: 1rem 0; }
+      position: relative;
+      width: 500px;
+      margin: 4rem auto 0 auto;
+      height: 2rem; }
       #section_1 .title_area #main_button_holder > div {
-        width: 200px;
-        display: inline-block; }
+        position: absolute;
+        width: 250px;
+        margin: 0;
+        padding: 1rem;
+        font-weight: 700;
+        cursor: pointer;
+        text-align: center;
+        transition: 0.25s;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none; }
+      #section_1 .title_area #main_button_holder > div:active {
+        box-shadow: none !important;
+        margin-top: 4px;
+        margin-left: 4px; }
       #section_1 .title_area #main_button_holder #button_1_learn_more {
-        border-radius: 5px 0 0 5px;
-        background: #e27a3f; }
+        border-radius: 6px 0 0 6px;
+        background: #4597b2;
+        box-shadow: 0.5px 0.5px 0px #37788d, 1px 1px 0px #37788d, 1.5px 1.5px 0px #37788d, 2px 2px 0px #37788d, 2.5px 2.5px 0px #37788d, 3px 3px 0px #37788d, 3.5px 3.5px 0px #37788d, 4px 4px 0px #37788d;
+        text-shadow: 0.5px 0.5px 0px #37788d, 1px 1px 0px #37788d; }
+      #section_1 .title_area #main_button_holder #button_1_learn_more:hover {
+        background: #0094cf;
+        transition: 0.25s;
+        box-shadow: 0.5px 0.5px 0px #00709c, 1px 1px 0px #00709c, 1.5px 1.5px 0px #00709c, 2px 2px 0px #00709c, 2.5px 2.5px 0px #00709c, 3px 3px 0px #00709c, 3.5px 3.5px 0px #00709c, 4px 4px 0px #00709c;
+        text-shadow: 0.5px 0.5px 0px #00709c, 1px 1px 0px #00709c; }
       #section_1 .title_area #main_button_holder #button_2_github {
-        border-radius: 0 5px 5px 0;
-        background: #45b29d; }
+        left: 50%;
+        border-radius: 0 6px 6px 0;
+        background: #45b29d;
+        transition: 0.25s;
+        box-shadow: 0.5px 0.5px 0px #378d7d, 1px 1px 0px #378d7d, 1.5px 1.5px 0px #378d7d, 2px 2px 0px #378d7d, 2.5px 2.5px 0px #378d7d, 3px 3px 0px #378d7d, 3.5px 3.5px 0px #378d7d, 4px 4px 0px #378d7d;
+        text-shadow: 0.5px 0.5px 0px #378d7d, 1px 1px 0px #378d7d; }
+      #section_1 .title_area #main_button_holder #button_2_github:hover {
+        background: #34bf57;
+        box-shadow: 0.5px 0.5px 0px #299745, 1px 1px 0px #299745, 1.5px 1.5px 0px #299745, 2px 2px 0px #299745, 2.5px 2.5px 0px #299745, 3px 3px 0px #299745, 3.5px 3.5px 0px #299745, 4px 4px 0px #299745;
+        text-shadow: 0.5px 0.5px 0px #299745, 1px 1px 0px #299745; }
+
+#section_2 {
+  position: relative;
+  height: 600px;
+  margin-top: 100px;
+  background: #45b29d; }
 
 .top_black_bars {
   position: absolute;
@@ -148,4 +188,4 @@ table {
     .divider_with_icon > .icon_holder .percentext_icon {
       width: 100%;
       height: 100%;
-      fill: #FFF; }
+      fill: #F0F0F0; }

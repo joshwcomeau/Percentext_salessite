@@ -34,6 +34,7 @@
   <script src='scripts/patternizr.min.js'></script>
   <script src='scripts/patternizr_stripes.js'></script>
   <script src='scripts/percentext_1.0.js'></script>
+  <script src='scripts/lodash.min.js'></script>
 
   <script>
   $(document).ready(function() {
@@ -70,12 +71,33 @@
         // cowboy's throttle plugin keeps this event from running hog wild
         window.addEventListener('resize', $.throttle(200, onResize), false);
     }
+
+
+    // This simple scroller separates the sections by an ever-decreasing margin-top.
+    // Starts at 100px when it enters the frame, winds up at say 5px by the time it reaches the top.
+    function parallax_scroller(boxes) {
+      var initial_margin = 100;
+
+      _(boxes).forEach(function(container) {        
+        $(window).scroll(function() {
+          var 
+          elem_top   = $(container).offset().top, 
+          win_top    = elem_top - $(window).scrollTop(),
+          new_margin = initial_margin / elem_top * win_top + 50;
+
+          $(container).css("margin-top", new_margin);
+
+        })
+      });
+    }
      
+
+    parallax_scroller(["#section_2"]); 
     init();
 
     $("#title").percentext({letterSpacing: -6});
     $("#title_caption").percentext({percentage: 40, letterSpacing: -2});
-    $("#title_description").percentext();
+    $("#title_description_desktop").percentext();
   });
   </script>
 
@@ -99,22 +121,28 @@
         <h1 id="title">
           Percentext<span class="title_extension">.js</span>
         </h1>
+
         <div class="divider_with_icon" id="title_divider">
           <div class="icon_holder">
             <img src="percentext_icon.png" class="percentext_icon">
           </div>
         </div>
-        <h6 id="title_description">
-          The plug-and-play jQuery plugin that adjusts <em>font size</em> and <em>spacing</em>, so you can set a <em>percentage width</em> for your headers.
+        
+        <h6 id="title_description_desktop">
+
+          The jQuery plugin that adjusts <em>font-size</em> and <em>letter-spacing</em>, so you can set a <em>percentage width</em> for your headers.
         </h6>
+
         <div id="main_button_holder">
-          <div id="button_1_learn_more">Learn More</div>
-          <div id="button_2_github">Learn More</div>
+          <div id="button_1_learn_more">Learn More
+          </div><div id="button_2_github">Download On GitHub</div>
         </div>
       </div>
     </section>
 
-    <section style="position: relative; height: 100%; margin-top: 100px; background: #000;"></section>
+    <section id="section_2">
+      
+    </section>
   </div>
 
 

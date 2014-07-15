@@ -189,9 +189,9 @@
   function increase_to_excess( $elem, max_width, property, iterable, increment ) {
 
     while ( $elem.width() < max_width ) {
-      console.log(property + ": " + iterable);
-      console.log("H2 width:" + $elem.width());
-      console.log("Container width:" + max_width);
+      // console.log(property + ": " + iterable);
+      // console.log("H2 width:" + $elem.width());
+      // console.log("Container width:" + max_width);
       iterable += increment;
       $elem.css(property, iterable);
     }
