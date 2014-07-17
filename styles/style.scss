@@ -14,7 +14,7 @@
   left: 0;
   right: 0;
   top: 0;
-
+  font-family: 'raleway', sans-serif;
 }
 
 #section_1 {
@@ -27,7 +27,6 @@
     position: relative;
     z-index: 2;
     color: $white;
-    font-family: 'raleway', sans-serif;
 
     #title {
       font-weight: 900;
@@ -168,9 +167,96 @@
 
 #section_2 {
   position: relative; 
-  height: 600px; 
+  min-height: 1000px; 
+  padding: 5%;
   margin-top: 100px; 
-  background: $green;
+  background: $darkgrey;
+  border-top: 2px solid lighten($darkgrey, 10%);
+  color: $beige;
+
+  #s2_red_bar {
+    position: absolute; 
+    z-index: -1; 
+    background: $red;
+    height: 100%;
+    width: 30%;
+    right: 0;
+    top: 0;
+  }
+
+
+  #s2_title {
+    color: #FFF;
+    font-weight: 700; 
+    letter-spacing: -2px;
+    text-shadow: 
+      0.5px 0.5px 0px darken($darkgrey, 20%),
+      1px 1px 0px darken($darkgrey, 20%),
+      1.5px 1.5px 0px darken($darkgrey, 20%),
+      2px 2px 0px darken($darkgrey, 20%),
+      2.5px 2.5px 0px darken($darkgrey, 20%),
+      3px 3px 0px darken($darkgrey, 20%),
+      3.5px 3.5px 0px darken($darkgrey, 20%),
+      4px 4px 0px darken($darkgrey, 20%)
+    ;
+  }
+
+  #ruler {
+    margin-top: 2rem;
+    margin-bottom: -0.5rem;
+    height: 2rem;
+    border-left: 2px solid $beige;
+    border-right: 2px solid $beige;
+  
+
+    .ruler_line {
+      height: 50%;
+      border-bottom: 2px solid $beige;
+    }
+
+    .ruler_notch {
+      width: 5%;
+      float: left;
+      border-right: 1px solid $beige;
+    }
+    .ruler_notch.small {
+      margin-top: 0.5rem;
+      height: 0.5rem;
+    }
+    .ruler_notch.large {
+      height: 1rem;
+    }
+  }
+
+
+
+  #section_2_main_wrapper {
+    margin-top: 1.5rem;
+
+    #section_2_text {
+      float: left;
+      width: 60%;
+      min-height: 500px;
+    }
+
+    .s2_line {
+      padding: 1rem 0rem;
+      margin: 0.5rem 0rem;
+      background: #333;
+    }
+
+    #mathtools {
+      float: left;
+      width: 35%;
+      margin-left: 5%;
+
+      svg {
+        width: 100%;
+      }
+    }
+  }
+
+  
 }
 
 .top_black_bars {

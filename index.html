@@ -61,7 +61,7 @@
           var 
           elem_top   = $(container).offset().top, 
           win_top    = elem_top - $(window).scrollTop(),
-          new_margin = initial_margin / elem_top * win_top + 50;
+          new_margin = initial_margin / elem_top * win_top;
 
           $(container).css("margin-top", new_margin);
 
@@ -76,6 +76,8 @@
     $("#title").percentext({letterSpacing: -6});
     $("#title_caption").percentext({percentage: 40, letterSpacing: -2});
     $("#title_description_desktop").percentext();
+    $("#s2_title").percentext();
+    $(".s2_line").percentext();
   });
   </script>
 
@@ -119,7 +121,51 @@
     </section>
 
     <section id="section_2">
+      <div id="s2_red_bar" style=""></div>
+      <h2 id="s2_title" style="">A Quick Demonstration.</h2>
+
       
+      <div id="ruler">
+        <div class="ruler_notch small"></div>
+        <div class="ruler_notch large"></div>
+        <div class="ruler_notch small"></div>
+        <div class="ruler_notch large"></div>
+        <div class="ruler_notch small"></div>
+        <div class="ruler_notch large"></div>
+        <div class="ruler_notch small"></div>
+        <div class="ruler_notch large"></div>
+        <div class="ruler_notch small"></div>
+        <div class="ruler_notch large"></div>
+        <div class="ruler_notch small"></div>
+        <div class="ruler_notch large"></div>
+        <div class="ruler_notch small"></div>
+        <div class="ruler_notch large"></div>
+        <div class="ruler_notch small"></div>
+        <div class="ruler_notch large"></div>
+        <div class="ruler_notch small"></div>
+        <div class="ruler_notch large"></div>
+        <div class="ruler_notch small"></div>
+        <div class="ruler_notch large"></div>
+        
+        <div class="ruler_line"></div>
+
+      </div>
+
+      <div id="section_2_main_wrapper">
+
+        <div id="section_2_text">
+          <p class="s2_line" style="font-weight: 700;">The Problem.</p>
+          <p class="s2_line">Text doesn't </p>
+          <p class="s2_line">Want that div to take up 50% of the available width?</p>
+          <p class="s2_line">No problem.</p>
+          <p class="s2_line">Want that header to take up 50% of the available width?</p>
+          <p class="s2_line">Well, shit.</p>
+        </div>
+
+        <div id="mathtools">
+          <!-- @include mathtools -->
+        </div>
+      </div>
     </section>
   </div>
 

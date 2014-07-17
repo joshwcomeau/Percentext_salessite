@@ -55,7 +55,8 @@ table {
   position: absolute;
   left: 0;
   right: 0;
-  top: 0; }
+  top: 0;
+  font-family: 'raleway', sans-serif; }
 
 #section_1 {
   position: relative;
@@ -65,8 +66,7 @@ table {
   #section_1 .title_area {
     position: relative;
     z-index: 2;
-    color: #f0f0f0;
-    font-family: 'raleway', sans-serif; }
+    color: #f0f0f0; }
     #section_1 .title_area #title {
       font-weight: 900;
       color: #efc94c; }
@@ -129,9 +129,59 @@ table {
 
 #section_2 {
   position: relative;
-  height: 600px;
+  min-height: 1000px;
+  padding: 5%;
   margin-top: 100px;
-  background: #45b29d; }
+  background: #333333;
+  border-top: 2px solid #4d4d4d;
+  color: #efede7; }
+  #section_2 #s2_red_bar {
+    position: absolute;
+    z-index: -1;
+    background: #df4949;
+    height: 100%;
+    width: 30%;
+    right: 0;
+    top: 0; }
+  #section_2 #s2_title {
+    color: #FFF;
+    font-weight: 700;
+    letter-spacing: -2px;
+    text-shadow: 0.5px 0.5px 0px black, 1px 1px 0px black, 1.5px 1.5px 0px black, 2px 2px 0px black, 2.5px 2.5px 0px black, 3px 3px 0px black, 3.5px 3.5px 0px black, 4px 4px 0px black; }
+  #section_2 #ruler {
+    margin-top: 2rem;
+    margin-bottom: -0.5rem;
+    height: 2rem;
+    border-left: 2px solid #efede7;
+    border-right: 2px solid #efede7; }
+    #section_2 #ruler .ruler_line {
+      height: 50%;
+      border-bottom: 2px solid #efede7; }
+    #section_2 #ruler .ruler_notch {
+      width: 5%;
+      float: left;
+      border-right: 1px solid #efede7; }
+    #section_2 #ruler .ruler_notch.small {
+      margin-top: 0.5rem;
+      height: 0.5rem; }
+    #section_2 #ruler .ruler_notch.large {
+      height: 1rem; }
+  #section_2 #section_2_main_wrapper {
+    margin-top: 1.5rem; }
+    #section_2 #section_2_main_wrapper #section_2_text {
+      float: left;
+      width: 60%;
+      min-height: 500px; }
+    #section_2 #section_2_main_wrapper .s2_line {
+      padding: 1rem 0rem;
+      margin: 0.5rem 0rem;
+      background: #333; }
+    #section_2 #section_2_main_wrapper #mathtools {
+      float: left;
+      width: 35%;
+      margin-left: 5%; }
+      #section_2 #section_2_main_wrapper #mathtools svg {
+        width: 100%; }
 
 .top_black_bars {
   position: absolute;

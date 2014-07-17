@@ -222,10 +222,13 @@
 
   $.fn.percentext.defaults = {
     percentage:       100,
+    pixelWidth:       null,     // Implement me
     alignment:        null,
     preciseMode:      true,
     letterSpacing:    null,
-    relativeSpacing:  true
+    relativeSpacing:  true,
+    minFontSize:      null,     // Implement me
+    maxFontSize:      null,     // Implement me
   };
 
 
