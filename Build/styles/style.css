@@ -130,11 +130,9 @@ table {
 #section_2 {
   position: relative;
   min-height: 1000px;
-  padding: 5%;
   margin-top: 100px;
-  background: #333333;
-  border-top: 2px solid #4d4d4d;
-  color: #efede7; }
+  background: #efede7;
+  color: #333333; }
   #section_2 #s2_red_bar {
     position: absolute;
     z-index: -1;
@@ -144,10 +142,13 @@ table {
     right: 0;
     top: 0; }
   #section_2 #s2_title {
-    color: #FFF;
+    background: #df4949;
+    border-top: 2px solid #e77474;
+    color: #efede7;
     font-weight: 700;
+    padding: 5%;
     letter-spacing: -2px;
-    text-shadow: 0.5px 0.5px 0px black, 1px 1px 0px black, 1.5px 1.5px 0px black, 2px 2px 0px black, 2.5px 2.5px 0px black, 3px 3px 0px black, 3.5px 3.5px 0px black, 4px 4px 0px black; }
+    text-shadow: 0.5px 0.5px 0px #a51d1d, 1px 1px 0px #a51d1d, 1.5px 1.5px 0px #a51d1d, 2px 2px 0px #a51d1d, 2.5px 2.5px 0px #a51d1d, 3px 3px 0px #a51d1d, 3.5px 3.5px 0px #a51d1d, 4px 4px 0px #a51d1d; }
   #section_2 #ruler {
     margin-top: 2rem;
     margin-bottom: -0.5rem;
@@ -175,7 +176,7 @@ table {
     #section_2 #section_2_main_wrapper .s2_line {
       padding: 1rem 0rem;
       margin: 0.5rem 0rem;
-      background: #333; }
+      background: #df4949; }
     #section_2 #section_2_main_wrapper #mathtools {
       float: left;
       width: 35%;
