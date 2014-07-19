@@ -70,6 +70,9 @@
   // SECOND LEVEL //
   // Primary high-level functions, called by our main function
   function setup($elem, starting_size, settings) {
+    console.log("Display:block width is " + $elem.width());
+    console.log("Parent width is " + get_parent_width($elem, $elem.parent()));
+
     $elem.css({
       display:        "inline",
       fontSize:       starting_size,
@@ -84,7 +87,7 @@
   function calculate_font_size($elem, starting_size, settings, user_css) {
     var
     $container                = $elem.parent(),
-    container_width           = get_real_width($container, user_css),
+    container_width           = get_parent_width($elem, $container),
     text_width                = $elem.width(),
     text_width_ratio          = text_width / container_width,
     desired_ratio             = settings.percentage / 100,
@@ -96,12 +99,21 @@
     final_letter_spacing,
     final_left_margin,
     final_font_size;
+
+
+    console.log("-- Before Broad Strokes --");
+    console.log("Text width is: " + $elem.width());
+    console.log("Container width is: " + container_width);
     
 
     // Part I: Broad Strokes.
     // We do some math to get what ought to be the perfect font size. This will work most times.
     var broad_font_size = first_pass( starting_size, text_width_ratio, desired_ratio );
     $elem.css("font-size", broad_font_size);
+
+    console.log("-- After Broad Strokes --");
+    console.log("text-width: " + $elem.width());
+    console.log("Container width: " + container_width);
 
 
     //// Take user-specified letter-spacing into account!
@@ -118,7 +130,7 @@
     // or we need to increase it if it's negative or zero.
 
     if ( $elem.width() <= max_width ) {
-      console.log( $elem.height() );
+      
       var too_big_font_size = increase_to_excess( $elem, max_width, "font-size", broad_font_size, font_size_increment );  
       final_font_size = too_big_font_size - font_size_increment;
     } else {
@@ -178,9 +190,9 @@
   }
 
   function first_pass( starting_size, text_width_ratio, desired_ratio ) {
-    // console.log( "starting size: " + starting_size );
-    // console.log( "Text width ratio: " + text_width_ratio );
-    // console.log( "Desired ratio: " + desired_ratio );
+    console.log( "starting size: " + starting_size );
+    console.log( "Text width ratio: " + text_width_ratio );
+    console.log( "Desired ratio: " + desired_ratio );
     return Math.floor( (starting_size * desired_ratio) / text_width_ratio );
 
     // The way math works:
@@ -219,16 +231,14 @@
     return ( letter_spacing / assumed_container_width ) * container_width;
   }
 
-  function get_real_width($container, user_css) {
-    // Gets the usable width of a container, taking padding into account.
-    return $container.width();
-
-  }
-
   function precise_round(num,decimals){
     var sign = num >= 0 ? 1 : -1;
     return (Math.round((num*Math.pow(10,decimals))+(sign*0.001))/Math.pow(10,decimals)).toFixed(decimals);
   }
+
+  function get_parent_width($elem, $container) {
+    return $container.width() - parseFloat($elem.css("padding-left")) - parseFloat($elem.css("padding-right"));
+  }  
 
   
 
