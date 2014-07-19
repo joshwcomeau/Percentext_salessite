@@ -25,9 +25,9 @@
       user_css = get_desired_spacing( $elem, user_css, settings );
 
       // When we add negative letter spacing, for some reason FF/Chrome push the letters
-      // outside the header. By adding a negative left margin of the same amount, we 
+      // outside the header. By adding a negative text indent of the same amount, we 
       // correct this strange bug.
-      user_css.marginLeft   = parseInt($elem.css("margin-left"));
+      user_css.textIndent   = parseInt($elem.css("text-indent"));
 
       // We need to get our left-right padding at the outset, to take that into account
       user_css.paddingLeft  = parseInt($elem.css("padding-left"));
@@ -63,22 +63,24 @@
     $elem.css( final_font_obj );
 
     // Gotta brush your teeth before bed.
-    cleanup( $elem );
+    cleanup( $elem, user_css );
   }
 
 
   // SECOND LEVEL //
   // Primary high-level functions, called by our main function
   function setup($elem, starting_size, settings) {
-    console.log("Display:block width is " + $elem.width());
-    console.log("Parent width is " + get_parent_width($elem, $elem.parent()));
+    // console.log("Display:block width is " + $elem.width());
+    // console.log("Parent width is " + get_parent_width($elem, $elem.parent()));
 
     $elem.css({
       display:        "inline",
       fontSize:       starting_size,
       letterSpacing:  "0px",
       textAlign:      settings.alignment,
-      whiteSpace:     "nowrap"
+      whiteSpace:     "nowrap",
+      paddingLeft:    "0px",
+      paddingRight:   "0px"
     });
 
 
@@ -87,7 +89,7 @@
   function calculate_font_size($elem, starting_size, settings, user_css) {
     var
     $container                = $elem.parent(),
-    container_width           = get_parent_width($elem, $container),
+    container_width           = get_parent_width($elem, $container, user_css), 
     text_width                = $elem.width(),
     text_width_ratio          = text_width / container_width,
     desired_ratio             = settings.percentage / 100,
@@ -101,9 +103,9 @@
     final_font_size;
 
 
-    console.log("-- Before Broad Strokes --");
-    console.log("Text width is: " + $elem.width());
-    console.log("Container width is: " + container_width);
+    // console.log("-- Before Broad Strokes --");
+    // console.log("Text width is: " + $elem.width());
+    // console.log("Container width is: " + container_width);
     
 
     // Part I: Broad Strokes.
@@ -111,9 +113,9 @@
     var broad_font_size = first_pass( starting_size, text_width_ratio, desired_ratio );
     $elem.css("font-size", broad_font_size);
 
-    console.log("-- After Broad Strokes --");
-    console.log("text-width: " + $elem.width());
-    console.log("Container width: " + container_width);
+    // console.log("-- After Broad Strokes --");
+    // console.log("text-width: " + $elem.width());
+    // console.log("Container width: " + container_width);
 
 
     //// Take user-specified letter-spacing into account!
@@ -155,25 +157,27 @@
 
     // Figure out our left margin, if our letter-spacing is negative
     if ( final_letter_spacing < 0 ) {
-      final_left_margin = user_css.marginLeft + final_letter_spacing;
+      final_text_indent = user_css.textIndent + final_letter_spacing;
     } else {
-      final_left_margin - user_css.marginLeft;
+      final_text_indent - user_css.textIndent;
     }
 
 
     return {
       fontSize:       final_font_size,
       letterSpacing:  precise_round(final_letter_spacing, 2) + "px",
-      marginLeft:     Math.round(final_left_margin) + "px",
+      textIndent:     Math.round(final_text_indent)*0.75 + "px",
     };
   }
 
   // Undoes our un-needed setup stuff.
-  function cleanup( $elem ) {
+  function cleanup( $elem, user_css ) {
     $elem.css({
-      display:    "",
-      whiteSpace: "",
-      visibility: ""
+      display:      "",
+      whiteSpace:   "",
+      visibility:   "",
+      paddingLeft:  user_css.paddingLeft,
+      paddingRight: user_css.paddingRight
     });
   }
 
@@ -205,14 +209,16 @@
   }
 
   function increase_to_excess( $elem, max_width, property, iterable, increment ) {
-
+    var num_of_runs = 0;
     while ( $elem.width() < max_width ) {
       // console.log(property + ": " + iterable);
       // console.log("H2 width:" + $elem.width());
       // console.log("Container width:" + max_width);
       iterable += increment;
       $elem.css(property, iterable);
+      num_of_runs++;
     }
+    console.log(num_of_runs)
 
     return iterable;
   } 
@@ -236,8 +242,8 @@
     return (Math.round((num*Math.pow(10,decimals))+(sign*0.001))/Math.pow(10,decimals)).toFixed(decimals);
   }
 
-  function get_parent_width($elem, $container) {
-    return $container.width() - parseFloat($elem.css("padding-left")) - parseFloat($elem.css("padding-right"));
+  function get_parent_width($elem, $container, user_css) {
+    return $container.width() - user_css.paddingLeft - user_css.paddingRight;
   }  
 
   
