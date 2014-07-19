@@ -27,7 +27,11 @@
       // When we add negative letter spacing, for some reason FF/Chrome push the letters
       // outside the header. By adding a negative left margin of the same amount, we 
       // correct this strange bug.
-      user_css.marginLeft = parseInt($elem.css("margin-left"));
+      user_css.marginLeft   = parseInt($elem.css("margin-left"));
+
+      // We need to get our left-right padding at the outset, to take that into account
+      user_css.paddingLeft  = parseInt($elem.css("padding-left"));
+      user_css.paddingRight = parseInt($elem.css("padding-right"));
 
       // Immediately hide the text. 
       // This is to avoid the text being shown incorrectly before any relevant webfonts have loaded.
@@ -62,16 +66,6 @@
     cleanup( $elem );
   }
 
-  function get_desired_spacing($elem, user_css, settings) {
-    if ( typeof settings.letterSpacing == 'object' ) {  // null is an object in JS
-      user_css.letterSpacing = parseFloat($elem.css("letter-spacing"));
-    } else {
-      user_css.letterSpacing = parseFloat(settings.letterSpacing);
-    }
-
-    return user_css;
-  }
-
 
   // SECOND LEVEL //
   // Primary high-level functions, called by our main function
@@ -89,8 +83,8 @@
 
   function calculate_font_size($elem, starting_size, settings, user_css) {
     var
-    container                 = $elem.parent(),
-    container_width           = container.width(),
+    $container                = $elem.parent(),
+    container_width           = get_real_width($container, user_css),
     text_width                = $elem.width(),
     text_width_ratio          = text_width / container_width,
     desired_ratio             = settings.percentage / 100,
@@ -124,6 +118,7 @@
     // or we need to increase it if it's negative or zero.
 
     if ( $elem.width() <= max_width ) {
+      console.log( $elem.height() );
       var too_big_font_size = increase_to_excess( $elem, max_width, "font-size", broad_font_size, font_size_increment );  
       final_font_size = too_big_font_size - font_size_increment;
     } else {
@@ -141,6 +136,7 @@
     if ( settings.preciseMode ) {
       var too_big_letter_spacing = increase_to_excess( $elem, max_width, "letter-spacing", starting_letter_spacing, letter_spacing_increment );
       final_letter_spacing = too_big_letter_spacing - letter_spacing_increment;
+      // final_letter_spacing = starting_letter_spacing;
     } else {
       final_letter_spacing = starting_letter_spacing;
     }
@@ -171,6 +167,16 @@
 
 
   // THIRD LEVEL - Assorted helper functions
+  function get_desired_spacing($elem, user_css, settings) {
+    if ( typeof settings.letterSpacing == 'object' ) {  // null is an object in JS
+      user_css.letterSpacing = parseFloat($elem.css("letter-spacing"));
+    } else {
+      user_css.letterSpacing = parseFloat(settings.letterSpacing);
+    }
+
+    return user_css;
+  }
+
   function first_pass( starting_size, text_width_ratio, desired_ratio ) {
     // console.log( "starting size: " + starting_size );
     // console.log( "Text width ratio: " + text_width_ratio );
@@ -211,6 +217,12 @@
   function get_relative_spacing(letter_spacing, container_width, assumed_container_width ) {
     // The math: relative_letter_spacing / container_width = letter_spacing / assumed_container_width
     return ( letter_spacing / assumed_container_width ) * container_width;
+  }
+
+  function get_real_width($container, user_css) {
+    // Gets the usable width of a container, taking padding into account.
+    return $container.width();
+
   }
 
   function precise_round(num,decimals){
