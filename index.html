@@ -62,22 +62,59 @@
           elem_top   = $(container).offset().top, 
           win_top    = elem_top - $(window).scrollTop(),
           new_margin = initial_margin / elem_top * win_top;
-
-          $(container).css("margin-top", new_margin);
+          if ( $(window).scrollTop() < ( $(document).height() - $(window).height() )  ) {
+            $(container).css("margin-top", new_margin);
+          }
 
         })
       });
     }
+
+    function stick_to_top(elem, offset) {
+      var
+      $elem       = $(elem),
+      win_height  = $(window).height(),
+      original_offset;
+
+      $(window).scroll(function() {
+        var scroll_top = $(window).scrollTop(),
+        elem_offset = $elem.offset().top;
+        
+
+        if ( !original_offset && scroll_top >= elem_offset) {
+          console.log(scroll_top + " >= " + elem_offset);
+          original_offset = original_offset || scroll_top;
+          $elem.css({ 
+            position: 'fixed',
+            top: '0px'
+          });
+          $(".space_taker").css({
+            height: $elem.height() + parseInt($elem.css("padding-top")) + parseInt($elem.css("padding-bottom")),
+            display: 'block'
+          });
+        } else if (original_offset && scroll_top < original_offset) {
+          original_offset = undefined;
+          console.log(scroll_top + " >= " + original_offset);
+          $elem.css({
+            position: 'relative'
+          });
+          $(".space_taker").hide();
+        }
+      })
+    }
      
 
     parallax_scroller(["#section_2"]); 
+
+    stick_to_top("#s2_title", 0);
+
     init();
 
-    // $("#title").percentext({letterSpacing: -4});
-    // $("#title_caption").percentext({percentage: 40, letterSpacing: -2});
-    // $("#title_description_desktop").percentext();
+    $("#title").percentext({letterSpacing: -4});
+    $("#title_caption").percentext({percentage: 40, letterSpacing: -2});
+    $("#title_description_desktop").percentext();
     $("#s2_title").percentext();
-    // $(".s2_line").percentext();
+    $(".s2_line").percentext();
   });
   </script>
 
@@ -121,8 +158,8 @@
     </section>
 
     <section id="section_2">
-      <div id="s2_red_bar" style=""></div>
       <h2 id="s2_title" style="">A Quick Demonstration.</h2>
+      <div class="space_taker"></div>
 
       
 <!--       <div id="ruler">
@@ -161,13 +198,14 @@
           <p class="s2_line">Well, shit.</p>
         </div>
 
-        <div id="mathtools">
-          <!-- @include mathtools -->
-        </div>
+        
       </div>
     </section>
   </div>
 
+  <div id="mathtools">
+    <!-- @include mathtools -->
+  </div>
 
   <footer>
     <a href="/credits">Credits</a>

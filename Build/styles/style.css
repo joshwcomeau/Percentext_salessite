@@ -131,24 +131,17 @@ table {
   position: relative;
   min-height: 1000px;
   margin-top: 100px;
-  background: #efede7;
-  color: #333333; }
-  #section_2 #s2_red_bar {
-    position: absolute;
-    z-index: -1;
-    background: #df4949;
-    height: 100%;
-    width: 30%;
-    right: 0;
-    top: 0; }
+  background: #333333;
+  color: #efede7; }
   #section_2 #s2_title {
-    background: #df4949;
-    border-top: 2px solid #e77474;
+    width: 100%;
+    background: #45b29d;
+    border-top: 2px solid #66c4b2;
     color: #efede7;
     font-weight: 700;
     padding: 5%;
     letter-spacing: -2px;
-    text-shadow: 0.5px 0.5px 0px #a51d1d, 1px 1px 0px #a51d1d, 1.5px 1.5px 0px #a51d1d, 2px 2px 0px #a51d1d, 2.5px 2.5px 0px #a51d1d, 3px 3px 0px #a51d1d, 3.5px 3.5px 0px #a51d1d, 4px 4px 0px #a51d1d; }
+    text-shadow: 0.5px 0.5px 0px #3a9583, 1px 1px 0px #3a9583, 1.5px 1.5px 0px #3a9583, 2px 2px 0px #3a9583, 2.5px 2.5px 0px #3a9583, 3px 3px 0px #3a9583; }
   #section_2 #ruler {
     margin-top: 2rem;
     margin-bottom: -0.5rem;
@@ -170,13 +163,13 @@ table {
   #section_2 #section_2_main_wrapper {
     margin-top: 1.5rem; }
     #section_2 #section_2_main_wrapper #section_2_text {
-      float: left;
-      width: 60%;
+      margin: 0 7.5%;
+      width: 85%;
       min-height: 500px; }
     #section_2 #section_2_main_wrapper .s2_line {
-      padding: 1rem 0rem;
-      margin: 0.5rem 0rem;
-      background: #df4949; }
+      padding: 1rem;
+      margin: 0;
+      background: #555; }
     #section_2 #section_2_main_wrapper #mathtools {
       float: left;
       width: 35%;

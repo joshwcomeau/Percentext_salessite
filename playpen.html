@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Percentext playpen.</title>
+  <!-- @reload -->
+  <!-- @stylesheet style -->
+
+  <style>
+    .body {
+      background: lighten($darkgrey, 20%);
+    }
+    .playpen {
+      width: 60%;
+      margin: 0 auto;
+      background: $darkgrey;
+    }
+  </style>
+</head>
+
+<body>
+<div class="playpen">
+  <div class="experiment">
+    <h2>No Padding, No Margin, on anything</h2>
+    <p class="stats"></p>
+  </div>
+
+  <div class="experiment" style="padding: 2rem;">
+    <h2>Padding on Parent</h2>
+    <p class="stats"></p>
+  </div>
+
+  <div class="experiment" style="margin: 2rem;">
+    <h2>Margin, just on parent though</h2>
+    <p class="stats"></p>
+  </div>
+
+  <div class="experiment" style="margin: 2rem; padding: 2rem;">
+    <h2>Margin AND Padding on parent. oh boy.
+  </div>
+</div>
+
+</body>
+</html>

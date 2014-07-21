@@ -32,16 +32,29 @@
       // We need to get our left-right padding at the outset, to take that into account
       user_css.paddingLeft  = parseInt($elem.css("padding-left"));
       user_css.paddingRight = parseInt($elem.css("padding-right"));
+      user_css.marginLeft  = parseInt($elem.css("margin-left"));
+      user_css.marginRight = parseInt($elem.css("margin-right"));
 
       // Immediately hide the text. 
       // This is to avoid the text being shown incorrectly before any relevant webfonts have loaded.
       $elem.css("visibility", "hidden");
 
+
+
       // Run our main function on load (after custom webfonts have been downloaded) and on resize.
-      $(window).bind("load resize", function() {
+      var debouncer;
+      $(window).bind("resize", function() {
+        clearTimeout(debouncer);
+        debouncer = setTimeout(do_your_thang( $elem, settings, user_css ), 100);
+      });
+
+      $(window).bind("load", function() {
         do_your_thang( $elem, settings, user_css );  
       });
 
+
+
+      
 
 
     });
@@ -79,8 +92,10 @@
       letterSpacing:  "0px",
       textAlign:      settings.alignment,
       whiteSpace:     "nowrap",
+      paddingRight:   "0px",
       paddingLeft:    "0px",
-      paddingRight:   "0px"
+      marginRight:    "0px",
+      marginLeft:     "0px"
     });
 
 
@@ -133,8 +148,8 @@
 
     if ( $elem.width() <= max_width ) {
       
-      var too_big_font_size = increase_to_excess( $elem, max_width, "font-size", broad_font_size, font_size_increment );  
-      final_font_size = too_big_font_size - font_size_increment;
+      // var too_big_font_size = increase_to_excess( $elem, max_width, "font-size", broad_font_size, font_size_increment );  
+      final_font_size = broad_font_size;
     } else {
       final_font_size = decrease_until_just_right( $elem, max_width, broad_font_size, font_size_increment );
     }
@@ -159,7 +174,7 @@
     if ( final_letter_spacing < 0 ) {
       final_text_indent = user_css.textIndent + final_letter_spacing;
     } else {
-      final_text_indent - user_css.textIndent;
+      final_text_indent = user_css.textIndent;
     }
 
 
@@ -176,8 +191,12 @@
       display:      "",
       whiteSpace:   "",
       visibility:   "",
+      paddingRight: user_css.paddingRight,
       paddingLeft:  user_css.paddingLeft,
-      paddingRight: user_css.paddingRight
+      marginRight:  user_css.marginRight,
+      marginLeft:   user_css.marginLeft
+      
+
     });
   }
 
@@ -194,9 +213,9 @@
   }
 
   function first_pass( starting_size, text_width_ratio, desired_ratio ) {
-    console.log( "starting size: " + starting_size );
-    console.log( "Text width ratio: " + text_width_ratio );
-    console.log( "Desired ratio: " + desired_ratio );
+    // console.log( "starting size: " + starting_size );
+    // console.log( "Text width ratio: " + text_width_ratio );
+    // console.log( "Desired ratio: " + desired_ratio );
     return Math.floor( (starting_size * desired_ratio) / text_width_ratio );
 
     // The way math works:
@@ -243,7 +262,7 @@
   }
 
   function get_parent_width($elem, $container, user_css) {
-    return $container.width() - user_css.paddingLeft - user_css.paddingRight;
+    return $container.width() - user_css.paddingLeft - user_css.paddingRight - user_css.marginLeft - user_css.marginRight;
   }  
 
   
