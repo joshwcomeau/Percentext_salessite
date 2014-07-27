@@ -27,14 +27,47 @@
       
   <link rel='stylesheet' href='styles/style.css'>
 
+  <script src='scripts/jquery_1.11.1.js'></script>
+  <script src='scripts/throttle-debounce_1.1.min.js'></script>
+  <script src='scripts/patternizr.min.js'></script>
+  <script src='scripts/patternizr_stripes.js'></script>
+  <script src='scripts/percentext_1.0.js'></script>
+  <script src='scripts/lodash.min.js'></script>
+
+  <script>
+  $(document).ready(function() {
+    $("h2").percentext({letterSpacing: 0});
+  });
+  </script>
+
   <style>
-    .body {
-      background: lighten($darkgrey, 20%);
+  * {
+    box-sizing: border-box;
+  }
+    body {
+      background: #333;
     }
     .playpen {
       width: 60%;
-      margin: 0 auto;
-      background: $darkgrey;
+      margin: 1rem auto;
+      padding: 1rem 0;
+      background: #444;
+    }
+
+    .experiment {
+      background: #4597B2;
+      color: #EFEDE7;
+      text-align: center;
+    }
+    .experiment_br {
+      
+      height: 1rem;
+      margin: 1rem;
+      background: #444;
+      border-bottom: 1px solid #000;
+    }
+    h2 {
+      font-size: 48px;
     }
   </style>
 </head>
@@ -45,21 +78,50 @@
     <h2>No Padding, No Margin, on anything</h2>
     <p class="stats"></p>
   </div>
+</div>
+
+<div class="playpen">
 
   <div class="experiment" style="padding: 2rem;">
     <h2>Padding on Parent</h2>
     <p class="stats"></p>
   </div>
 
+  <div class="experiment_br"></div>
+
   <div class="experiment" style="margin: 2rem;">
     <h2>Margin, just on parent though</h2>
     <p class="stats"></p>
   </div>
 
-  <div class="experiment" style="margin: 2rem; padding: 2rem;">
+  <div class="experiment_br"></div>
+
+  <div class="experiment" style="margin: 1rem; padding: 1rem;">
     <h2>Margin AND Padding on parent. oh boy.
   </div>
 </div>
+
+<div class="playpen">
+
+  <div class="experiment">
+    <h2 style="padding: 2rem;">Padding on H2 Element</h2>
+    <p class="stats"></p>
+  </div>
+
+  <div class="experiment_br"></div>
+
+  <div class="experiment" >
+    <h2 style="margin: 2rem;">Margin, just on the kid though</h2>
+    <p class="stats"></p>
+  </div>
+
+  <div class="experiment_br"></div>
+
+  <div class="experiment" >
+    <h2 style="margin: 1rem; padding: 1rem;">Margin AND Padding on child. oh boy.
+  </div>
+</div>
+
 
 </body>
 </html>

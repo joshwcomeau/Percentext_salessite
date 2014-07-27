@@ -63,7 +63,7 @@
   // FIRST LEVEL - Main function //
   // Performs setup, calculation, application and cleanup.
   function do_your_thang($elem, settings, user_css) {
-    var starting_size = 6;
+    var starting_size = 80;
 
 
     // Preparation is key.
@@ -148,8 +148,8 @@
 
     if ( $elem.width() <= max_width ) {
       
-      // var too_big_font_size = increase_to_excess( $elem, max_width, "font-size", broad_font_size, font_size_increment );  
-      final_font_size = broad_font_size;
+      var too_big_font_size = increase_to_excess( $elem, max_width, "font-size", broad_font_size, font_size_increment );  
+      final_font_size = too_big_font_size - font_size_increment;
     } else {
       final_font_size = decrease_until_just_right( $elem, max_width, broad_font_size, font_size_increment );
     }
