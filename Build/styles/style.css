@@ -371,13 +371,16 @@ table {
   position: relative;
   color: #efede7; }
   #section_4 #s4_title {
-    padding: 2% 5%;
-    text-align: center;
+    width: 100%;
     background: #efc94c;
+    border-top: 2px solid #f6e097;
     color: #333333;
-    font-weight: bold; }
+    font-weight: 700;
+    padding: 3%;
+    letter-spacing: -2px;
+    border-bottom: 0.4rem solid #c8a942; }
   #section_4 > .section_dark_bg {
-    background: #333333;
+    background: #30505c;
     padding: 4% 5%;
     border-top: 2px solid #4d4d4d;
     border-bottom: 2px solid #111; }

@@ -520,17 +520,20 @@
 #section_4 {
   position: relative; 
   color: $beige;
-  
+
   #s4_title {
-    padding: 2% 5%;
-    text-align: center;
+    width: 100%;
     background: $yellow;
+    border-top: 2px solid lighten($yellow, 16%);
     color: $darkgrey;
-    font-weight: bold;
+    font-weight: 700; 
+    padding: 3%;
+    letter-spacing: -2px;
+    border-bottom: 0.4rem solid #c8a942;
   }
 
   & > .section_dark_bg {
-    background: $darkgrey;
+    background: $navy;
     padding: 4% 5%;
     border-top: 2px solid lighten($darkgrey, 10%);
     border-bottom: 2px solid #111;

@@ -76,6 +76,8 @@
             new_padding = initial_padding * padding_multiplier;
 
             $(container).css("padding-top", new_padding);
+          } else if (elem_top < scroll_top) {
+            $(container).css("padding-top", "0px");
           }
 
         })
@@ -257,7 +259,8 @@
     <section id="section_4">
       <h2 id="s4_title">Quick Start Guide.</h2>
       <div class="section_dark_bg">
-        
+        <h4>Installation</h4>
+        <p>Installation is a piece of cake! Download <a href="#">Percentext.js</a> from GitHub and throw it in your local scripts directory. Percentext depends on jQuery - make sure to include it <em>after</em> jQuery. You've been warned.</p>
       </div>
     </section>
 
