@@ -240,12 +240,6 @@ table {
       background: #555; }
       #section_2 #section_2_main_wrapper .s2_line em {
         font-style: italic; }
-    #section_2 #section_2_main_wrapper #mathtools {
-      float: left;
-      width: 35%;
-      margin-left: 5%; }
-      #section_2 #section_2_main_wrapper #mathtools svg {
-        width: 100%; }
 
 #section_3 {
   position: relative;
@@ -254,3 +248,9 @@ table {
   #section_3 > .section_dark_bg {
     background: #333333;
     padding-bottom: 2rem; }
+  #section_3 #mathtools {
+    float: left;
+    width: 35%;
+    margin-left: 5%; }
+    #section_3 #mathtools svg {
+      width: 100%; }

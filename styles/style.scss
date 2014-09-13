@@ -336,15 +336,6 @@
       }
     }
 
-    #mathtools {
-      float: left;
-      width: 35%;
-      margin-left: 5%;
-
-      svg {
-        width: 100%;
-      }
-    }
   }
 }
 
@@ -357,6 +348,16 @@
     background: $darkgrey;
     padding-bottom: 2rem;
   }
-}
 
+  #mathtools {
+    float: left;
+    width: 35%;
+    margin-left: 5%;
+
+    svg {
+      width: 100%;
+    }
+  }
+
+}
 

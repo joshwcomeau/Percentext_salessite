@@ -128,10 +128,6 @@
     var broad_font_size = first_pass( starting_size, text_width_ratio, desired_ratio );
     $elem.css("font-size", broad_font_size);
 
-    // console.log("-- After Broad Strokes --");
-    // console.log("text-width: " + $elem.width());
-    // console.log("Container width: " + container_width);
-
 
     //// Take user-specified letter-spacing into account!
     // We're doing this AFTER Broad Strokes because initially we shrink the text to 6px.
