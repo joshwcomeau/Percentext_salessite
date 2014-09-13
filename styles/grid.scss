@@ -3,8 +3,9 @@
 
 // Compatibility: IE8+
 
+// Requires variables for breakpoints and gutter sizes. Include them in this file:
+@import 'variables';
 
-$gutter_size: 25px;
 
 // Avoid the overflow issue with floated elements with a pseudoelement.
 .grid:after {
@@ -71,3 +72,8 @@ $gutter_size: 25px;
 
 
 
+@media screen and (max-width: $medium_breakpoint) {
+  [class*='column_'], .c1, .c2, .c3, .c4, .c5, .c6, .c7, .c8, .c9, .c10, .c11, .c12 {
+    width: 100%;
+  }
+}

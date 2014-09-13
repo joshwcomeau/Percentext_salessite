@@ -49,3 +49,7 @@
 
 .column_12-12, .c12, .column_6-6, .column_4-4, .column_2-2 {
   width: 100%; }
+
+@media screen and (max-width: 1024px) {
+  [class*='column_'], .c1, .c2, .c3, .c4, .c5, .c6, .c7, .c8, .c9, .c10, .c11, .c12 {
+    width: 100%; } }

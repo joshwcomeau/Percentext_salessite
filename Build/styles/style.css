@@ -221,7 +221,7 @@ table {
   position: relative;
   color: #efede7; }
   #section_2 > .section_dark_bg {
-    background: #333333;
+    background: #29685c;
     padding-bottom: 2rem;
     border-bottom: 2px solid #1a1a1a; }
   #section_2 #s2_title {
@@ -260,8 +260,8 @@ table {
       min-height: 500px; }
     #section_2 #section_2_main_wrapper .s2_line {
       position: relative;
-      padding: 1.25rem 2rem;
-      margin: 1px 0;
+      padding: 1.25rem;
+      margin: 0;
       background: #444; }
       #section_2 #section_2_main_wrapper .s2_line > .line_text {
         position: relative;
@@ -288,9 +288,9 @@ table {
   color: #efede7; }
   #section_3 > .section_dark_bg {
     background: #333333;
-    padding: 2.5% 5%;
+    padding: 4% 5%;
     border-top: 2px solid #4d4d4d;
-    border-bottom: 2px solid black; }
+    border-bottom: 2px solid #111; }
   #section_3 #s3_grid {
     position: relative; }
   #section_3 #why_percentext_header {
@@ -305,7 +305,8 @@ table {
     position: relative;
     z-index: 2;
     background: #df4949;
-    font-size: 1.3rem;
+    font-size: 1.25rem;
+    line-height: 1.2em;
     padding: 2.5rem;
     border-radius: 3rem 3rem 1.5rem 1.5rem;
     border-right: 3px solid #d92626;
@@ -324,7 +325,13 @@ table {
       font-size: 1.5rem;
       color: #FFF;
       text-shadow: 1px 1px 0px #d02525, 2px 2px 0px #d02525;
-      font-weight: bold; }
+      font-weight: bold;
+      margin-bottom: 0.3rem; }
+      #section_3 #why_percentext_container > h4 .why_header_icon {
+        height: 25px;
+        fill: #FFF;
+        float: left;
+        margin-right: 0.5rem; }
     #section_3 #why_percentext_container > .shorter_p {
       width: 50%; }
   #section_3 #mathtools {
@@ -334,24 +341,47 @@ table {
     bottom: 0rem; }
     #section_3 #mathtools svg {
       width: 100%;
-      max-height: 350px; }
+      max-height: 390px; }
   #section_3 .s3_line_decoration_container {
+    display: none;
     position: absolute;
     z-index: 1;
-    left: -50%;
-    bottom: 1rem;
+    left: 0;
+    bottom: 2px;
     height: 12rem;
-    width: 200%;
+    width: 100%;
     background: #222;
-    overflow: hidden; }
+    overflow: hidden;
+    opacity: 0.8; }
     #section_3 .s3_line_decoration_container .s3_line_decoration {
       position: absolute;
-      bottom: 6rem;
+      bottom: 1rem;
       height: 4rem;
-      width: 100%;
+      width: 120%;
+      left: -10%;
       background: #34bdbf;
-      -ms-transform: rotate(-4deg);
+      -ms-transform: rotate(4deg);
       /* IE 9 */
-      -webkit-transform: rotate(-4deg);
+      -webkit-transform: rotate(4deg);
       /* Chrome, Safari, Opera */
-      transform: rotate(-4deg); }
+      transform: rotate(4deg);
+      border-bottom: 0.35rem solid #289193; }
+
+#section_4 {
+  position: relative;
+  color: #efede7; }
+  #section_4 #s4_title {
+    padding: 2% 5%;
+    text-align: center;
+    background: #efc94c;
+    color: #333333;
+    font-weight: bold; }
+  #section_4 > .section_dark_bg {
+    background: #333333;
+    padding: 4% 5%;
+    border-top: 2px solid #4d4d4d;
+    border-bottom: 2px solid #111; }
+
+@media screen and (max-width: 1024px) {
+  #mathtools_column {
+    display: none; } }

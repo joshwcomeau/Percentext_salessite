@@ -90,8 +90,8 @@
     // screen to the top.
     function silly_highlight_effect(lines) {
       var
-      start_ratio   = 0.7,
-      end_ratio     = 0.3,
+      start_ratio   = 0.8,
+      end_ratio     = 0.1,
       num_of_colors = bg_color_classes.length;
 
       $(lines).each(function(index) {
@@ -128,9 +128,9 @@
     $("#s2_title").percentext();
     $(".line_text").percentext();
     $("#why_percentext_header").percentext({percentage: 75, letterSpacing: -3})
+    $("#s4_title").percentext();
 
-
-    parallax_scroller(["#section_2", "#section_3"]); 
+    parallax_scroller(["#section_2", "#section_3", "#section_4"]); 
     silly_highlight_effect(".line_effect");
 
   });
@@ -240,7 +240,7 @@
           <!-- -->
 
           <!-- "How To Use" Column -->
-          <div class="c4 full_height">
+          <div class="c4 full_height" id="mathtools_column">
           
             <div id="mathtools">
               <!-- @include mathtools -->
@@ -251,6 +251,13 @@
       </div>
       <div class="s3_line_decoration_container">
         <div class="s3_line_decoration"></div>
+      </div>
+    </section>
+
+    <section id="section_4">
+      <h2 id="s4_title">Quick Start Guide.</h2>
+      <div class="section_dark_bg">
+        
       </div>
     </section>
 
