@@ -95,9 +95,7 @@
       num_of_colors = bg_color_classes.length;
 
       $(lines).each(function(index) {
-        var 
-        line = this,
-        line_color_class = bg_color_classes[index % num_of_colors];
+        var line = this;
 
         $(window).on("scroll", function() {
           var 
@@ -111,10 +109,9 @@
             progress_multiplier = win_top / win_height;
 
             if ( end_ratio < progress_multiplier && progress_multiplier < start_ratio ) {
-              console.log(line_color_class);
-              $(line).addClass(line_color_class);
+              $(line).addClass('line_effect_highlight');
             } else {
-              $(line).removeClass(line_color_class);
+              $(line).removeClass('line_effect_highlight');
             }
           }
         });
@@ -222,24 +219,31 @@
     </section>
 
     <section id="section_3">
-      <div class="section_dark_bg" style="height: 1000px;">
-          <div class="grid padded_grid" id="s3_grid">
-            <!-- "Why Percentext?" Column -->
-            <div class="c8" style="height: 500px;">
+      <div class="section_dark_bg">
+        <div class="grid" id="s3_grid">
+          <!-- "Why Percentext?" Column -->
+          <div class="c8 full_height">
+            
+            <h2 id="why_percentext_header">Why Percentext?</h2>
+            <div id="why_percentext_container">
+              <p>Percentext brings traditional DOM arrangement to text-based elements, allowing developers and designers the ability to quickly, easily and responsively size headers to be 'just right' across devices. </p>
               
-              <h2 id="why_percentext_header">Why Percentext?</h2>
-              <div id="why_percentext_container">
-                <p>Percentext brings traditional DOM arrangement to text-based elements, allowing developers and designers the ability to quickly, easily and responsively size headers to be 'just right' across devices. 
-                <p>Many people who find it irksome to deal with font sizes use FitText.js. FitText is a great little plugin, but it isn't quite the same as Percentext. FitText arbitrarily sets font-size to be equal to a fraction of the parent container's width, allowing users to tweak via a 'compressor' to get the size just right.
-                <p>Percentext's advantage is that it allows you to set a percentage and be done with it - no tweaking required. The downside to this convenience is performance; FitText is a very simple plugin that works lightning fast. Percentext can be a bit sluggish if you have many headers that you wish to size.
-              </div>
-            </div>
-            <!-- -->
+              <h4>Alternatives</h4>
+              <p>Many people who find it irksome to deal with font sizes use <a href="http://fittextjs.com/">FitText.js</a>. FitText is a great little plugin, but it isn't quite the same as Percentext. FitText arbitrarily sets font-size to be equal to a fraction of the parent container's width, allowing users to tweak via a 'compressor' to get the size just right.</p>
 
-            <!-- "How To Use" Column -->
-            <div class="c4" style="height: 500px;">
-              <div id="mathtools">
-                <svg version="1.1" id="flat" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+              <h4>Pros and Cons</h4>
+              <p>Percentext's advantage is that it allows you to set a percentage and be done with it - no tweaking required. The downside to this convenience is performance; FitText is a very simple plugin that works lightning fast. Percentext can be a bit sluggish if you have many headers that you wish to size.</p>
+
+              
+            </div>
+          </div>
+          <!-- -->
+
+          <!-- "How To Use" Column -->
+          <div class="c4 full_height">
+          
+            <div id="mathtools">
+              <svg version="1.1" id="flat" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
    viewBox="0 0 166.8 130.3" enable-background="new 0 0 166.8 130.3" xml:space="preserve">
 <g>
   <rect x="-15.5" y="-34.2" display="none" fill="#EF4B39" width="195.7" height="195.7"/>
@@ -6553,11 +6557,13 @@
 </g>
 </svg>
 
-              </div>
             </div>
-            <!-- -->
           </div>
-        
+          <!-- -->
+        </div>
+      </div>
+      <div class="s3_line_decoration_container">
+        <div class="s3_line_decoration"></div>
       </div>
     </section>
 

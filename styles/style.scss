@@ -8,6 +8,9 @@
 .bo {
   font-weight: 700;
 }
+.full_height {
+  height: 100%;
+}
 
 .bg_navy {
   background: $navy !important;
@@ -353,7 +356,7 @@
       position: relative;
       padding: 1.25rem 2rem;
       margin: 1px 0;
-      background: #555;
+      background: #444;
       
       & > .line_text {
         position: relative;
@@ -368,6 +371,10 @@
         top: 0;
         z-index: 1;
         transition: 0.5s;
+      }
+
+      & > .line_effect_highlight {
+        background: #555;
       }
 
       em {
@@ -394,23 +401,33 @@
     padding: 2.5% 5%;
     border-top: 2px solid lighten($darkgrey, 10%);
     border-bottom: 2px solid darken($darkgrey, 20%);
+  }
 
+  #s3_grid {
+    position: relative;
   }
 
   #why_percentext_header {
+    position: relative;
+    z-index: 3;
     color: $lorange;
     font-weight: bold;
     line-height: 0.54em;
     text-align: center;
     text-shadow: 
-      1px 1px 0px $red,
+      0.5px 0.5px 0px darken($red, 10%),
+      1px 1px 0px darken($red, 10%),
+      1.5px 1.5px 0px $red,
       2px 2px 0px $red,
-      3px 3px 0px $red
+      2.5px 2.5px 0px $red,
+      3px 3px 0px $red;
     ;
 
     
   }
   #why_percentext_container {
+    position: relative;
+    z-index: 2;
     background: $red;
     font-size: 1.3rem;
     padding: 2.5rem;
@@ -418,24 +435,74 @@
     border-right: 3px solid darken($red, 8%);
     border-bottom: 8px solid darken($red, 11%);
 
+
+
+
     & > p {
       margin-bottom: 2rem;
+      text-align: justify;
     }
     & > p:last-of-type {
       margin-bottom: 0;
     }
 
-  }
+    a {
+      color: lighten($lorange, 20%) !important;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
 
+    & > h4 {
+      font-size: 1.5rem;
+      color: #FFF;
+      text-shadow: 
+        1px 1px 0px darken($red, 10%), 
+        2px 2px 0px darken($red, 10%)
+      ;
+      font-weight: bold;
+    }
+
+    & > .shorter_p {
+      width: 50%;
+    }
+
+  }    
   #mathtools {
-    float: left;
-    width: 35%;
-    margin-left: 5%;
+    position: absolute;
+    z-index: 2;
+    width: 33.33%;
+    bottom: 0rem;
 
     svg {
       width: 100%;
+      max-height: 350px;
     }
   }
+
+  .s3_line_decoration_container {
+    position: absolute;
+    z-index: 1;
+    left: -50%;
+    bottom: 1rem;
+    height: 12rem;
+    width: 200%;
+    background: #222;
+    overflow: hidden;
+
+    .s3_line_decoration {
+      position: absolute;
+      bottom: 6rem;
+      height: 4rem;
+      width: 100%;
+      background: $aqua;
+      -ms-transform: rotate(-4deg); /* IE 9 */
+      -webkit-transform: rotate(-4deg); /* Chrome, Safari, Opera */
+      transform: rotate(-4deg);
+    }
+  }
+
 
 }
 
