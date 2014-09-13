@@ -267,7 +267,7 @@
     percentage:       100,
     pixelWidth:       null,     // Implement me
     alignment:        null,
-    preciseMode:      true,
+    preciseMode:      false,
     letterSpacing:    null,
     relativeSpacing:  true,
     minFontSize:      null,     // Implement me

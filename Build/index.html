@@ -16,6 +16,9 @@
 
   <script>
   $(document).ready(function() {
+
+    var bg_color_classes = [ "bg_navy", "bg_blue", "bg_bbblue", "bg_aqua", "bg_green", "bg_grass", "bg_yellow", "bg_orange" ];
+  
     var bgCanvas = document.getElementById('bgCanvas');
      
     function render() {
@@ -51,6 +54,7 @@
     }
 
 
+
     // This simple scroller separates the sections by an ever-decreasing margin-top.
     // Starts at 100px when it enters the frame, winds up at 0px by the time it reaches the top.
     function parallax_scroller(boxes) {
@@ -58,7 +62,6 @@
 
       _(boxes).forEach(function(container) {        
         $(window).on("scroll load", function() {
-
 
           var 
           elem_top    = $(container).offset().top, 
@@ -81,59 +84,43 @@
       
     }
 
-    // Function to stick an element to the top of the screen when you scroll past it.
-    // Currently unused.
-    // function stick_to_top(elem, offset, resume_elem) {
-    //   var
-    //   $elem         = $(elem),
-    //   win_height    = $(window).height(),
-    //   resume_height,
-    //   original_offset;
-
-    //   $(window).scroll(function() {
-    //     var scroll_top = $(window).scrollTop(),
-    //     elem_offset = $elem.offset().top;
-    //     resume_height = $(resume_elem).offset().top - win_height;
-
-
-    //     if ( !original_offset && scroll_top >= elem_offset) {
-    //       console.log(scroll_top + " >= " + elem_offset);
-    //       original_offset = original_offset || scroll_top;
-    //       $elem.css({ 
-    //         position: 'fixed',
-    //         top: '0px'
-    //       });
-    //       $(".space_taker").css({
-    //         height: $elem.height() + parseInt($elem.css("padding-top")) + parseInt($elem.css("padding-bottom")),
-    //         display: 'block'
-    //       });
-    //     } else if (original_offset && scroll_top < original_offset) {
-    //       original_offset = undefined;
-    //       console.log(scroll_top + " >= " + original_offset);
-    //       $elem.css({
-    //         position: 'relative'
-    //       });
-    //       $(".space_taker").hide();
-    //     } else if ( original_offset && scroll_top > resume_height ) {
-    //       console.log("We've passed it!")
-    //     }
-    //   })
-    // }
-
 
     // Function to change the background color of an element depending on its scroll height.
     // Essentially, I want the background color of selected elements to lighten as they move from the bottom of the
     // screen to the top.
-    function silly_highlight_effect(elem) {
-      $elem = $(elem);
+    function silly_highlight_effect(lines) {
+      var
+      start_ratio   = 0.7,
+      end_ratio     = 0.3,
+      num_of_colors = bg_color_classes.length;
 
+      $(lines).each(function(index) {
+        var 
+        line = this,
+        line_color_class = bg_color_classes[index % num_of_colors];
 
+        $(window).on("scroll", function() {
+          var 
+          elem_top    = $(line).offset().top, 
+          scroll_top  = $(window).scrollTop(),
+          win_height  = $(window).height(),
+          win_top;
+
+          if ( scroll_top < elem_top < (scroll_top + win_height) ) {
+            win_top = elem_top - scroll_top;
+            progress_multiplier = win_top / win_height;
+
+            if ( end_ratio < progress_multiplier && progress_multiplier < start_ratio ) {
+              console.log(line_color_class);
+              $(line).addClass(line_color_class);
+            } else {
+              $(line).removeClass(line_color_class);
+            }
+          }
+        });
+      });
     }
      
-
-    
-
-    // stick_to_top("#s2_title", 0, '#last_line');
 
     init();
 
@@ -142,11 +129,12 @@
     $("#title_caption").percentext({percentage: 40, letterSpacing: -2});
     $("#title_description_desktop").percentext({minFontSize: 18});
     $("#s2_title").percentext();
-    $(".s2_line").percentext();
+    $(".line_text").percentext();
     $("#why_percentext_header").percentext({percentage: 75, letterSpacing: -3})
 
 
     parallax_scroller(["#section_2", "#section_3"]); 
+    silly_highlight_effect(".line_effect");
 
   });
   </script>
@@ -198,13 +186,34 @@
         <div id="section_2_main_wrapper">
 
           <div id="section_2_text">
-            <p class="s2_line bo top_round">Wouldn't it be nice</p>
-            <p class="s2_line">if you could style text</p>
-            <p class="s2_line">just like any other element?</p>
-            <p class="s2_line">Why specify text in terms of font size</p>
-            <p class="s2_line">when you specify <em>everything else</em> in terms of width?</p>
-            <p class="s2_line">I just wanted each of these lines to take up 100% of their parent,</p>
-            <p class="s2_line bottom_round">and to do so in a responsive way using CSS alone would have been... unpleasant.</p>
+            <div class="s2_line">
+              <div class="line_text bo">Wouldn't it be nice</div>
+              <div class="line_effect"></div>
+            </div>
+            <div class="s2_line">
+              <div class="line_text">if you could style text</div>
+              <div class="line_effect"></div>
+            </div>
+            <div class="s2_line">
+              <div class="line_text">just like any other element?</div>
+              <div class="line_effect"></div>
+            </div>
+            <div class="s2_line">
+              <div class="line_text">Why specify text in terms of font size</div>
+              <div class="line_effect"></div>
+            </div>
+            <div class="s2_line">
+              <div class="line_text">when you specify <em>everything else</em> in terms of width?</div>
+              <div class="line_effect"></div>
+            </div>
+            <div class="s2_line">
+              <div class="line_text">I just wanted each of these lines to take up 100% of their parent,</div>
+              <div class="line_effect"></div>
+            </div>
+            <div class="s2_line">
+              <div class="line_text">and to do so in a responsive way using CSS alone would have been... unpleasant.</div>
+              <div class="line_effect"></div>
+            </div>
           </div>
 
           

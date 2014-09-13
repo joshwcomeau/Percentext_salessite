@@ -51,11 +51,32 @@ table {
 .bo {
   font-weight: 700; }
 
-.top_round {
-  border-radius: 1rem 1rem 0 0; }
+.bg_navy {
+  background: #30505c !important; }
 
-.bottom_round {
-  border-radius: 0 0 1rem 1rem; }
+.bg_green {
+  background: #45b29d !important; }
+
+.bg_yellow {
+  background: #efc94c !important; }
+
+.bg_orange {
+  background: #e27a3f !important; }
+
+.bg_red {
+  background: #df4949 !important; }
+
+.bg_aqua {
+  background: #34bdbf !important; }
+
+.bg_blue {
+  background: #4597b2 !important; }
+
+.bg_grass {
+  background: #34bf57 !important; }
+
+.bg_bbblue {
+  background: #0094cf !important; }
 
 #bgCanvas {
   position: fixed; }
@@ -198,7 +219,8 @@ table {
   color: #efede7; }
   #section_2 > .section_dark_bg {
     background: #333333;
-    padding-bottom: 2rem; }
+    padding-bottom: 2rem;
+    border-bottom: 2px solid #1a1a1a; }
   #section_2 #s2_title {
     width: 100%;
     background: #45b29d;
@@ -234,18 +256,36 @@ table {
       width: 85%;
       min-height: 500px; }
     #section_2 #section_2_main_wrapper .s2_line {
+      position: relative;
       padding: 1.25rem 2rem;
       margin: 1px 0;
       background: #555; }
+      #section_2 #section_2_main_wrapper .s2_line > .line_text {
+        position: relative;
+        z-index: 2; }
+      #section_2 #section_2_main_wrapper .s2_line > .line_effect {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        z-index: 1;
+        transition: 0.5s; }
       #section_2 #section_2_main_wrapper .s2_line em {
         font-style: italic; }
+    #section_2 #section_2_main_wrapper .s2_line:first-of-type, #section_2 #section_2_main_wrapper .s2_line:first-of-type > .line_effect {
+      border-radius: 1rem 1rem 0 0; }
+    #section_2 #section_2_main_wrapper .s2_line:last-of-type, #section_2 #section_2_main_wrapper .s2_line:last-of-type > .line_effect {
+      border-radius: 0 0 1rem 1rem; }
 
 #section_3 {
   position: relative;
   color: #efede7; }
   #section_3 > .section_dark_bg {
     background: #333333;
-    padding: 2.5% 5%; }
+    padding: 2.5% 5%;
+    border-top: 2px solid #4d4d4d;
+    border-bottom: 2px solid black; }
   #section_3 #why_percentext_header {
     color: #f19838;
     font-weight: bold;
