@@ -1,3 +1,9 @@
+// CUSTOM GRID SYSTEM
+// Written by Joshua Comeau, polished using tips from css-tricks.com
+
+// Compatibility: IE8+
+
+
 $gutter_size: 25px;
 
 // Avoid the overflow issue with floated elements with a pseudoelement.
@@ -8,21 +14,20 @@ $gutter_size: 25px;
 }
 
 // Apply float and gutters to all columns in one easy selector.
-[class*='column_'] {
+[class*='column_'], .c1, .c2, .c3, .c4, .c5, .c6, .c7, .c8, .c9, .c10, .c11, .c12 {
   float: left;
   padding-right: $gutter_size;
-}
-[class*='column_']:last-of-type {
-  float: left;
-  padding-right: 0;
+  .grid &:last-of-type {
+    padding-right: 0;
+  }
 }
 
 // Optional outer gutters
 .padded_grid {
   padding: $gutter_size 0 $gutter_size $gutter_size;
-}
-.padded_grid > [class*='column_']:last-of-type {
-  padding-right: 20px;
+  [class*='column_']:last-of-type {
+    padding-right: $gutter_size;
+  }
 }
 
 // GRID TIME. All possible sizes, with multiple labels for convenience.
