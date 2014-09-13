@@ -233,7 +233,7 @@
       $elem.css(property, iterable);
       num_of_runs++;
     }
-    console.log(num_of_runs)
+    // console.log(num_of_runs)
 
     return iterable;
   } 

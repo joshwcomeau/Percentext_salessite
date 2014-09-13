@@ -195,7 +195,6 @@ table {
 
 #section_2 {
   position: relative;
-  padding-top: 100px;
   color: #efede7; }
   #section_2 > .section_dark_bg {
     background: #333333;
@@ -243,11 +242,27 @@ table {
 
 #section_3 {
   position: relative;
-  padding-top: 100px;
   color: #efede7; }
   #section_3 > .section_dark_bg {
     background: #333333;
-    padding-bottom: 2rem; }
+    padding: 2.5% 5%; }
+  #section_3 #why_percentext_header {
+    color: #f19838;
+    font-weight: bold;
+    line-height: 0.54em;
+    text-align: center;
+    text-shadow: 1px 1px 0px #df4949, 2px 2px 0px #df4949, 3px 3px 0px #df4949; }
+  #section_3 #why_percentext_container {
+    background: #df4949;
+    font-size: 1.3rem;
+    padding: 2.5rem;
+    border-radius: 3rem 3rem 1.5rem 1.5rem;
+    border-right: 3px solid #d92626;
+    border-bottom: 8px solid #cc2424; }
+    #section_3 #why_percentext_container > p {
+      margin-bottom: 2rem; }
+    #section_3 #why_percentext_container > p:last-of-type {
+      margin-bottom: 0; }
   #section_3 #mathtools {
     float: left;
     width: 35%;
