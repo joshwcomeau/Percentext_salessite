@@ -5,6 +5,17 @@
   box-sizing: border-box;
 }
 
+.bo {
+  font-weight: 700;
+}
+
+.top_round {
+  border-radius: 1rem 1rem 0 0;
+}
+.bottom_round {
+  border-radius: 0 0 1rem 1rem;
+}
+
 #bgCanvas {
   position: fixed;
 }
@@ -15,6 +26,86 @@
   right: 0;
   top: 0;
   font-family: 'raleway', sans-serif;
+}
+
+
+.top_black_bars {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 45%;
+  z-index: 1;
+
+  & > div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #000;
+    opacity: 0.10;
+  }
+
+  .bar1 {
+    z-index: 1;
+    height: 15%;
+  }
+  .bar2 {
+    z-index: 2;
+    height: 10%;
+  }
+  .bar3 {
+    z-index: 3;
+    height: 5%;
+  }
+}
+
+.divider_with_icon {
+  position: relative;
+  top: 0;
+  left: 0;
+  margin: 0 4%;
+  height: auto;
+  padding: 0;
+  line-height: 1;
+  text-align: center;
+
+  &:before {
+    left: 0;
+    margin-left: -4%;
+  }
+
+  &:after {
+    right: 0;
+    margin-right: -4%;
+  }
+
+  &:before, &:after {
+    position: absolute;
+    content: " ";
+    width: 50%;
+    top: 50%;
+    height: 0;
+    border-top: 1px solid rgba(0,0,0,0.2);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+
+  & > .icon_holder {
+    width: 6%;
+    margin: 0;
+    vertical-align: middle;
+    display: inline-block;
+    // background: $green;
+    // border-radius: 5px;
+    // box-shadow: 1px 1px 0px darken($navy, 10%);
+
+
+    & .percentext_icon {
+      width: 100%;
+      height: 100%;
+      fill: #F0F0F0;
+    }
+  }
 }
 
 #section_1 {
@@ -165,12 +256,16 @@
   }
 }
 
+
 #section_2 {
   position: relative; 
-  min-height: 1000px; 
-  margin-top: 100px; 
-  background: $darkgrey;
+  padding-top: 100px; 
   color: $beige;
+
+  & > .section_dark_bg {
+    background: $darkgrey;
+    padding-bottom: 2rem;
+  }
 
 
 
@@ -180,7 +275,7 @@
     border-top: 2px solid lighten($green, 10%);
     color: $beige;
     font-weight: 700; 
-    padding: 5%;
+    padding: 3%;
     letter-spacing: -2px;
     text-shadow: 
       0.5px 0.5px 0px darken($green, 8%),
@@ -190,6 +285,7 @@
       2.5px 2.5px 0px darken($green, 8%),
       3px 3px 0px darken($green, 8%)
     ;
+    border-bottom: 0.4rem solid darken($green, 12%);
   }
 
   #ruler {
@@ -231,9 +327,13 @@
     }
 
     .s2_line {
-      padding: 1rem;
-      margin: 0;
+      padding: 1.25rem 2rem;
+      margin: 1px 0;
       background: #555;
+
+      em {
+        font-style: italic;
+      }
     }
 
     #mathtools {
@@ -246,85 +346,17 @@
       }
     }
   }
-
-  
 }
 
-.top_black_bars {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 45%;
-  z-index: 1;
+#section_3 {
+  position: relative; 
+  padding-top: 100px;
+  color: $beige;
 
-  & > div {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background: #000;
-    opacity: 0.10;
-  }
-
-  .bar1 {
-    z-index: 1;
-    height: 15%;
-  }
-  .bar2 {
-    z-index: 2;
-    height: 10%;
-  }
-  .bar3 {
-    z-index: 3;
-    height: 5%;
+  & > .section_dark_bg {
+    background: $darkgrey;
+    padding-bottom: 2rem;
   }
 }
 
-.divider_with_icon {
-  position: relative;
-  top: 0;
-  left: 0;
-  margin: 0 4%;
-  height: auto;
-  padding: 0;
-  line-height: 1;
-  text-align: center;
 
-  &:before {
-    left: 0;
-    margin-left: -4%;
-  }
-
-  &:after {
-    right: 0;
-    margin-right: -4%;
-  }
-
-  &:before, &:after {
-    position: absolute;
-    content: " ";
-    width: 50%;
-    top: 50%;
-    height: 0;
-    border-top: 1px solid rgba(0,0,0,0.2);
-    border-bottom: 1px solid rgba(255,255,255,0.08);
-  }
-
-  & > .icon_holder {
-    width: 6%;
-    margin: 0;
-    vertical-align: middle;
-    display: inline-block;
-    // background: $green;
-    // border-radius: 5px;
-    // box-shadow: 1px 1px 0px darken($navy, 10%);
-
-
-    & .percentext_icon {
-      width: 100%;
-      height: 100%;
-      fill: #F0F0F0;
-    }
-  }
-}

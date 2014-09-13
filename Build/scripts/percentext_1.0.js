@@ -45,7 +45,7 @@
       var debouncer;
       $(window).bind("resize", function() {
         clearTimeout(debouncer);
-        debouncer = setTimeout(do_your_thang( $elem, settings, user_css ), 100);
+        debouncer = setTimeout(do_your_thang( $elem, settings, user_css ), 400);
       });
 
       $(window).bind("load", function() {

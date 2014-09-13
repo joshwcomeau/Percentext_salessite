@@ -2,7 +2,6 @@
 <html>
 <head>
   <title>Percentext, a nifty little jQuery plugin.</title>
-  <!-- @reload -->
 
   <!-- @stylesheet style -->
 
@@ -52,69 +51,95 @@
 
 
     // This simple scroller separates the sections by an ever-decreasing margin-top.
-    // Starts at 100px when it enters the frame, winds up at say 5px by the time it reaches the top.
+    // Starts at 100px when it enters the frame, winds up at 0px by the time it reaches the top.
     function parallax_scroller(boxes) {
-      var initial_margin = 100;
+      var initial_padding = 100;
 
       _(boxes).forEach(function(container) {        
         $(window).scroll(function() {
+
           var 
-          elem_top   = $(container).offset().top, 
-          win_top    = elem_top - $(window).scrollTop(),
-          new_margin = initial_margin / elem_top * win_top;
-          if ( $(window).scrollTop() < ( $(document).height() - $(window).height() )  ) {
-            $(container).css("margin-top", new_margin);
+          elem_top    = $(container).offset().top, 
+          scroll_top  = $(window).scrollTop(),
+          win_height  = $(window).height(),
+          win_top, new_padding, padding_multiplier;
+
+          // We only need to worry about calculations when the top of the container is inside the window.
+          if ( scroll_top < elem_top < (scroll_top + win_height) ) {
+            win_top = elem_top - scroll_top;
+            padding_multiplier = win_top / win_height;
+            new_padding = initial_padding * padding_multiplier;
+
+            $(container).css("padding-top", new_padding);
           }
 
         })
       });
     }
 
-    function stick_to_top(elem, offset) {
-      var
-      $elem       = $(elem),
-      win_height  = $(window).height(),
-      original_offset;
+    // Function to stick an element to the top of the screen when you scroll past it.
+    // Currently unused.
+    // function stick_to_top(elem, offset, resume_elem) {
+    //   var
+    //   $elem         = $(elem),
+    //   win_height    = $(window).height(),
+    //   resume_height,
+    //   original_offset;
 
-      $(window).scroll(function() {
-        var scroll_top = $(window).scrollTop(),
-        elem_offset = $elem.offset().top;
-        
+    //   $(window).scroll(function() {
+    //     var scroll_top = $(window).scrollTop(),
+    //     elem_offset = $elem.offset().top;
+    //     resume_height = $(resume_elem).offset().top - win_height;
 
-        if ( !original_offset && scroll_top >= elem_offset) {
-          console.log(scroll_top + " >= " + elem_offset);
-          original_offset = original_offset || scroll_top;
-          $elem.css({ 
-            position: 'fixed',
-            top: '0px'
-          });
-          $(".space_taker").css({
-            height: $elem.height() + parseInt($elem.css("padding-top")) + parseInt($elem.css("padding-bottom")),
-            display: 'block'
-          });
-        } else if (original_offset && scroll_top < original_offset) {
-          original_offset = undefined;
-          console.log(scroll_top + " >= " + original_offset);
-          $elem.css({
-            position: 'relative'
-          });
-          $(".space_taker").hide();
-        }
-      })
+
+    //     if ( !original_offset && scroll_top >= elem_offset) {
+    //       console.log(scroll_top + " >= " + elem_offset);
+    //       original_offset = original_offset || scroll_top;
+    //       $elem.css({ 
+    //         position: 'fixed',
+    //         top: '0px'
+    //       });
+    //       $(".space_taker").css({
+    //         height: $elem.height() + parseInt($elem.css("padding-top")) + parseInt($elem.css("padding-bottom")),
+    //         display: 'block'
+    //       });
+    //     } else if (original_offset && scroll_top < original_offset) {
+    //       original_offset = undefined;
+    //       console.log(scroll_top + " >= " + original_offset);
+    //       $elem.css({
+    //         position: 'relative'
+    //       });
+    //       $(".space_taker").hide();
+    //     } else if ( original_offset && scroll_top > resume_height ) {
+    //       console.log("We've passed it!")
+    //     }
+    //   })
+    // }
+
+
+    // Function to change the background color of an element depending on its scroll height.
+    // Essentially, I want the background color of selected elements to lighten as they move from the bottom of the
+    // screen to the top.
+    function silly_highlight_effect(elem) {
+      $elem = $(elem);
+
+
     }
      
 
-    parallax_scroller(["#section_2"]); 
+    parallax_scroller(["#section_2", "#section_3"]); 
 
-    stick_to_top("#s2_title", 0);
+    // stick_to_top("#s2_title", 0, '#last_line');
 
     init();
+
 
     $("#title").percentext({letterSpacing: -4});
     $("#title_caption").percentext({percentage: 40, letterSpacing: -2});
     $("#title_description_desktop").percentext();
     $("#s2_title").percentext();
     $(".s2_line").percentext();
+
   });
   </script>
 
@@ -151,56 +176,65 @@
         </h6>
 
         <div id="main_button_holder">
-          <div id="button_1_learn_more">Learn More
-          </div><div id="button_2_github">Download On GitHub</div>
+          <div id="button_1_learn_more">Read the Documentation
+          </div><div id="button_2_github">Download on GitHub</div>
         </div>
       </div>
     </section>
 
     <section id="section_2">
-      <h2 id="s2_title" style="">A Quick Demonstration.</h2>
-      <div class="space_taker"></div>
+      <div class="section_dark_bg">
+        <h2 id="s2_title" style="">A Quick Demonstration.</h2>
+        <div class="space_taker"></div>
 
-      
-<!--       <div id="ruler">
-        <div class="ruler_notch small"></div>
-        <div class="ruler_notch large"></div>
-        <div class="ruler_notch small"></div>
-        <div class="ruler_notch large"></div>
-        <div class="ruler_notch small"></div>
-        <div class="ruler_notch large"></div>
-        <div class="ruler_notch small"></div>
-        <div class="ruler_notch large"></div>
-        <div class="ruler_notch small"></div>
-        <div class="ruler_notch large"></div>
-        <div class="ruler_notch small"></div>
-        <div class="ruler_notch large"></div>
-        <div class="ruler_notch small"></div>
-        <div class="ruler_notch large"></div>
-        <div class="ruler_notch small"></div>
-        <div class="ruler_notch large"></div>
-        <div class="ruler_notch small"></div>
-        <div class="ruler_notch large"></div>
-        <div class="ruler_notch small"></div>
-        <div class="ruler_notch large"></div>
         
-        <div class="ruler_line"></div>
-      </div>
- -->
-      <div id="section_2_main_wrapper">
-
-        <div id="section_2_text">
-          <p class="s2_line" style="font-weight: 700;">The Problem.</p>
-          <p class="s2_line">Text doesn't </p>
-          <p class="s2_line">Want that div to take up 50% of the available width?</p>
-          <p class="s2_line">No problem.</p>
-          <p class="s2_line">Want that header to take up 50% of the available width?</p>
-          <p class="s2_line">Well, shit.</p>
+  <!--       <div id="ruler">
+          <div class="ruler_notch small"></div>
+          <div class="ruler_notch large"></div>
+          <div class="ruler_notch small"></div>
+          <div class="ruler_notch large"></div>
+          <div class="ruler_notch small"></div>
+          <div class="ruler_notch large"></div>
+          <div class="ruler_notch small"></div>
+          <div class="ruler_notch large"></div>
+          <div class="ruler_notch small"></div>
+          <div class="ruler_notch large"></div>
+          <div class="ruler_notch small"></div>
+          <div class="ruler_notch large"></div>
+          <div class="ruler_notch small"></div>
+          <div class="ruler_notch large"></div>
+          <div class="ruler_notch small"></div>
+          <div class="ruler_notch large"></div>
+          <div class="ruler_notch small"></div>
+          <div class="ruler_notch large"></div>
+          <div class="ruler_notch small"></div>
+          <div class="ruler_notch large"></div>
+          
+          <div class="ruler_line"></div>
         </div>
+   -->
+        <div id="section_2_main_wrapper">
 
-        
+          <div id="section_2_text">
+            <p class="s2_line bo top_round">Wouldn't it be nice</p>
+            <p class="s2_line">if you could style text</p>
+            <p class="s2_line">just like any other element?</p>
+            <p class="s2_line">Why specify text in terms of font size</p>
+            <p class="s2_line">when you specify <em>everything else</em> in terms of width?</p>
+            <p class="s2_line">I just wanted each of these lines to take up 100% of their parent,</p>
+            <p class="s2_line bottom_round">and to do so in a responsive way using CSS alone would have been... unpleasant.</p>
+          </div>
+
+          
+        </div>
       </div>
     </section>
+
+    <section id="section_3">
+      <div class="section_dark_bg" style="height: 1000px;">
+      </div>
+    </section>
+
   </div>
 
   <div id="mathtools">
