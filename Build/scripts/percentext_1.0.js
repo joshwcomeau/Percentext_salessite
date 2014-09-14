@@ -107,8 +107,6 @@
     container_width           = get_parent_width($elem, $container, user_css), 
     text_width                = $elem.width(),
     text_width_ratio          = text_width / container_width,
-    desired_ratio             = settings.percentage / 100,
-    max_width                 = container_width * desired_ratio,
     font_size_increment       = 1,
     letter_spacing_increment  = 0.1,
     assumed_container_width   = 1000,
@@ -116,6 +114,15 @@
     final_letter_spacing,
     final_left_margin,
     final_font_size;
+
+    // Figure out if we're going for a percentage or pixel width. Get the ratio and width
+
+    var 
+    width_string  = settings.width.toString(), 
+    width_num     = parseInt(settings.width),
+    calc_mode     = width_string.indexOf("px") > 0 ? "pixel" : "percent",
+    desired_ratio = calc_mode === "pixel" ? width_num / container_width : width_num / 100,
+    max_width     = container_width * desired_ratio;
 
 
     // console.log("-- Before Broad Strokes --");
@@ -277,14 +284,13 @@
   
 
   $.fn.percentext.defaults = {
-    percentage:       100,
-    pixelWidth:       null,     // Implement me
+    width:            '100%',
     alignment:        null,
     preciseMode:      true,
     letterSpacing:    null,
     relativeSpacing:  true,
-    minFontSize:      null,     // Implement me
-    maxFontSize:      null,     // Implement me
+    minFontSize:      null,     
+    maxFontSize:      null,     
   };
 
 

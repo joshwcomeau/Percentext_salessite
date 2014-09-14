@@ -5,6 +5,13 @@
   box-sizing: border-box;
 }
 
+strong {
+  font-weight: bold;
+}
+em {
+  font-style: italic;
+}
+
 .bo {
   font-weight: 700;
 }
@@ -16,6 +23,9 @@
 }
 .full_height {
   height: 100%;
+}
+.arial {
+  font-family: arial, sans-serif;
 }
 
 .bg_navy {
@@ -46,9 +56,12 @@
   background: $bbblue !important;
 }
 
+.red_text {
+  color: $red;
+}
+
 
 .code {
-  padding: 3px 5px;
   background: lighten($darkgrey, 12%);
   font-family: "Inconsolata", "Lucida Console", Monaco, monospace;
   color: #CCC;
@@ -64,12 +77,25 @@
   .val {
     color: $yellow;
   }
+  .string {
+    color: $grass;
+  }
+  .comment {
+    color: #777;
+  }
+  .object {
+    color: #EEE;
+    font-style: italic;
+  }
 }
 .code_inline {
   margin: 0 3px;
+  padding: 3px 5px;
 }
 .code_block {
   margin: 10px 5px;
+  padding: 9px;
+  line-height: 1.2em;
 }
 
 
@@ -413,9 +439,6 @@
         background: #555;
       }
 
-      em {
-        font-style: italic;
-      }
     }
 
     .s2_line:first-of-type, .s2_line:first-of-type > .line_effect {
@@ -600,8 +623,14 @@
     border-radius: 0 0.5rem 0.5rem 0.5rem;
     background: $darkgrey;
 
+    .quickstart_header {
+      font-size: 1.5rem;
+    }
+
     p {
       margin-bottom: 0.75rem;
+      margin-top: 23px;
+      line-height: 1.5em;
     }
 
     a {
@@ -613,6 +642,9 @@
       padding: 0.5rem 0;
       border-bottom: 1px dotted lighten($darkgrey, 10%);
     }
+    li:first-of-type {
+      margin-top: 10px;
+    }
     li:last-of-type {
       border-bottom: 0px;
     }
@@ -621,6 +653,8 @@
       position: relative;
       top: 0.15rem;
       font-size: 2em;
+      min-width: 32px;
+      display: inline-block;
       font-weight: bold;
       padding-right: 0.5rem;
       
@@ -635,6 +669,22 @@
         color: $red;
       }
     }
+
+    .PENGUIN {
+      margin-top: 2rem;
+      text-align: center;
+
+      svg:hover path {
+        fill: lighten($aqua, 10%);
+      }
+    }
+    .PENGUIN path {
+      fill: $aqua;
+
+    }
+
+
+
 
   }
 

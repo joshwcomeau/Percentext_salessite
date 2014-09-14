@@ -48,6 +48,12 @@ table {
 *, *:before, *:after {
   box-sizing: border-box; }
 
+strong {
+  font-weight: bold; }
+
+em {
+  font-style: italic; }
+
 .bo {
   font-weight: 700; }
 
@@ -59,6 +65,9 @@ table {
 
 .full_height {
   height: 100%; }
+
+.arial {
+  font-family: arial, sans-serif; }
 
 .bg_navy {
   background: #30505c !important; }
@@ -87,8 +96,10 @@ table {
 .bg_bbblue {
   background: #0094cf !important; }
 
+.red_text {
+  color: #df4949; }
+
 .code {
-  padding: 3px 5px;
   background: #525252;
   font-family: "Inconsolata", "Lucida Console", Monaco, monospace;
   color: #CCC;
@@ -100,12 +111,22 @@ table {
     color: #df4949; }
   .code .val {
     color: #efc94c; }
+  .code .string {
+    color: #34bf57; }
+  .code .comment {
+    color: #777; }
+  .code .object {
+    color: #EEE;
+    font-style: italic; }
 
 .code_inline {
-  margin: 0 3px; }
+  margin: 0 3px;
+  padding: 3px 5px; }
 
 .code_block {
-  margin: 10px 5px; }
+  margin: 10px 5px;
+  padding: 9px;
+  line-height: 1.2em; }
 
 #bgCanvas {
   position: fixed; }
@@ -306,8 +327,6 @@ table {
         transition: 0.5s; }
       #section_2 #section_2_main_wrapper .s2_line > .line_effect_highlight {
         background: #555; }
-      #section_2 #section_2_main_wrapper .s2_line em {
-        font-style: italic; }
     #section_2 #section_2_main_wrapper .s2_line:first-of-type, #section_2 #section_2_main_wrapper .s2_line:first-of-type > .line_effect {
       border-radius: 1rem 1rem 0 0; }
     #section_2 #section_2_main_wrapper .s2_line:last-of-type, #section_2 #section_2_main_wrapper .s2_line:last-of-type > .line_effect {
@@ -435,14 +454,20 @@ table {
     padding: 1rem;
     border-radius: 0 0.5rem 0.5rem 0.5rem;
     background: #333333; }
+    #section_4 .s4_textblock .quickstart_header {
+      font-size: 1.5rem; }
     #section_4 .s4_textblock p {
-      margin-bottom: 0.75rem; }
+      margin-bottom: 0.75rem;
+      margin-top: 23px;
+      line-height: 1.5em; }
     #section_4 .s4_textblock a {
       color: #FFF; }
     #section_4 .s4_textblock li {
       line-height: 1.5em;
       padding: 0.5rem 0;
       border-bottom: 1px dotted #4d4d4d; }
+    #section_4 .s4_textblock li:first-of-type {
+      margin-top: 10px; }
     #section_4 .s4_textblock li:last-of-type {
       border-bottom: 0px; }
     #section_4 .s4_textblock li:before {
@@ -450,6 +475,8 @@ table {
       position: relative;
       top: 0.15rem;
       font-size: 2em;
+      min-width: 32px;
+      display: inline-block;
       font-weight: bold;
       padding-right: 0.5rem;
       color: #efc94c; }
@@ -458,6 +485,13 @@ table {
       color: #cccccc; }
       #section_4 .s4_textblock footer strong {
         color: #df4949; }
+    #section_4 .s4_textblock .PENGUIN {
+      margin-top: 2rem;
+      text-align: center; }
+      #section_4 .s4_textblock .PENGUIN svg:hover path {
+        fill: #55cfd1; }
+    #section_4 .s4_textblock .PENGUIN path {
+      fill: #34bdbf; }
 
 @media screen and (max-width: 1024px) {
   #mathtools_column {

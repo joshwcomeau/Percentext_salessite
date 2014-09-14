@@ -129,14 +129,13 @@
     SyntaxHighlighter.all()
 
     $("#title").percentext({letterSpacing: -4});
-    $("#title_caption").percentext({percentage: 40, letterSpacing: -2});
+    $("#title_caption").percentext({width: 40, letterSpacing: -2});
     $("#title_description_desktop").percentext({minFontSize: 18});
     $(".mobile_title_desc_line").percentext();
     $("#s2_title").percentext();
     $(".line_text").percentext();
-    $("#why_percentext_header").percentext({percentage: 75, letterSpacing: -3})
+    $("#why_percentext_header").percentext({width: 75, letterSpacing: -3})
     $("#s4_title").percentext();
-    $(".quickstart_header").percentext();
 
     parallax_scroller(["#section_2", "#section_3", "#section_4"]); 
     silly_highlight_effect(".line_effect");
@@ -255,7 +254,7 @@
               <p>Many people who find it irksome to deal with font sizes use <a href="http://fittextjs.com/">FitText.js</a>. FitText is a great little plugin, but it isn't quite the same as Percentext. FitText arbitrarily sets font-size to be equal to a fraction of the parent container's width, allowing users to tweak via a 'compressor' to get the size just right.</p>
 
               <h4>Pros and Cons</h4>
-              <p>Percentext's advantage is that it allows you to set a percentage and be done with it - no tweaking required. The downside to this convenience is performance; FitText is a very simple plugin that works lightning fast. Percentext can be a bit sluggish if you have many headers that you wish to size.</p>
+              <p>Percentext's advantage is that it allows you to set a percentage and be done with it&mdash;no tweaking required. The downside to this convenience is performance; FitText is a very simple plugin that works lightning fast. Percentext, can be a bit sluggish if you have many headers that you wish to size.</p>
 
               
             </div>
@@ -6597,59 +6596,69 @@
           <div class="c6">
             <h4 class="s4_header">Installation</h4><div class="s4_header_edge"></div>
             <div class="s4_textblock">
-              <p class="quickstart_header">Installation is a piece of cake! Here are some steps:</p>
+              <h3 class="quickstart_header">Installation is a piece of cake! Here are some steps:</h3>
               <ol>
-                <li data-number="1">First thing's first, make sure you have <a href="http://jquery.com/download/">jQuery</a> installed! Percentext depends on it.</li>
-                <li data-number="2">Download <a href="#">Percentext.js</a> from GitHub.</li>
-                <li data-number="3">Throw your new download into your project folder. Right next to all the other scripts. It'll fit right in. 
-                <li data-number="4">
+                <li data-number="1.">First thing's first, make sure you have <a href="http://jquery.com/download/">jQuery</a> installed! Percentext depends on it.</li>
+                <li data-number="2.">Download <a href="#">Percentext.js</a> from GitHub.</li>
+                <li data-number="3.">Throw your new download into your project folder. Right next to all the other scripts. It'll fit right in. 
+                <li data-number="4.">
                   Include the following line of HTML into the 
                   <span class="code code_inline"><span class="tag">&lt;head&gt;</span></span> 
                   section of the page(s) you want to use Percentext in:
                   <br>
                   <div class="code code_block">
-                       <span class="tag">&lt;script</span> <!--
-                    --><span class="attr">type</span>=<!--
-                    --><span class="val">"text/javascript"</span> <!--
-                    --><span class="attr">src</span>=<!--
+                       <span class="tag">&lt;script</span> 
+                       <span class="attr">type</span>=<!--
+                    --><span class="val">"text/javascript"</span> 
+                       <span class="attr">src</span>=<!--
                     --><span class="val">"path/to/percentext.js"</span><!--
                     --><span class="tag">&gt;</span>
                   </div>
                 </li>
 
-                <li data-number="5">That's it! You're loaded and ready to rock.</li>
-
-                <footer class="tiny centered"><strong>Coming soon:</strong> a node package for even easier installation.</footer>
+                <li data-number="5.">That's it! You're loaded and ready to rock.</li>
               </ol>
+              <div class="PENGUIN"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" width="100px" height="100px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">
+<path d="M91.456,36.175c-0.764-2.747-2.231-4.46-4.024-4.703c-1.3-0.177-3.298,0.367-5.455,3.961  c-1.19,1.983-3.383,2.759-5.603,2.981C72.018,21.333,63.774,6.7,44.213,6.7C20.709,6.711,17.065,21.988,13.208,38.163  c-0.946,3.966-1.924,8.067-3.215,11.987C6.53,60.655,7.274,69.437,12.202,76.251c2.237,3.092,5.215,5.535,8.583,7.443  c-0.435,0.6-0.684,1.275-0.604,2.043c0.187,1.814,1.388,2.9,3.213,2.9c0.28,0,0.581-0.027,0.878-0.082  c-0.141,0.674-0.193,1.348-0.148,1.982c0.103,1.471,1.848,2.762,3.734,2.762c0.606,0,2.25-0.176,3.306-1.934  c0.531,0.986,1.418,1.797,2.823,1.797c0,0,0,0,0.001,0c0.417,0,0.866-0.074,1.333-0.223c0.794-0.25,1.386-0.779,1.71-1.529  c0.296-0.686,0.351-1.537,0.25-2.463c1.706,0.213,3.329,0.332,4.819,0.381c0.208,0.01,0.413,0.014,0.62,0.02  c0.033,0.002,0.065,0.002,0.098,0.002c0.529,0.018,1.058,0.031,1.574,0.031c2.428,0,5.538-0.164,8.906-0.734  c-0.035,1.037,0.094,1.979,0.494,2.693c0.399,0.713,1.043,1.18,1.858,1.346c0.334,0.068,0.658,0.105,0.961,0.105  c0.925,0,1.721-0.33,2.303-0.953c0.317-0.34,0.548-0.734,0.714-1.141c1.053,1.402,2.402,1.6,3.075,1.6  c1.116,0,2.245-0.479,3.02-1.279c0.55-0.568,0.84-1.234,0.818-1.875c-0.021-0.635-0.142-1.299-0.353-1.957  c0.147,0.012,0.282,0.018,0.4,0.018c0.61,0,1.492-0.115,2.224-0.666c0.527-0.396,1.157-1.164,1.156-2.574  c-0.001-0.719-0.27-1.332-0.704-1.857c1.412-1.084,2.751-2.314,3.961-3.746c4.517-5.344,6.631-12.357,6.342-20.9  c3.03-0.539,5.691-1.897,7.819-4.046C91.594,49.17,93.189,42.402,91.456,36.175z M59.821,24.403c0.937,0,1.696,0.896,1.696,1.999  c0,1.104-0.76,1.999-1.696,1.999c-0.938,0-1.697-0.895-1.697-1.999C58.124,25.299,58.884,24.403,59.821,24.403z M52.403,31.883  c0.517,0.577,2.163,6.329-0.329,6.57c-2.493,0.241-4.917-4.525-4.917-4.525C49.6,29.627,52.403,31.883,52.403,31.883z M37.46,25.928  c0.938,0,1.697,0.896,1.697,1.999c0,1.104-0.759,1.999-1.697,1.999c-0.937,0-1.696-0.895-1.696-1.999  C35.764,26.823,36.523,25.928,37.46,25.928z M67.975,80.454c-4.117,5.439-28.876,11.598-46.481,1.301  c-0.881-3.471-0.767-7.613,0.138-11.879c1.687,0.576,3.388,0.848,5.065,0.848c7.098,0,13.757-4.756,16.942-10.792  c1.473-2.791,1.596-5.286,0.337-6.845c-0.913-1.129-2.937-2.213-7.402-0.96c-1.782,0.498-3.675,0.135-5.636-1.067  c2.733-3.118,5.89-5.586,9.31-6.931c10.979-4.315,24.303-2.773,28.56,9.325C74.238,68.888,69.304,78.698,67.975,80.454z"/>
+</svg></div>
+              <footer class="tiny centered"><strong>Coming soon:</strong> npm package and rails gem for even easier installation!?</footer>
+            
             </div>
           </div>
           <div class="c6">
             <h4 class="s4_header">Usage</h4><div class="s4_header_edge"></div>
             <div class="s4_textblock">
-              <p class="usage_header">Using it is even easier than installing it!</p>
-              <ol>
-                <li data-number="1">Download <a href="#">Percentext.js</a> from GitHub.</li>
-                <li>Throw your new download into your project folder. Right next to all the other scripts, it'll fit right in. 
-                <li>Include it on the page(s) you want to use it in, by adding the following line of code to your html page:<br>
-                  <pre>
-                    &lt;head&gt;<br>
-                    &nbsp;&nbsp;&lt;script src="path/to/percentext.js"&gt;
-                  </pre>
-                </li>
+              <h3 class="quickstart_header">Using it is even easier than installing it!</h3>
+              <p>If you're happy with the default settings, you can just call it on any element you want:</p>
+              <div class="code code_block">
+                <span class="val">$</span>(<span class="string">".some-class"</span>).percentext();
+              </div>
+              <p>The default assumes you want the header's text to take up 100% of the width. If you want to specify a custom width, you can do so in the following ways:</p>
+              <div class="code code_block">
+                <span class="comment">// As a percentage:</span><br>
+                <span class="val">$</span>(<span class="string">".some-class"</span>).percentext({ <span class="object">width: <span class="string">"80%"</span></span> });<br>
+                <span class="val">$</span>(<span class="string">".some-class"</span>).percentext({ <span class="object">width: <span class="tag">80</span></span> });
+                <br><br>
+                <span class="comment">// As a pixel value:</span><br>
+                <span class="val">$</span>(<span class="string">".some-class"</span>).percentext({ <span class="object">width: <span class="string">"500px"</span></span> });
+              </div>
 
-                <li>That's it! You're loaded and ready to rock.</li>
-              </ol>
-              <p>
-                <strong>Note:</strong> This plugin <em>depends on</em> jQuery. That means you need to be including jQuery on the same page, <em>above</em> where you include Percentext.
-              </p>
+              <p>There are a whole bunch of ways to customize Percentext to suit your needs, but one more critical option to know about: <strong class="red_text">Precise Mode</strong>.</p>
+              <p>Precise mode isn't happy to just grab the most appropriate font size, it uses letter spacing to try and match your requested width <em>to the pixel</em>. The downside is it can be pretty greedy with your CPU's cycles. If you're noticing the performance of Percentext leaves something to be desired, turn it off like so:</p>
+
+              <div class="code code_block">
+                <span class="val">$</span>(<span class="string">".some-class"</span>).percentext({ <span class="object">preciseMode: <span class="attr">false</span></span> });<br>
+              </div>
+
+
+
+              
             </div>
           </div>
       </div>
     </section>
 
   </div>
-
-  
 
   <footer>
     <a href="/credits">Credits</a>
