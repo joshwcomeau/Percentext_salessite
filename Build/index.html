@@ -5,6 +5,8 @@
 
   <link rel='stylesheet' href='styles/style.css'>
   <link rel='stylesheet' href='styles/grid.css'>
+  <link rel='stylesheet' href='styles/syntax_themes/shCore.css'>
+  <link rel='stylesheet' href='styles/syntax_themes/shThemeFadeToGrey.css'>
 
   <script src="http://use.edgefonts.net/raleway:n3,n5,n7,n9;bowlby-one.js"></script>
   <script src='scripts/jquery_1.11.1.js'></script>
@@ -12,7 +14,9 @@
   <script src='scripts/patternizr.min.js'></script>
   <script src='scripts/patternizr_stripes.js'></script>
   <script src='scripts/percentext_1.0.js'></script>
-  <script src='scripts/lodash.min.js'></script>
+  <script src='scripts/shCore.js'></script>
+<script src='scripts/lodash.min.js'></script>
+<script src='scripts/shBrushJScript.js'></script>
 
   <script>
   $(document).ready(function() {
@@ -123,10 +127,12 @@
 
     init();
 
+    SyntaxHighlighter.all()
 
     $("#title").percentext({letterSpacing: -4});
     $("#title_caption").percentext({percentage: 40, letterSpacing: -2});
     $("#title_description_desktop").percentext({minFontSize: 18});
+    $(".mobile_title_desc_line").percentext();
     $("#s2_title").percentext();
     $(".line_text").percentext();
     $("#why_percentext_header").percentext({percentage: 75, letterSpacing: -3})
@@ -164,11 +170,26 @@
             <img src="percentext_icon.png" class="percentext_icon">
           </div>
         </div>
-        
-        <h6 id="title_description_desktop">
 
-          The jQuery plugin that adjusts <em>font-size</em> and <em>letter-spacing</em>, so you can set a <em>percentage width</em> for your headers.
-        </h6>
+        <div id="title_description">
+        
+          <h6 id="title_description_desktop">
+            The jQuery plugin that adjusts <em>font-size</em> and <em>letter-spacing</em>, so you can set a <em>percentage width</em> for your headers.
+          </h6>
+          <h6 id="title_description_mobile">
+
+            <div>
+              <h4 class="mobile_title_desc_line">
+                The jQuery plugin that adjusts <em>font-size</em> and <em>letter-spacing</em>,
+              </h4>
+            </div>
+            <div>
+              <h4 class="mobile_title_desc_line">
+                so you can set a <em>percentage width</em> for your headers.
+              </h4>
+            </div>
+          </h6>
+        </div>
 
         <div id="main_button_holder">
           <div id="button_1_learn_more">Read the Documentation
@@ -6572,8 +6593,29 @@
     <section id="section_4">
       <h2 id="s4_title">Quick Start Guide.</h2>
       <div class="section_dark_bg">
-        <h4>Installation</h4>
-        <p>Installation is a piece of cake! Download <a href="#">Percentext.js</a> from GitHub and throw it in your local scripts directory. Percentext depends on jQuery - make sure to include it <em>after</em> jQuery. You've been warned.</p>
+        <div class="grid">
+          <div class="c6">
+            <h4>Installation</h4>
+            <p>Installation is a piece of cake! Here are some steps:</p>
+            <ol>
+              <li>Download <a href="#">Percentext.js</a> from GitHub.</li>
+              <li>Throw your new download into your project folder. Right next to all the other scripts, it'll fit right in. 
+              <li>Include it on the page(s) you want to use it in, by adding the following line of code to your html page:<br>
+                <pre>
+                  &lt;head&gt;<br>
+                  &nbsp;&nbsp;&lt;script src="path/to/percentext.js"&gt;
+                </pre>
+              </li>
+
+              <li>That's it! You're loaded and ready to rock.</li>
+            </ol>
+            <p>
+              <strong>Note:</strong> This plugin <em>depends on</em> jQuery. That means you need to be including jQuery on the same page, <em>above</em> where you include Percentext.
+            </p>
+          </div>
+          <div class="c6">
+
+          </div>
       </div>
     </section>
 

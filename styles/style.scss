@@ -159,14 +159,6 @@
       color: $orange;
     }
 
-    #title_description_desktop, #title_description_mobile {
-      margin-top: 2rem;
-
-      em {
-        color: $orange;
-        font-weight: 700;
-      }
-    }
 
     $button_width: 250px;
 
@@ -279,6 +271,21 @@
 
     }
   }
+}
+
+// Moved the section 1 title stuff out of the section 1 CSS because of
+// specificity issues with media queries.
+#title_description {
+  margin-top: 2rem;
+
+  em {
+    color: $orange;
+    font-weight: 700;
+  }
+}
+
+.mobile_title_desc_line {
+  display: none;
 }
 
 
@@ -541,10 +548,40 @@
 
 }
 
-
+// Breakpoint for landscape devices < 1024px. Tablets, laptops.
 @media screen and (max-width: $medium_breakpoint) {
   // Hide the mathtools column below laptop resolution.
   #mathtools_column {
     display: none;
   }
+
+  // hide desktop title description, show the mobile version instead.
+  .mobile_title_desc_line {
+    display: block;
+  }  
+  #title_description_desktop {
+    display: none;
+  }
+
+  // increase the size of the percentext title icon on mobile widths
+
+  .divider_with_icon {
+    margin: 0 8%;
+
+    &:before {
+      margin-left: -8%;
+    }
+    &:after {
+      margin-right: -8%;
+    }
+
+    & > .icon_holder {
+      width: 12%;
+    }
+  }
+
+}
+
+@media screen and (orientation: portrait) {
+
 }
