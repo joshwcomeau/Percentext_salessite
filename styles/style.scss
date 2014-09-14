@@ -8,6 +8,12 @@
 .bo {
   font-weight: 700;
 }
+.tiny {
+  font-size: 0.8em;
+}
+.centered {
+  text-align: center;
+}
 .full_height {
   height: 100%;
 }
@@ -65,6 +71,7 @@
 .code_block {
   margin: 10px 5px;
 }
+
 
 #bgCanvas {
   position: fixed;
@@ -566,7 +573,6 @@
 
   & > .section_dark_bg {
     background: $navy;
-    padding: 4% 0;
     border-top: 2px solid lighten($darkgrey, 10%);
     border-bottom: 2px solid #111;
   }
@@ -607,6 +613,9 @@
       padding: 0.5rem 0;
       border-bottom: 1px dotted lighten($darkgrey, 10%);
     }
+    li:last-of-type {
+      border-bottom: 0px;
+    }
     li:before {
       content: attr(data-number);
       position: relative;
@@ -618,9 +627,15 @@
       color: $yellow;
     }
 
-    .li_number {
+    footer {
+      margin-top: 2rem;
+      color: $lightgrey;
 
+      strong {
+        color: $red;
+      }
     }
+
   }
 
 }

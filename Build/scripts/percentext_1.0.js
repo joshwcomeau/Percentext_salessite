@@ -150,6 +150,16 @@
       final_font_size = decrease_until_just_right( $elem, max_width, broad_font_size, font_size_increment );
     }
 
+    // Check if we've exceeded any given limits (min or max size). 
+    // If we have, set it to that limit.
+    if ( settings.minFontSize && final_font_size < settings.minFontSize ) {
+      final_font_size = settings.minFontSize;
+    } else if ( settings.maxFontSize && final_font_size > settings.maxFontSize ) {
+      final_font_size = settings.maxFontSize;
+    }
+
+
+
     $elem.css("font-size", final_font_size);
 
 
@@ -158,7 +168,8 @@
     // Part III: Precise Mode (optional)
     // Uses letter-spacing to get as precise a width as possible. Generally not necessary, but can be useful
     // on headers with lots of letters (since the difference between 10px and 11px font size is significant).
-    if ( settings.preciseMode ) {
+    // Precise mode is automatically skipped if our font size was set to our set minimum or maximum.
+    if ( settings.preciseMode && final_font_size != settings.minFontSize && final_font_size != settings.maxFontSize ) {
       var too_big_letter_spacing = increase_to_excess( $elem, max_width, "letter-spacing", starting_letter_spacing, letter_spacing_increment );
       final_letter_spacing = too_big_letter_spacing - letter_spacing_increment;
       // final_letter_spacing = starting_letter_spacing;
@@ -172,6 +183,8 @@
     } else {
       final_text_indent = user_css.textIndent;
     }
+
+
 
 
     return {

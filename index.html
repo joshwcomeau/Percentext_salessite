@@ -134,7 +134,7 @@
     $(".line_text").percentext();
     $("#why_percentext_header").percentext({percentage: 75, letterSpacing: -3})
     $("#s4_title").percentext();
-    $("#installation_header").percentext();
+    $(".quickstart_header").percentext();
 
     parallax_scroller(["#section_2", "#section_3", "#section_4"]); 
     silly_highlight_effect(".line_effect");
@@ -282,11 +282,12 @@
           <div class="c6">
             <h4 class="s4_header">Installation</h4><div class="s4_header_edge"></div>
             <div class="s4_textblock">
-              <p id="installation_header">Installation is a piece of cake! Here are some steps:</p>
+              <p class="quickstart_header">Installation is a piece of cake! Here are some steps:</p>
               <ol>
-                <li data-number="1">Download <a href="#">Percentext.js</a> from GitHub.</li>
-                <li data-number="2">Throw your new download into your project folder. Right next to all the other scripts. It'll fit right in. 
-                <li data-number="3">
+                <li data-number="1">First thing's first, make sure you have <a href="http://jquery.com/download/">jQuery</a> installed! Percentext depends on it.</li>
+                <li data-number="2">Download <a href="#">Percentext.js</a> from GitHub.</li>
+                <li data-number="3">Throw your new download into your project folder. Right next to all the other scripts. It'll fit right in. 
+                <li data-number="4">
                   Include the following line of HTML into the 
                   <span class="code code_inline"><span class="tag">&lt;head&gt;</span></span> 
                   section of the page(s) you want to use Percentext in:
@@ -301,17 +302,16 @@
                   </div>
                 </li>
 
-                <li>That's it! You're loaded and ready to rock.</li>
+                <li data-number="5">That's it! You're loaded and ready to rock.</li>
+
+                <footer class="tiny centered"><strong>Coming soon:</strong> a node package for even easier installation.</footer>
               </ol>
-              <p>
-                <strong>Note:</strong> This plugin <em>depends on</em> jQuery. That means you need to be including jQuery on the same page, <em>above</em> where you include Percentext.
-              </p>
             </div>
           </div>
           <div class="c6">
-            <h4 class="s4_header">Usage</h4>
+            <h4 class="s4_header">Usage</h4><div class="s4_header_edge"></div>
             <div class="s4_textblock">
-              <p class>Installation is a piece of cake! Here are some steps:</p>
+              <p class="usage_header">Using it is even easier than installing it!</p>
               <ol>
                 <li data-number="1">Download <a href="#">Percentext.js</a> from GitHub.</li>
                 <li>Throw your new download into your project folder. Right next to all the other scripts, it'll fit right in. 
