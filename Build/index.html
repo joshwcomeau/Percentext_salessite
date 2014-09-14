@@ -7,8 +7,10 @@
   <link rel='stylesheet' href='styles/grid.css'>
   <link rel='stylesheet' href='styles/syntax_themes/shCore.css'>
   <link rel='stylesheet' href='styles/syntax_themes/shThemeFadeToGrey.css'>
+  <link href='http://fonts.googleapis.com/css?family=Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <script src="http://use.edgefonts.net/raleway:n3,n5,n7,n9;bowlby-one.js"></script>
+
   <script src='scripts/jquery_1.11.1.js'></script>
   <script src='scripts/throttle-debounce_1.1.min.js'></script>
   <script src='scripts/patternizr.min.js'></script>
@@ -86,10 +88,7 @@
 
         })
       });
-
-      
     }
-
 
     // Function to change the background color of an element depending on its scroll height.
     // Essentially, I want the background color of selected elements to lighten as they move from the bottom of the
@@ -137,6 +136,7 @@
     $(".line_text").percentext();
     $("#why_percentext_header").percentext({percentage: 75, letterSpacing: -3})
     $("#s4_title").percentext();
+    $("#installation_header").percentext();
 
     parallax_scroller(["#section_2", "#section_3", "#section_4"]); 
     silly_highlight_effect(".line_effect");
@@ -6593,28 +6593,56 @@
     <section id="section_4">
       <h2 id="s4_title">Quick Start Guide.</h2>
       <div class="section_dark_bg">
-        <div class="grid">
+        <div class="grid padded_grid">
           <div class="c6">
-            <h4>Installation</h4>
-            <p>Installation is a piece of cake! Here are some steps:</p>
-            <ol>
-              <li>Download <a href="#">Percentext.js</a> from GitHub.</li>
-              <li>Throw your new download into your project folder. Right next to all the other scripts, it'll fit right in. 
-              <li>Include it on the page(s) you want to use it in, by adding the following line of code to your html page:<br>
-                <pre>
-                  &lt;head&gt;<br>
-                  &nbsp;&nbsp;&lt;script src="path/to/percentext.js"&gt;
-                </pre>
-              </li>
+            <h4 class="s4_header">Installation</h4><div class="s4_header_edge"></div>
+            <div class="s4_textblock">
+              <p id="installation_header">Installation is a piece of cake! Here are some steps:</p>
+              <ol>
+                <li data-number="1">Download <a href="#">Percentext.js</a> from GitHub.</li>
+                <li data-number="2">Throw your new download into your project folder. Right next to all the other scripts. It'll fit right in. 
+                <li data-number="3">
+                  Include the following line of HTML into the 
+                  <span class="code code_inline"><span class="tag">&lt;head&gt;</span></span> 
+                  section of the page(s) you want to use Percentext in:
+                  <br>
+                  <div class="code code_block">
+                       <span class="tag">&lt;script</span> <!--
+                    --><span class="attr">type</span>=<!--
+                    --><span class="val">"text/javascript"</span> <!--
+                    --><span class="attr">src</span>=<!--
+                    --><span class="val">"path/to/percentext.js"</span><!--
+                    --><span class="tag">&gt;</span>
+                  </div>
+                </li>
 
-              <li>That's it! You're loaded and ready to rock.</li>
-            </ol>
-            <p>
-              <strong>Note:</strong> This plugin <em>depends on</em> jQuery. That means you need to be including jQuery on the same page, <em>above</em> where you include Percentext.
-            </p>
+                <li>That's it! You're loaded and ready to rock.</li>
+              </ol>
+              <p>
+                <strong>Note:</strong> This plugin <em>depends on</em> jQuery. That means you need to be including jQuery on the same page, <em>above</em> where you include Percentext.
+              </p>
+            </div>
           </div>
           <div class="c6">
+            <h4 class="s4_header">Usage</h4>
+            <div class="s4_textblock">
+              <p class>Installation is a piece of cake! Here are some steps:</p>
+              <ol>
+                <li data-number="1">Download <a href="#">Percentext.js</a> from GitHub.</li>
+                <li>Throw your new download into your project folder. Right next to all the other scripts, it'll fit right in. 
+                <li>Include it on the page(s) you want to use it in, by adding the following line of code to your html page:<br>
+                  <pre>
+                    &lt;head&gt;<br>
+                    &nbsp;&nbsp;&lt;script src="path/to/percentext.js"&gt;
+                  </pre>
+                </li>
 
+                <li>That's it! You're loaded and ready to rock.</li>
+              </ol>
+              <p>
+                <strong>Note:</strong> This plugin <em>depends on</em> jQuery. That means you need to be including jQuery on the same page, <em>above</em> where you include Percentext.
+              </p>
+            </div>
           </div>
       </div>
     </section>

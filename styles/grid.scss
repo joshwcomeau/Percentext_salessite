@@ -17,7 +17,7 @@
 // Apply float and gutters to all columns in one easy selector.
 [class*='column_'], .c1, .c2, .c3, .c4, .c5, .c6, .c7, .c8, .c9, .c10, .c11, .c12 {
   float: left;
-  padding-right: $gutter_size * 2;
+  padding-right: $gutter_size;
   .grid &:last-of-type {
     padding-right: 0;
   }
@@ -25,10 +25,7 @@
 
 // Optional outer gutters
 .padded_grid {
-  padding: $gutter_size 0 $gutter_size $gutter_size;
-  [class*='column_']:last-of-type {
-    padding-right: $gutter_size;
-  }
+  padding: $gutter_size;
 }
 
 // GRID TIME. All possible sizes, with multiple labels for convenience.
@@ -75,5 +72,6 @@
 @media screen and (max-width: $medium_breakpoint) {
   [class*='column_'], .c1, .c2, .c3, .c4, .c5, .c6, .c7, .c8, .c9, .c10, .c11, .c12 {
     width: 100%;
+    padding-right: 0;
   }
 }
