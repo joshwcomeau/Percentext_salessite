@@ -159,9 +159,6 @@
       color: $orange;
     }
 
-
-    $button_width: 250px;
-
     #main_button_holder {
       position: relative;
       width: $button_width * 2;
@@ -583,5 +580,117 @@
 }
 
 @media screen and (orientation: portrait) {
+  
+  #section_1 {
+    .title_area {
+      #main_button_holder {
+        margin: 4rem auto;
+
+        & > div {
+          position: absolute;
+          width: 80%;
+          height: 44px;
+          left: 10%;
+          text-align: center;
+          display: block;
+          margin: 0;
+          padding: 1rem;
+          font-weight: 700;
+          cursor: pointer;
+          text-align: center;
+          transition: 0.25s;
+          -webkit-touch-callout: none;
+          -webkit-user-select: none;
+          -khtml-user-select: none;
+          -moz-user-select: none;
+          -ms-user-select: none;
+          user-select: none;
+        }
+
+        & > div:active {
+          box-shadow: none !important;
+          margin-top: 4px;
+          margin-left: 4px;
+          // transition: 0 !important;
+        }
+        #button_1_learn_more {
+          border-radius: 6px 6px 0 0;
+          
+          // background: $blue;
+          // box-shadow: 
+          //   0.5px 0.5px 0px darken($blue, 10%),
+          //   1px 1px 0px darken($blue, 10%),
+          //   1.5px 1.5px 0px darken($blue, 10%),
+          //   2px 2px 0px darken($blue, 10%),
+          //   2.5px 2.5px 0px darken($blue, 10%),
+          //   3px 3px 0px darken($blue, 10%),
+          //   3.5px 3.5px 0px darken($blue, 10%),
+          //   4px 4px 0px darken($blue, 10%)
+          // ;
+          // text-shadow:
+          //   0.5px 0.5px 0px darken($blue, 10%),
+          //   1px 1px 0px darken($blue, 10%)
+          // ;
+        }
+        #button_1_learn_more:hover {
+          // background: $bbblue;
+          // transition: 0.25s;
+          // box-shadow: 
+          //   0.5px 0.5px 0px darken($bbblue, 10%),
+          //   1px 1px 0px darken($bbblue, 10%),
+          //   1.5px 1.5px 0px darken($bbblue, 10%),
+          //   2px 2px 0px darken($bbblue, 10%),
+          //   2.5px 2.5px 0px darken($bbblue, 10%),
+          //   3px 3px 0px darken($bbblue, 10%),
+          //   3.5px 3.5px 0px darken($bbblue, 10%),
+          //   4px 4px 0px darken($bbblue, 10%)
+          // ;
+          // text-shadow:
+          //   0.5px 0.5px 0px darken($bbblue, 10%),
+          //   1px 1px 0px darken($bbblue, 10%)
+          // ;
+        }
+
+        #button_2_github {
+          left: 10%;
+          top: 44px;
+          border-radius: 0 0 6px 6px;
+          // background: $green;
+          // transition: 0.25s;
+          // box-shadow: 
+          //   0.5px 0.5px 0px darken($green, 10%),
+          //   1px 1px 0px darken($green, 10%),
+          //   1.5px 1.5px 0px darken($green, 10%),
+          //   2px 2px 0px darken($green, 10%),
+          //   2.5px 2.5px 0px darken($green, 10%),
+          //   3px 3px 0px darken($green, 10%),
+          //   3.5px 3.5px 0px darken($green, 10%),
+          //   4px 4px 0px darken($green, 10%)
+          // ;
+          // text-shadow:
+          //   0.5px 0.5px 0px darken($green, 10%),
+          //   1px 1px 0px darken($green, 10%)
+          // ;
+        }
+        #button_2_github:hover {
+        //   background: $grass;
+        //   box-shadow: 
+        //     0.5px 0.5px 0px darken($grass, 10%),
+        //     1px 1px 0px darken($grass, 10%),
+        //     1.5px 1.5px 0px darken($grass, 10%),
+        //     2px 2px 0px darken($grass, 10%),
+        //     2.5px 2.5px 0px darken($grass, 10%),
+        //     3px 3px 0px darken($grass, 10%),
+        //     3.5px 3.5px 0px darken($grass, 10%),
+        //     4px 4px 0px darken($grass, 10%)
+        //   ;
+        //   text-shadow:
+        //     0.5px 0.5px 0px darken($grass, 10%),
+        //     1px 1px 0px darken($grass, 10%)
+        //   ;
+        }
+      }
+    }
+  }
 
 }

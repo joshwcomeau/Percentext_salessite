@@ -407,3 +407,35 @@ table {
       margin-right: -8%; }
     .divider_with_icon > .icon_holder {
       width: 12%; } }
+@media screen and (orientation: portrait) {
+  #section_1 .title_area #main_button_holder {
+    margin: 4rem auto; }
+    #section_1 .title_area #main_button_holder > div {
+      position: absolute;
+      width: 80%;
+      height: 44px;
+      left: 10%;
+      text-align: center;
+      display: block;
+      margin: 0;
+      padding: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      text-align: center;
+      transition: 0.25s;
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      -khtml-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none; }
+    #section_1 .title_area #main_button_holder > div:active {
+      box-shadow: none !important;
+      margin-top: 4px;
+      margin-left: 4px; }
+    #section_1 .title_area #main_button_holder #button_1_learn_more {
+      border-radius: 6px 6px 0 0; }
+    #section_1 .title_area #main_button_holder #button_2_github {
+      left: 10%;
+      top: 44px;
+      border-radius: 0 0 6px 6px; } }
