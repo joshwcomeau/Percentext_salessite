@@ -27,6 +27,9 @@ em {
 .arial {
   font-family: arial, sans-serif;
 }
+.mono {
+  font-family: "Inconsolata", "Lucida Console", Monaco, monospace;
+}
 
 .bg_navy {
   background: $navy !important;
@@ -58,6 +61,9 @@ em {
 
 .red_text {
   color: $red;
+}
+.aqua_text {
+  color: $aqua;
 }
 
 
@@ -696,11 +702,69 @@ em {
     border-bottom: 0.4rem solid darken($bbblue, 16%);
   }
 
+  .s5_header {
+    font-size: 2.2rem;
+    letter-spacing: -1px;
+    margin-bottom: 0.5rem;
+    color: $green;
+  }
+
   & > .section_dark_bg {
     background: $beige;
     min-height: 500px;
     color: $darkgrey;
     border-bottom: 2px solid darken($beige, 18%);
+    font-size: 1.3rem;
+  }
+
+  .options_grid {
+    padding: 2rem 0;
+  }
+
+  .option_container {
+    margin-bottom: $gutter_size;
+
+    .option_header {
+      font-size: 1.6rem;
+      line-height: 3rem;
+      padding: 0 1rem;
+      background: $navy;
+      color: $orange;
+      border-radius: 5px 5px 0px 0px;
+    }
+    .default {
+      font-size: 0.9rem;
+      float: right;
+      color: $aqua;
+    }
+
+    .option_text {
+      padding: 1rem;
+      background: rgba(0,0,0,0.2);
+      border-radius: 0 0 5px 5px;
+
+      p {
+        line-height: 1.3em;
+      }
+
+      .accepted {
+        font-size: 0.9rem;
+      }
+      .n {
+        font-weight: bold;
+        font-size: 0.95em;
+        color: $red;
+      }
+      .description {
+        font-size: 1rem;
+        margin: 1rem 0;
+      }
+
+      .code_block {
+        margin: 0px;
+      }
+    }
+
   }
 
 }

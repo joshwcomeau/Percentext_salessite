@@ -69,6 +69,9 @@ em {
 .arial {
   font-family: arial, sans-serif; }
 
+.mono {
+  font-family: "Inconsolata", "Lucida Console", Monaco, monospace; }
+
 .bg_navy {
   background: #30505c !important; }
 
@@ -98,6 +101,9 @@ em {
 
 .red_text {
   color: #df4949; }
+
+.aqua_text {
+  color: #34bdbf; }
 
 .code {
   background: #525252;
@@ -502,11 +508,49 @@ em {
   letter-spacing: -2px;
   border-top: 2px solid #22c0ff;
   border-bottom: 0.4rem solid #005a7d; }
+#section_5 .s5_header {
+  font-size: 2.2rem;
+  letter-spacing: -1px;
+  margin-bottom: 0.5rem;
+  color: #45b29d; }
 #section_5 > .section_dark_bg {
   background: #efede7;
   min-height: 500px;
   color: #333333;
-  border-bottom: 2px solid #cac4b0; }
+  border-bottom: 2px solid #cac4b0;
+  font-size: 1.3rem; }
+#section_5 .options_grid {
+  padding: 2rem 0; }
+#section_5 .option_container {
+  margin-bottom: 25px; }
+  #section_5 .option_container .option_header {
+    font-size: 1.6rem;
+    line-height: 3rem;
+    padding: 0 1rem;
+    background: #30505c;
+    color: #e27a3f;
+    border-radius: 5px 5px 0px 0px; }
+  #section_5 .option_container .default {
+    font-size: 0.9rem;
+    float: right;
+    color: #34bdbf; }
+  #section_5 .option_container .option_text {
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 0 0 5px 5px; }
+    #section_5 .option_container .option_text p {
+      line-height: 1.3em; }
+    #section_5 .option_container .option_text .accepted {
+      font-size: 0.9rem; }
+    #section_5 .option_container .option_text .n {
+      font-weight: bold;
+      font-size: 0.95em;
+      color: #df4949; }
+    #section_5 .option_container .option_text .description {
+      font-size: 1rem;
+      margin: 1rem 0; }
+    #section_5 .option_container .option_text .code_block {
+      margin: 0px; }
 
 @media screen and (max-width: 1024px) {
   #mathtools_column {

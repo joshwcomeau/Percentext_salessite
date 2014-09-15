@@ -90,7 +90,7 @@
       display:        "inline",
       fontSize:       starting_size,
       letterSpacing:  "0px",
-      textAlign:      settings.alignment,
+      textAlign:      settings.textAlign,
       whiteSpace:     "nowrap",
       paddingRight:   "0px",
       paddingLeft:    "0px",
@@ -284,8 +284,8 @@
   
 
   $.fn.percentext.defaults = {
-    width:            '100%',
-    alignment:        null,
+    width:            100,
+    textAlign:        null,
     preciseMode:      true,
     letterSpacing:    null,
     relativeSpacing:  true,
