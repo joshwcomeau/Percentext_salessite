@@ -5,8 +5,6 @@
 
   <!-- @stylesheet style -->
   <!-- @stylesheet grid -->
-  <!-- @stylesheet shCore.css -->
-  <!-- @stylesheet shThemeFadeToGrey.css -->
   <link href='http://fonts.googleapis.com/css?family=Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <script src="http://use.edgefonts.net/raleway:n3,n5,n7,n9;bowlby-one.js"></script>
@@ -124,18 +122,16 @@
 
     init();
 
-    SyntaxHighlighter.all()
 
     $("#title").percentext({letterSpacing: -4});
     $("#title_caption").percentext({width: 40, letterSpacing: -2});
     $("#title_description_desktop").percentext({minFontSize: 18});
     $(".mobile_title_desc_line").percentext();
-    $("#s2_title").percentext();
     $(".line_text").percentext();
     $("#why_percentext_header").percentext({width: 75, letterSpacing: -3})
-    $("#s4_title").percentext();
+    $("#s2_title, #s4_title, #s5_title").percentext();
 
-    parallax_scroller(["#section_2", "#section_3", "#section_4"]); 
+    parallax_scroller(["#section_2", "#section_3", "#section_4", "#section_5"]); 
     silly_highlight_effect(".line_effect");
 
   });
@@ -338,6 +334,13 @@
               
             </div>
           </div>
+      </div>
+    </section>
+
+    <section id="section_5">
+      <div id="s5_title">The Documentation.</div>
+      <div class="section_dark_bg">
+        
       </div>
     </section>
 

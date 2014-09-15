@@ -586,11 +586,11 @@ em {
   #s4_title {
     width: 100%;
     background: $yellow;
-    border-top: 2px solid lighten($yellow, 16%);
     color: $darkgrey;
     font-weight: 700; 
     padding: 3%;
     letter-spacing: -2px;
+    border-top: 2px solid lighten($yellow, 16%);
     border-bottom: 0.4rem solid #c8a942;
   }
 
@@ -680,12 +680,27 @@ em {
     }
     .PENGUIN path {
       fill: $aqua;
-
     }
+  }
+}
 
+#section_5 {
+  #s5_title {
+    width: 100%;
+    background: $bbblue;
+    color: $darkgrey;
+    font-weight: 700; 
+    padding: 3%;
+    letter-spacing: -2px;
+    border-top: 2px solid lighten($bbblue, 16%);
+    border-bottom: 0.4rem solid darken($bbblue, 16%);
+  }
 
-
-
+  & > .section_dark_bg {
+    background: $beige;
+    min-height: 500px;
+    color: $darkgrey;
+    border-bottom: 2px solid darken($beige, 18%);
   }
 
 }
