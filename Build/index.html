@@ -6678,162 +6678,166 @@
 
     <section id="section_5">
       <div id="s5_title">The Documentation.</div>
-      <div class="section_dark_bg">
-        <div class="grid padded_grid big_gutter_grid">
-          <div class="c8">
-            <h3 class="s5_header">Customizing with Options</h3>
-            <p class="intro">
-              Percentext features a number of options that allow you to change how the plugin works. Most are pretty self-explanatory, but there are some pretty cool tweaks that might not be immediately obvious.
-            </p>
+      <div class="section_light_bg">
+        <h3 class="s5_header">Customizing with Options</h3>
+        <p class="intro">
+          Percentext features a number of options that allow you to change how the plugin works. Most are pretty self-explanatory, but there are some pretty cool tweaks that might not be immediately obvious.
+        </p>
 
-            <div class="grid options_grid">
-              <div class="c6">
-                <div class="option_container">
-                  <div class="option_header">width<h6 class="default">Default: <span class="mono">100</span></h6></div>
-                  <div class="option_text">
-                    <h6 class="accepted">
-                      <strong>Accepted values:</strong> <span class="mono"><span class="n">n</span>, "<span class="n">n</span>%", "<span class="n">n</span>px"</span>, where <span class="n">n</span> is any integer.
-                    </h6>
-                    <p class="description">The meat of the plugin. Will adjust font size so that the text element takes up the specified width. Can be given in pixels or as a percentage of the parent container. Only works on single-line text elements.</p>
-                    <div class="code code_block tiny">
-                      <span class="comment">// Example, takes up 400 pixels</span><br>
-                      <span class="val">$</span>(<span class="string">".some-class"</span>).percentext({
-                      <br>&nbsp;&nbsp;<span class="object">width: <span class="string">"400px"</span></span> 
-                      <br>});
-                    </div>
-                  </div>
+        <div class="grid options_grid">
+          <div class="bottom_triangle_big"></div>
+          <div class="bottom_triangle_small"></div>
+          <div class="c4">
+            <div class="option_container">
+              <div class="option_header">width<h6 class="default">Default: <span class="mono">100</span></h6></div>
+              <div class="option_text">
+                <h6 class="accepted">
+                  <strong>Accepted values:</strong> <span class="mono"><span class="n">n</span>, "<span class="n">n</span>%", "<span class="n">n</span>px"</span>, where <span class="n">n</span> is any integer.
+                </h6>
+                <p class="description">The meat of the plugin. Will adjust font size so that the text element takes up the specified width. Can be given in pixels or as a percentage of the parent container. Only works on single-line text elements.</p>
+                <div class="code code_block tiny">
+                  <span class="comment">// Example, takes up 400 pixels</span><br>
+                  <span class="val">$</span>(<span class="string">".some-class"</span>).percentext({
+                  <br>&nbsp;&nbsp;<span class="object">width: <span class="string">"400px"</span></span> 
+                  <br>});
                 </div>
-
-                <div class="option_container">
-                  <div class="option_header">letterSpacing<h6 class="default">Default: <span class="mono">100</span></h6></div>
-                  <div class="option_text">
-                    <h6 class="accepted">
-                      <strong>Accepted values:</strong> Any number
-                    </h6>
-                    <p class="description">Provide a value, in pixels, for desired letter spacing. Note that Percentext will examine your CSS for <span class="mono">letter-spacing</span>, so you can provide it there instead. If it is provided in both places, <em>Percentext will prioritize the value submitted through this option.</em></p>
-                    
-                    <p class="description"><strong class="red_text">letterSpacing and preciseMode:</strong> please note that if you have <span class="mono">preciseMode</span> enabled, Percentext will use this value as the starting point, and may adjust it to achieve a perfect fit.</p>
-                    <div class="code code_block tiny">
-                      <span class="val">$</span>(<span class="string">".some-class"</span>).percentext({
-                      <br>&nbsp;&nbsp;<span class="object">letterSpacing: <span class="tag">-3</span></span> 
-                      <br>});
-                    </div>
-                  </div>
-                </div>
-
-                <div class="option_container">
-                  <div class="option_header">minFontSize<h6 class="default">Default: <span class="mono">null</span></h6></div>
-                  <div class="option_text">
-                    <h6 class="accepted">
-                      <strong>Accepted values:</strong> Any integer
-                    </h6>
-                    <p class="description">Limits Percentext from setting a font size below this supplied value. Given in pixels.</p>
-                    <div class="code code_block tiny">
-                      <span class="comment">// Will not set font-size below 12px.</span><br>
-                      <span class="val">$</span>(<span class="string">".some-class"</span>).percentext({
-                      <br>&nbsp;&nbsp;<span class="object">minFontSize: <span class="tag">12</span>
-                      <br>});
-
-                    </div>
-                  </div>
-                </div>
-
-                <div class="option_container">
-                  <div class="option_header">textAlign<h6 class="default">Default: <span class="mono">null</span></h6></div>
-                  <div class="option_text">
-                    <h6 class="accepted">
-                      <strong>Accepted values:</strong> <span class="mono">left, right, center, justify</span>
-                    </h6>
-                    <p class="description">Set the desired alignment for your text. Acts as a higher specificity than applying CSS directly to the element, which means if both are set, Percentext will take this value over the other.</p> 
-                    <p class="description">If no value is provided, falls back to whatever the inherited CSS value is.</p>
-                    <div class="code code_block tiny">
-                      <span class="val">$</span>(<span class="string">".some-class"</span>).percentext({
-                      <br>&nbsp;&nbsp;<span class="object">textAlign: <span class="string">"right"</span></span> 
-                      <br>});
-                    </div>
-                  </div>
-                </div>
-
-
-              </div>
-              <div class="c6">
-
-                <div class="option_container">
-                  <div class="option_header">preciseMode<h6 class="default">Default: <span class="mono">true</span></h6></div>
-                  <div class="option_text">
-                    <h6 class="accepted">
-                      <strong>Accepted values:</strong> <span class="mono">true, false</span>
-                    </h6>
-                    <p class="description">Precise mode uses line spacing to fine-tune the text element to take up as close to the desired width as possible. Set to <span class="mono">false</span> when you don't need pixel-perfection, to improve performance.</p>
-                    <div class="code code_block tiny">
-                      <span class="val">$</span>(<span class="string">".some-class"</span>).percentext({
-                      <br>&nbsp;&nbsp;<span class="object">width: <span class="tag">40</span>,
-                      <br>&nbsp;&nbsp;preciseMode: <span class="attr">false</span></span> 
-                      <br>});
-                    </div>
-                  </div>
-                </div>
-
-                <div class="option_container">
-                  <div class="option_header">relativeSpacing<h6 class="default">Default: <span class="mono">true</span></h6></div>
-                  <div class="option_text">
-                    <h6 class="accepted">
-                      <strong>Accepted values:</strong> <span class="mono">true, false</span>
-                    </h6>
-                    <p class="description">If a custom value is passed in for <span class="mono">letterSpacing</span>, this boolean will decide whether to scale that value depending on the font size, or use the given value as absolute, regardless of font size.</strong></p>
-                    <div class="code code_block tiny">
-                      <span class="comment">// letterSpacing will always be 2px.</span><br>
-                      <span class="val">$</span>(<span class="string">".some-class"</span>).percentext({
-                      <br>&nbsp;&nbsp;<span class="object">letterSpacing: <span class="tag">2</span>,
-                      <br>&nbsp;&nbsp;relativeSpacing: <span class="attr">false</span></span> 
-                      <br>});
-
-                      <br><br><span class="comment">// letterSpacing will scale with font size.</span><br>
-                      <span class="val">$</span>(<span class="string">".some-class"</span>).percentext({
-                      <br>&nbsp;&nbsp;<span class="object">letterSpacing: <span class="tag">2</span>
-                      <br>});
-                    </div>
-                  </div>
-                </div>
-
-                <div class="option_container">
-                  <div class="option_header">maxFontSize<h6 class="default">Default: <span class="mono">null</span></h6></div>
-                  <div class="option_text">
-                    <h6 class="accepted">
-                      <strong>Accepted values:</strong> Any integer
-                    </h6>
-                    <p class="description">Limits Percentext from setting a font size above this supplied value. Given in pixels.</p>
-                    <div class="code code_block tiny">
-                      <span class="comment">// Will not set font-size above 60px.</span><br>
-                      <span class="val">$</span>(<span class="string">".some-class"</span>).percentext({
-                      <br>&nbsp;&nbsp;<span class="object">maxFontSize: <span class="tag">60</span>
-                      <br>});
-
-                    </div>
-                  </div>
-                </div>
-
-                
-
-
               </div>
             </div>
-          </div>
-          <div class="c4 sidebar">
-            <section>
-              <h3 class="s5_header">License</h3>
-              <p>
-                This plugin released under the <strong>MIT open-source license</strong>. You can read all about it <a href="http://opensource.org/licenses/MIT">here</a>, but the long and short of it is you can do pretty much whatever you want with this plugin, personal or commercial, as long as you give me credit and don't hold me liable for anything.
-              </p>
-            </section>
 
-            <section>
-              <h3 class="s5_header">Tips & Tricks</h3>
-              <p>By combining Percentext with some basic CSS, we can create some really nifty things.
-            </section>
+            <div class="option_container">
+              <div class="option_header">letterSpacing<h6 class="default">Default: <span class="mono">100</span></h6></div>
+              <div class="option_text">
+                <h6 class="accepted">
+                  <strong>Accepted values:</strong> Any number
+                </h6>
+                <p class="description">Provide a value, in pixels, for desired letter spacing. Note that Percentext will examine your CSS for <span class="mono">letter-spacing</span>, so you can provide it there instead. If it is provided in both places, <em>Percentext will prioritize the value submitted through this option.</em></p>
+                
+                <p class="description"><strong class="red_text">letterSpacing and preciseMode:</strong> please note that if you have <span class="mono">preciseMode</span> enabled, Percentext will use this value as the starting point, and may adjust it to achieve a perfect fit.</p>
+                <div class="code code_block tiny">
+                  <span class="val">$</span>(<span class="string">".some-class"</span>).percentext({
+                  <br>&nbsp;&nbsp;<span class="object">letterSpacing: <span class="tag">-3</span></span> 
+                  <br>});
+                </div>
+              </div>
+            </div>
+
+            
+
+
+
+          </div>
+          <div class="c4">
+
+            <div class="option_container">
+              <div class="option_header">preciseMode<h6 class="default">Default: <span class="mono">true</span></h6></div>
+              <div class="option_text">
+                <h6 class="accepted">
+                  <strong>Accepted values:</strong> <span class="mono">true, false</span>
+                </h6>
+                <p class="description">Precise mode uses line spacing to fine-tune the text element to take up as close to the desired width as possible. Set to <span class="mono">false</span> when you don't need pixel-perfection, to improve performance.</p>
+                <div class="code code_block tiny">
+                  <span class="val">$</span>(<span class="string">".some-class"</span>).percentext({
+                  <br>&nbsp;&nbsp;<span class="object">width: <span class="tag">40</span>,
+                  <br>&nbsp;&nbsp;preciseMode: <span class="attr">false</span></span> 
+                  <br>});
+                </div>
+              </div>
+            </div>
+
+            <div class="option_container">
+              <div class="option_header">relativeSpacing<h6 class="default">Default: <span class="mono">true</span></h6></div>
+              <div class="option_text">
+                <h6 class="accepted">
+                  <strong>Accepted values:</strong> <span class="mono">true, false</span>
+                </h6>
+                <p class="description">If a custom value is passed in for <span class="mono">letterSpacing</span>, this boolean will decide whether to scale that value depending on the font size, or use the given value as absolute, regardless of font size.</strong></p>
+                <div class="code code_block tiny">
+                  <span class="comment">// letterSpacing will always be 2px.</span><br>
+                  <span class="val">$</span>(<span class="string">".some-class"</span>).percentext({
+                  <br>&nbsp;&nbsp;<span class="object">letterSpacing: <span class="tag">2</span>,
+                  <br>&nbsp;&nbsp;relativeSpacing: <span class="attr">false</span></span> 
+                  <br>});
+
+                  <br><br><span class="comment">// letterSpacing will scale with font size.</span><br>
+                  <span class="val">$</span>(<span class="string">".some-class"</span>).percentext({
+                  <br>&nbsp;&nbsp;<span class="object">letterSpacing: <span class="tag">2</span>
+                  <br>});
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <div class="c4">
+
+
+            <div class="option_container">
+              <div class="option_header">textAlign<h6 class="default">Default: <span class="mono">null</span></h6></div>
+              <div class="option_text">
+                <h6 class="accepted">
+                  <strong>Accepted values:</strong> <span class="mono">left, right, center, justify</span>
+                </h6>
+                <p class="description">Set the desired alignment for your text. Acts as a higher specificity than applying CSS directly to the element, which means if both are set, Percentext will take this value over the other. If no value is provided, falls back to whatever the inherited CSS value is.</p>
+                <div class="code code_block tiny">
+                  <span class="val">$</span>(<span class="string">".some-class"</span>).percentext({
+                  <br>&nbsp;&nbsp;<span class="object">textAlign: <span class="string">"right"</span></span> 
+                  <br>});
+                </div>
+              </div>
+            </div>
+
+            <div class="option_container">
+              <div class="option_header">minFontSize<h6 class="default">Default: <span class="mono">null</span></h6></div>
+              <div class="option_text">
+                <h6 class="accepted">
+                  <strong>Accepted values:</strong> Any integer
+                </h6>
+                <p class="description">Limits Percentext from setting a font size below this supplied value. Given in pixels.</p>
+                <div class="code code_block tiny">
+                  <span class="comment">// Will not set font-size below 12px.</span><br>
+                  <span class="val">$</span>(<span class="string">".some-class"</span>).percentext({
+                  <br>&nbsp;&nbsp;<span class="object">minFontSize: <span class="tag">12</span>
+                  <br>});
+
+                </div>
+              </div>
+            </div>
+
+            <div class="option_container">
+              <div class="option_header">maxFontSize<h6 class="default">Default: <span class="mono">null</span></h6></div>
+              <div class="option_text">
+                <h6 class="accepted">
+                  <strong>Accepted values:</strong> Any integer
+                </h6>
+                <p class="description">Limits Percentext from setting a font size above this supplied value. Given in pixels.</p>
+                <div class="code code_block tiny">
+                  <span class="comment">// Will not set font-size above 60px.</span><br>
+                  <span class="val">$</span>(<span class="string">".some-class"</span>).percentext({
+                  <br>&nbsp;&nbsp;<span class="object">maxFontSize: <span class="tag">60</span>
+                  <br>});
+
+                </div>
+              </div>
+            </div>
+
+
           </div>
         </div>
+
+        <section>
+          <h3 class="s5_header">License</h3>
+          <p>
+            This plugin released under the <strong>MIT open-source license</strong>. You can read all about it <a href="http://opensource.org/licenses/MIT">here</a>, but the long and short of it is you can do pretty much whatever you want with this plugin, personal or commercial, as long as you give me credit and don't hold me liable for anything.
+          </p>
+        </section>
+
+        <section>
+          <h3 class="s5_header">Tips & Tricks</h3>
+          <p>By combining Percentext with some basic CSS, we can do some pretty nifty stuff. Here are some examples:</p>
+
+
+        </section>
       </div>
+    
     </section>
 
   </div>

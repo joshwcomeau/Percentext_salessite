@@ -513,12 +513,13 @@ em {
   letter-spacing: -1px;
   margin-bottom: 0.5rem;
   color: #45b29d; }
-#section_5 > .section_dark_bg {
+#section_5 > .section_light_bg {
   background: #efede7;
   min-height: 500px;
   color: #333333;
   border-bottom: 2px solid #cac4b0;
-  font-size: 1.3rem; }
+  font-size: 1.3rem;
+  padding: 2rem; }
 #section_5 .big_gutter_grid .c8, #section_5 .big_gutter_grid .c4 {
   padding-right: 50px !important; }
   .grid #section_5 .big_gutter_grid .c8:last-of-type, .grid #section_5 .big_gutter_grid .c4:last-of-type {
@@ -532,8 +533,32 @@ em {
   color: #0094cf;
   text-decoration: underline; }
 #section_5 .options_grid {
-  padding-top: 2rem; }
+  position: relative;
+  padding-top: 2rem;
+  border-bottom: 2px solid #4597b2; }
+#section_5 .bottom_triangle_big {
+  position: absolute;
+  z-index: 1;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 60px 0 0 60px;
+  border-color: transparent transparent transparent #4597b2; }
+#section_5 .bottom_triangle_small {
+  position: absolute;
+  z-index: 2;
+  bottom: 5px;
+  left: 5px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 40px 0 0 40px;
+  border-color: transparent transparent transparent #34bdbf; }
 #section_5 .option_container {
+  position: relative;
+  z-index: 2;
   margin-bottom: 25px; }
   #section_5 .option_container .option_header {
     font-size: 1.6rem;
@@ -563,17 +588,14 @@ em {
       margin: 1rem 0; }
     #section_5 .option_container .option_text .code_block {
       margin: 0px; }
-#section_5 .sidebar section {
+#section_5 section {
   padding-bottom: 2rem;
   padding-top: 2rem;
   border-bottom: 1px solid #CCC; }
-#section_5 .sidebar section:first-of-type {
-  padding-top: 0; }
-#section_5 .sidebar section:last-of-type {
+  #section_5 section p {
+    font-size: 1rem; }
+#section_5 section:last-of-type {
   border-bottom: none; }
-#section_5 .sidebar p {
-  font-size: 1rem;
-  text-align: justify; }
 
 @media screen and (max-width: 1024px) {
   #mathtools_column {
@@ -592,7 +614,10 @@ em {
     .divider_with_icon:after {
       margin-right: -8%; }
     .divider_with_icon > .icon_holder {
-      width: 12%; } }
+      width: 12%; }
+
+  .bottom_triangle_big {
+    display: none; } }
 @media screen and (orientation: portrait) {
   #section_1 .title_area #main_button_holder {
     margin: 4rem auto; }

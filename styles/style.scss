@@ -709,12 +709,13 @@ em {
     color: $green;
   }
 
-  & > .section_dark_bg {
+  & > .section_light_bg {
     background: $beige;
     min-height: 500px;
     color: $darkgrey;
     border-bottom: 2px solid darken($beige, 18%);
     font-size: 1.3rem;
+    padding: 2rem;
   }
 
   // Double the gutter size for this grid
@@ -740,10 +741,37 @@ em {
   }
 
   .options_grid {
+    position: relative;
     padding-top: 2rem;
+    border-bottom: 2px solid $blue;
+  }
+
+  .bottom_triangle_big {
+    position: absolute; 
+    z-index: 1;
+    bottom: 0; 
+    left: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 60px 0 0 60px;
+    border-color: transparent transparent transparent $blue;
+  }
+  .bottom_triangle_small {
+    position: absolute; 
+    z-index: 2;
+    bottom: 5px; 
+    left: 5px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 40px 0 0 40px;
+    border-color: transparent transparent transparent $aqua;
   }
 
   .option_container {
+    position: relative;
+    z-index: 2;
     margin-bottom: $gutter_size;
 
     .option_header {
@@ -789,24 +817,23 @@ em {
 
   }
 
-  .sidebar {
-    section {
-      padding-bottom: 2rem;
-      padding-top: 2rem;
-      border-bottom: 1px solid #CCC;
-    }
-    section:first-of-type {
-      padding-top: 0;
-    }
-    section:last-of-type {
-      border-bottom: none;
-    }
+ 
+  section {
+    padding-bottom: 2rem;
+    padding-top: 2rem;
+    border-bottom: 1px solid #CCC;
 
     p {
       font-size: 1rem;
-      text-align: justify;
+
     }
   }
+  section:last-of-type {
+    border-bottom: none;
+  }
+
+  
+
 
 }
 
@@ -840,6 +867,10 @@ em {
     & > .icon_holder {
       width: 12%;
     }
+  }
+
+  .bottom_triangle_big {
+    display: none;
   }
 
 }
