@@ -519,8 +519,20 @@ em {
   color: #333333;
   border-bottom: 2px solid #cac4b0;
   font-size: 1.3rem; }
+#section_5 .big_gutter_grid .c8, #section_5 .big_gutter_grid .c4 {
+  padding-right: 50px !important; }
+  .grid #section_5 .big_gutter_grid .c8:last-of-type, .grid #section_5 .big_gutter_grid .c4:last-of-type {
+    padding-right: 0; }
+#section_5 .big_gutter_grid {
+  padding: 50px !important; }
+#section_5 a {
+  color: #4597b2;
+  text-decoration: none; }
+#section_5 a:hover {
+  color: #0094cf;
+  text-decoration: underline; }
 #section_5 .options_grid {
-  padding: 2rem 0; }
+  padding-top: 2rem; }
 #section_5 .option_container {
   margin-bottom: 25px; }
   #section_5 .option_container .option_header {
@@ -551,6 +563,17 @@ em {
       margin: 1rem 0; }
     #section_5 .option_container .option_text .code_block {
       margin: 0px; }
+#section_5 .sidebar section {
+  padding-bottom: 2rem;
+  padding-top: 2rem;
+  border-bottom: 1px solid #CCC; }
+#section_5 .sidebar section:first-of-type {
+  padding-top: 0; }
+#section_5 .sidebar section:last-of-type {
+  border-bottom: none; }
+#section_5 .sidebar p {
+  font-size: 1rem;
+  text-align: justify; }
 
 @media screen and (max-width: 1024px) {
   #mathtools_column {

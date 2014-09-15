@@ -717,8 +717,30 @@ em {
     font-size: 1.3rem;
   }
 
+  // Double the gutter size for this grid
+  .big_gutter_grid .c8, .big_gutter_grid .c4 {
+    padding-right: $gutter_size * 2 !important;
+    .grid &:last-of-type {
+      padding-right: 0;
+    }
+  }
+  .big_gutter_grid {
+    padding: $gutter_size * 2 !important;
+  }
+
+
+  a {
+    color: $blue;
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: $bbblue;
+    text-decoration: underline;
+  }
+
   .options_grid {
-    padding: 2rem 0;
+    padding-top: 2rem;
   }
 
   .option_container {
@@ -765,6 +787,25 @@ em {
       }
     }
 
+  }
+
+  .sidebar {
+    section {
+      padding-bottom: 2rem;
+      padding-top: 2rem;
+      border-bottom: 1px solid #CCC;
+    }
+    section:first-of-type {
+      padding-top: 0;
+    }
+    section:last-of-type {
+      border-bottom: none;
+    }
+
+    p {
+      font-size: 1rem;
+      text-align: justify;
+    }
   }
 
 }
