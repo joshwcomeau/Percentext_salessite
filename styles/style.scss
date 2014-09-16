@@ -817,25 +817,48 @@ em {
       }
     }
 
-  }
-
- 
+  } 
   section {
     padding-bottom: 2rem;
     padding-top: 2rem;
     border-bottom: 1px solid #CCC;
 
-    p {
-      font-size: 1rem;
 
-    }
   }
   section:last-of-type {
     border-bottom: none;
   }
 
-  
+  #license {
+    border-top: 1px solid #CCC;
+    margin-top: -0.5rem;
+  }
 
+  .example_container {
+    margin: 1rem 0;
+    
+  }
+  
+  .example {
+    position: relative;
+    border-radius: 3px;
+  }
+
+
+  .jungle {
+    background: #526d0b;
+    border: 6px solid #8f9e67;
+
+    .line1{
+      position: absolute;
+      left: 17%;
+      top: 5%;
+      color: #e4d02a;
+    }
+    .line2 {
+      color: #98c420;
+    }
+  }
 
 }
 

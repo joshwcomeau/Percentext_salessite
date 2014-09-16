@@ -184,9 +184,9 @@
       final_letter_spacing = starting_letter_spacing;
     }
 
-    // Figure out our left margin, if our letter-spacing is negative
+    // Figure out our text indent, if our letter-spacing is negative
     if ( final_letter_spacing < 0 ) {
-      final_text_indent = user_css.textIndent + final_letter_spacing;
+      final_text_indent = Math.round((user_css.textIndent + final_letter_spacing)*0.5);
     } else {
       final_text_indent = user_css.textIndent;
     }
@@ -196,8 +196,8 @@
 
     return {
       fontSize:       final_font_size,
-      letterSpacing:  precise_round(final_letter_spacing, 2) + "px",
-      textIndent:     Math.round(final_text_indent)*0.75 + "px",
+      letterSpacing:  precise_round(final_letter_spacing, 1) + "px",
+      textIndent:     final_text_indent + "px",
     };
   }
 

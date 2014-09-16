@@ -21,6 +21,8 @@
   <script>
   $(document).ready(function() {
 
+    var PARALLAX_PADDING = 100;
+
     var bg_color_classes = [ "bg_navy", "bg_blue", "bg_bbblue", "bg_aqua", "bg_green", "bg_grass", "bg_yellow", "bg_orange" ];
   
     var bgCanvas = document.getElementById('bgCanvas');
@@ -62,7 +64,6 @@
     // This simple scroller separates the sections by an ever-decreasing margin-top.
     // Starts at 100px when it enters the frame, winds up at 0px by the time it reaches the top.
     function parallax_scroller(boxes) {
-      var initial_padding = 100;
 
       _(boxes).forEach(function(container) {        
         $(window).on("scroll load", function() {
@@ -77,7 +78,7 @@
           if ( scroll_top < elem_top < (scroll_top + win_height) ) {
             win_top = elem_top - scroll_top;
             padding_multiplier = win_top / win_height;
-            new_padding = initial_padding * padding_multiplier;
+            new_padding = PARALLAX_PADDING * padding_multiplier;
 
             $(container).css("padding-top", new_padding);
           } else if (elem_top < scroll_top) {
@@ -87,6 +88,21 @@
         })
       });
     }
+
+    // Because we have that fancy parallax effect, an element's offset from the top changes as you scroll.
+    // Supply the number of sections between the element and the current position, and this will take it into account.
+    function anchor_scroll(target, num_of_sections) {
+      target_scroll = $(target).offset().top - (PARALLAX_PADDING * num_of_sections);
+      $("html, body").animate({ scrollTop: target_scroll }, 2000);
+    }
+
+    $("#go_to_precise").on("click", function(ev) {
+      anchor_scroll("#precise_mode_anchor", 2);
+    });
+
+    $("#button_1_learn_more").on("click", function() {
+      anchor_scroll("#quick_start_anchor", 3);
+    });
 
     // Function to change the background color of an element depending on its scroll height.
     // Essentially, I want the background color of selected elements to lighten as they move from the bottom of the
@@ -132,6 +148,8 @@
     $(".line_text").percentext();
     $("#why_percentext_header").percentext({width: 75, letterSpacing: -3})
     $("#s2_title, #s4_title, #s5_title").percentext();
+    $(".jungle .line1").percentext({width: 53, letterSpacing: -2});
+    $(".jungle .line2").percentext({letterSpacing: -12});
 
     parallax_scroller(["#section_2", "#section_3", "#section_4", "#section_5"]); 
     silly_highlight_effect(".line_effect");
@@ -250,14 +268,14 @@
               <p>Many people who find it irksome to deal with font sizes use <a href="http://fittextjs.com/">FitText.js</a>. FitText is a great little plugin, but it isn't quite the same as Percentext. FitText arbitrarily sets font-size to be equal to a fraction of the parent container's width, allowing users to tweak via a 'compressor' to get the size just right.</p>
 
               <h4>Pros and Cons</h4>
-              <p>Percentext's advantage is that it allows you to set a percentage and be done with it&mdash;no tweaking required. The downside to this convenience is performance; FitText is a very simple plugin that works lightning fast. Percentext is pretty quick too, but it can be a bit sluggish if you have many headers that you wish to size in <a href="#preciseMode">preciseMode</a>.</p>
+              <p>Percentext's advantage is that it allows you to set a percentage and be done with it&mdash;no tweaking required. The downside to this convenience is performance; FitText is a very simple plugin that works lightning fast. Percentext is pretty quick too, but it can be a bit sluggish if you have many headers that you wish to size in <a href="#preciseMode" id="go_to_precise">preciseMode</a>.</p>
 
               
             </div>
           </div>
           <!-- -->
 
-          <!-- "How To Use" Column -->
+          <!-- Decorative "Math Tools" Column -->
           <div class="c4 full_height" id="mathtools_column">
           
             <div id="mathtools">
@@ -272,7 +290,7 @@
       </div>
     </section>
 
-    <a name="quickStart"></a>
+    <a id="quick_start_anchor"></a>
     <section id="section_4">
       <h2 id="s4_title">Quick Start Guide.</h2>
       <div class="section_dark_bg">
@@ -344,11 +362,11 @@
       <div id="s5_title">The Documentation.</div>
       <div class="section_light_bg">
         <h3 class="s5_header">Customizing with Options</h3>
-        <p class="intro">
+        <p>
           Percentext features a number of options that allow you to change how the plugin works. Most are pretty self-explanatory, but there are some pretty cool tweaks that might not be immediately obvious.
         </p>
 
-        <a name="preciseMode"></a>
+        <a id="precise_mode_anchor"></a>
 
         <div class="grid options_grid">
 <!--      <div class="bottom_triangle_big"></div>
@@ -490,7 +508,7 @@
           </div>
         </div>
 
-        <section>
+        <section id="license">
           <h3 class="s5_header">License</h3>
           <p>
             This plugin released under the <strong>MIT open-source license</strong>. You can read all about it <a href="http://opensource.org/licenses/MIT">here</a>, but the long and short of it is you can do pretty much whatever you want with this plugin, personal or commercial, as long as you give me credit and don't hold me liable for anything.
@@ -498,25 +516,31 @@
         </section>
 
         <section>
-          <h3 class="s5_header">Tips & Tricks</h3>
+          <h3 class="s5_header">Examples</h3>
           <p>By combining Percentext with some basic CSS, we can do some pretty nifty stuff. Here are some examples:</p>
-
-
+            <div class="example_container grid">
+              <div class="c6">
+                <div class="example jungle">
+                  <div class="line1">Welcome To The</div>
+                  <div class="line2">Jungle</div>
+                </div>
+              </div>  
+              <div class="c6">
+                <div class="code example_code">
+                  fdalkfdsnl
+                  fdsfs
+                  fds
+                  fds
+                </div>
+              </div>
+            </div>
         </section>
       </div>
     
     </section>
 
   </div>
-  $.fn.percentext.defaults = {
-    width:            '100%',
-    alignment:        null,
-    preciseMode:      true,
-    letterSpacing:    null,
-    relativeSpacing:  true,
-    minFontSize:      null,     
-    maxFontSize:      null,     
-  };
+
 
 
   <footer>
@@ -524,3 +548,5 @@
   </footer>
 </body>
 </html>
+
+<!-- Lots of assumed knowledge. Good to specify it clearly for new developers or designers. -->

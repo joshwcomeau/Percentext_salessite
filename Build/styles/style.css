@@ -591,10 +591,26 @@ em {
   padding-bottom: 2rem;
   padding-top: 2rem;
   border-bottom: 1px solid #CCC; }
-  #section_5 section p {
-    font-size: 1rem; }
 #section_5 section:last-of-type {
   border-bottom: none; }
+#section_5 #license {
+  border-top: 1px solid #CCC;
+  margin-top: -0.5rem; }
+#section_5 .example_container {
+  margin: 1rem 0; }
+#section_5 .example {
+  position: relative;
+  border-radius: 3px; }
+#section_5 .jungle {
+  background: #526d0b;
+  border: 6px solid #8f9e67; }
+  #section_5 .jungle .line1 {
+    position: absolute;
+    left: 17%;
+    top: 5%;
+    color: #e4d02a; }
+  #section_5 .jungle .line2 {
+    color: #98c420; }
 
 @media screen and (max-width: 1024px) {
   #mathtools_column {
