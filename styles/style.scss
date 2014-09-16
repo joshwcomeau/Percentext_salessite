@@ -18,9 +18,11 @@ em {
 .tiny {
   font-size: 0.8em;
 }
+
 .centered {
   text-align: center;
 }
+
 .full_height {
   height: 100%;
 }
@@ -743,7 +745,7 @@ em {
   .options_grid {
     position: relative;
     padding-top: 2rem;
-    border-bottom: 2px solid $blue;
+    // border-bottom: 2px solid $blue;
   }
 
   .bottom_triangle_big {
@@ -882,12 +884,12 @@ em {
     .title_area {
       #main_button_holder {
         margin: 4rem auto;
+        width: 75%;
 
         & > div {
           position: absolute;
-          width: 80%;
+          width: 100%;
           height: 44px;
-          left: 10%;
           text-align: center;
           display: block;
           margin: 0;
@@ -913,78 +915,12 @@ em {
         #button_1_learn_more {
           border-radius: 6px 6px 0 0;
           
-          // background: $blue;
-          // box-shadow: 
-          //   0.5px 0.5px 0px darken($blue, 10%),
-          //   1px 1px 0px darken($blue, 10%),
-          //   1.5px 1.5px 0px darken($blue, 10%),
-          //   2px 2px 0px darken($blue, 10%),
-          //   2.5px 2.5px 0px darken($blue, 10%),
-          //   3px 3px 0px darken($blue, 10%),
-          //   3.5px 3.5px 0px darken($blue, 10%),
-          //   4px 4px 0px darken($blue, 10%)
-          // ;
-          // text-shadow:
-          //   0.5px 0.5px 0px darken($blue, 10%),
-          //   1px 1px 0px darken($blue, 10%)
-          // ;
-        }
-        #button_1_learn_more:hover {
-          // background: $bbblue;
-          // transition: 0.25s;
-          // box-shadow: 
-          //   0.5px 0.5px 0px darken($bbblue, 10%),
-          //   1px 1px 0px darken($bbblue, 10%),
-          //   1.5px 1.5px 0px darken($bbblue, 10%),
-          //   2px 2px 0px darken($bbblue, 10%),
-          //   2.5px 2.5px 0px darken($bbblue, 10%),
-          //   3px 3px 0px darken($bbblue, 10%),
-          //   3.5px 3.5px 0px darken($bbblue, 10%),
-          //   4px 4px 0px darken($bbblue, 10%)
-          // ;
-          // text-shadow:
-          //   0.5px 0.5px 0px darken($bbblue, 10%),
-          //   1px 1px 0px darken($bbblue, 10%)
-          // ;
-        }
 
+        }
         #button_2_github {
-          left: 10%;
+          left: 0;
           top: 44px;
           border-radius: 0 0 6px 6px;
-          // background: $green;
-          // transition: 0.25s;
-          // box-shadow: 
-          //   0.5px 0.5px 0px darken($green, 10%),
-          //   1px 1px 0px darken($green, 10%),
-          //   1.5px 1.5px 0px darken($green, 10%),
-          //   2px 2px 0px darken($green, 10%),
-          //   2.5px 2.5px 0px darken($green, 10%),
-          //   3px 3px 0px darken($green, 10%),
-          //   3.5px 3.5px 0px darken($green, 10%),
-          //   4px 4px 0px darken($green, 10%)
-          // ;
-          // text-shadow:
-          //   0.5px 0.5px 0px darken($green, 10%),
-          //   1px 1px 0px darken($green, 10%)
-          // ;
-        }
-        #button_2_github:hover {
-        //   background: $grass;
-        //   box-shadow: 
-        //     0.5px 0.5px 0px darken($grass, 10%),
-        //     1px 1px 0px darken($grass, 10%),
-        //     1.5px 1.5px 0px darken($grass, 10%),
-        //     2px 2px 0px darken($grass, 10%),
-        //     2.5px 2.5px 0px darken($grass, 10%),
-        //     3px 3px 0px darken($grass, 10%),
-        //     3.5px 3.5px 0px darken($grass, 10%),
-        //     4px 4px 0px darken($grass, 10%)
-        //   ;
-        //   text-shadow:
-        //     0.5px 0.5px 0px darken($grass, 10%),
-        //     1px 1px 0px darken($grass, 10%)
-        //   ;
         }
       }
     }

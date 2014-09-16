@@ -187,8 +187,8 @@
         </div>
 
         <div id="main_button_holder">
-          <a href="#quickStart"><div id="button_1_learn_more">Quick Start Guide
-          </div></a><div id="button_2_github">Download on GitHub</div>
+          <div id="button_1_learn_more">Quick Start Guide
+          </div><div id="button_2_github">Download on GitHub</div>
         </div>
       </div>
     </section>
@@ -351,8 +351,9 @@
         <a name="preciseMode"></a>
 
         <div class="grid options_grid">
-          <div class="bottom_triangle_big"></div>
+<!--      <div class="bottom_triangle_big"></div>
           <div class="bottom_triangle_small"></div>
+ -->          
           <div class="c4">
             <div class="option_container">
               <div class="option_header">width<h6 class="default">Default: <span class="mono">100</span></h6></div>
@@ -424,7 +425,7 @@
                   <br>&nbsp;&nbsp;relativeSpacing: <span class="attr">false</span></span> 
                   <br>});
 
-                  <br><br><span class="comment">// letterSpacing will scale with font size.</span><br>
+                  <br><br><br><span class="comment">// letterSpacing will scale with font size.</span><br>
                   <span class="val">$</span>(<span class="string">".some-class"</span>).percentext({
                   <br>&nbsp;&nbsp;<span class="object">letterSpacing: <span class="tag">2</span>
                   <br>});
@@ -442,7 +443,7 @@
                 <h6 class="accepted">
                   <strong>Accepted values:</strong> <span class="mono">left, right, center, justify</span>
                 </h6>
-                <p class="description">Set the desired alignment for your text. Acts as a higher specificity than applying CSS directly to the element, which means if both are set, Percentext will take this value over the other. If no value is provided, falls back to whatever the inherited CSS value is.</p>
+                <p class="description">Set the desired alignment for your text. Acts as a higher specificity than applying CSS directly to the element.</p>
                 <div class="code code_block tiny">
                   <span class="val">$</span>(<span class="string">".some-class"</span>).percentext({
                   <br>&nbsp;&nbsp;<span class="object">textAlign: <span class="string">"right"</span></span> 
