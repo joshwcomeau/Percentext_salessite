@@ -215,6 +215,7 @@ em {
       fill: #F0F0F0; }
 
 #section_1 {
+  position: relative;
   z-index: 1;
   background: #30505c;
   padding: 5%;
@@ -711,4 +712,7 @@ footer {
     #section_1 .title_area #main_button_holder #button_2_github {
       left: 0;
       top: 44px;
-      border-radius: 0 0 6px 6px; } }
+      border-radius: 0 0 6px 6px; }
+
+  #section_2 > .section_dark_bg, #s2_title, #s4_title, #s5_title {
+    border-radius: 1rem 1rem 0 0 !important; } }

@@ -213,6 +213,7 @@ em {
 }
 
 #section_1 {
+  position: relative;
   z-index: 1;
   background: $navy;
   padding: 5%;
@@ -1004,6 +1005,10 @@ footer {
         }
       }
     }
+  }
+
+  #section_2 > .section_dark_bg, #s2_title, #s4_title, #s5_title {
+    border-radius: 1rem 1rem 0 0 !important;
   }
 
 }
