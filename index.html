@@ -21,7 +21,7 @@
   <script>
   $(document).ready(function() {
 
-    var PARALLAX_PADDING = 100;
+    var PARALLAX_PADDING = 200;
 
     var bg_color_classes = [ "bg_navy", "bg_blue", "bg_bbblue", "bg_aqua", "bg_green", "bg_grass", "bg_yellow", "bg_orange" ];
   
@@ -162,7 +162,7 @@
 <body>
   <canvas id="bgCanvas"></canvas>
   <div id="wrapper">
-    <section id="section_1">
+    <section id="section_1" class="main_section">
 
       <div class="top_black_bars">
         <div class="bar1"></div>
@@ -211,7 +211,7 @@
       </div>
     </section>
 
-    <section id="section_2">
+    <section id="section_2" class="main_section">
       <div class="section_dark_bg">
         <h2 id="s2_title" style="">A Quick Demonstration.</h2>
         <div class="space_taker"></div>
@@ -254,7 +254,7 @@
       </div>
     </section>
 
-    <section id="section_3">
+    <section id="section_3" class="main_section">
       <div class="section_dark_bg">
         <div class="grid" id="s3_grid">
           <!-- "Why Percentext?" Column -->
@@ -268,7 +268,7 @@
               <p>Many people who find it irksome to deal with font sizes use <a href="http://fittextjs.com/">FitText.js</a>. FitText is a great little plugin, but it isn't quite the same as Percentext. FitText arbitrarily sets font-size to be equal to a fraction of the parent container's width, allowing users to tweak via a 'compressor' to get the size just right.</p>
 
               <h4>Pros and Cons</h4>
-              <p>Percentext's advantage is that it allows you to set a percentage and be done with it&mdash;no tweaking required. The downside to this convenience is performance; FitText is a very simple plugin that works lightning fast. Percentext is pretty quick too, but it can be a bit sluggish if you have many headers that you wish to size in <a href="#preciseMode" id="go_to_precise">preciseMode</a>.</p>
+              <p>Percentext's advantage is that it allows you to set a percentage and be done with it&mdash;no tweaking required. It also lets you achieve some pretty cool effects, without much work. The downside to this convenience is performance; FitText is a very simple plugin that works lightning fast. Percentext is pretty quick too, but it can be a bit sluggish if you have many headers that you wish to size in <a href="#preciseMode" id="go_to_precise">preciseMode</a>.</p>
 
               
             </div>
@@ -291,7 +291,7 @@
     </section>
 
     <a id="quick_start_anchor"></a>
-    <section id="section_4">
+    <section id="section_4" class="main_section">
       <h2 id="s4_title">Quick Start Guide.</h2>
       <div class="section_dark_bg">
         <div class="grid padded_grid">
@@ -358,7 +358,7 @@
       </div>
     </section>
 
-    <section id="section_5">
+    <section id="section_5" class="main_section">
       <div id="s5_title">The Documentation.</div>
       <div class="section_light_bg">
         <h3 class="s5_header">Customizing with Options</h3>
@@ -516,24 +516,13 @@
         </section>
 
         <section>
-          <h3 class="s5_header">Examples</h3>
-          <p>By combining Percentext with some basic CSS, we can do some pretty nifty stuff. Here are some examples:</p>
-            <div class="example_container grid">
-              <div class="c6">
-                <div class="example jungle">
-                  <div class="line1">Welcome To The</div>
-                  <div class="line2">Jungle</div>
-                </div>
-              </div>  
-              <div class="c6">
-                <div class="code example_code">
-                  fdalkfdsnl
-                  fdsfs
-                  fds
-                  fds
-                </div>
-              </div>
-            </div>
+          <h3 class="s5_header">Known Bugs</h3>
+          <p>All currently-unfixed known issues are listed here:</p>
+          <ul>
+            <li>
+              <strong>Elements inside hidden parents.</strong> Percentext crashes if it's called on an element whose parent has been hidden with <span class="code code-inline">display: none;</span>. This is a pretty big deal, for those who want to hide sections with media queries, and I'm working on finding a solution.
+            </li>
+          </ul>
         </section>
       </div>
     

@@ -119,6 +119,10 @@ em {
   font-family: 'raleway', sans-serif;
 }
 
+.main_section {
+  margin-top: -40px;
+  position: relative;
+}
 
 .top_black_bars {
   position: absolute;
@@ -200,7 +204,7 @@ em {
 }
 
 #section_1 {
-  position: relative;
+  z-index: 1;
   background: $navy;
   padding: 5%;
   border-bottom: 2px solid darken($navy, 10%);
@@ -353,7 +357,7 @@ em {
 
 
 #section_2 {
-  position: relative; 
+  z-index: 2;
   color: $beige;
 
   & > .section_dark_bg {
@@ -460,7 +464,7 @@ em {
 }
 
 #section_3 {
-  position: relative; 
+  z-index: 3;
   color: $beige;
 
   & > .section_dark_bg {
@@ -588,7 +592,7 @@ em {
 }
 
 #section_4 {
-  position: relative; 
+  z-index: 4;
   color: $beige;
 
   #s4_title {
@@ -693,6 +697,8 @@ em {
 }
 
 #section_5 {
+  z-index: 5;
+
   #s5_title {
     width: 100%;
     background: $bbblue;
