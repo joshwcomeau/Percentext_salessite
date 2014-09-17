@@ -369,10 +369,12 @@ em {
   z-index: 2;
   color: $beige;
 
+
   & > .section_dark_bg {
     background: darken($green, 20%);
     padding-bottom: 2rem;
     border-bottom: 2px solid darken($darkgrey, 10%);
+    border-radius: 2rem 2rem 0 0;
 
   }
 
@@ -395,6 +397,7 @@ em {
       3px 3px 0px darken($green, 8%)
     ;
     border-bottom: 0.4rem solid darken($green, 12%);
+    border-radius: 2rem 2rem 0 0;
   }
 
   #ruler {
@@ -613,6 +616,7 @@ em {
     letter-spacing: -2px;
     border-top: 2px solid lighten($yellow, 16%);
     border-bottom: 0.4rem solid #c8a942;
+    border-radius: 2rem 2rem 0 0;
   }
 
   & > .section_dark_bg {
@@ -682,7 +686,7 @@ em {
       color: $yellow;
     }
 
-    footer {
+    .footer {
       margin-top: 2rem;
       color: $lightgrey;
 
@@ -717,6 +721,7 @@ em {
     letter-spacing: -2px;
     border-top: 2px solid lighten($bbblue, 16%);
     border-bottom: 0.4rem solid darken($bbblue, 16%);
+    border-radius: 2rem 2rem 0 0;
   }
 
   .s5_header {
@@ -908,6 +913,7 @@ footer {
     font-size: 0.8rem;
     margin-bottom: 1.5rem;
   }
+  .line3 {}
   .to_my_github {
     color: lighten($bbblue, 10%);
   }

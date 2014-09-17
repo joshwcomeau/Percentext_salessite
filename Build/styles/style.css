@@ -293,7 +293,8 @@ em {
   #section_2 > .section_dark_bg {
     background: #29685c;
     padding-bottom: 2rem;
-    border-bottom: 2px solid #1a1a1a; }
+    border-bottom: 2px solid #1a1a1a;
+    border-radius: 2rem 2rem 0 0; }
   #section_2 #s2_title {
     width: 100%;
     background: #45b29d;
@@ -303,7 +304,8 @@ em {
     padding: 3%;
     letter-spacing: -2px;
     text-shadow: 0.5px 0.5px 0px #3a9583, 1px 1px 0px #3a9583, 1.5px 1.5px 0px #3a9583, 2px 2px 0px #3a9583, 2.5px 2.5px 0px #3a9583, 3px 3px 0px #3a9583;
-    border-bottom: 0.4rem solid #348676; }
+    border-bottom: 0.4rem solid #348676;
+    border-radius: 2rem 2rem 0 0; }
   #section_2 #ruler {
     margin-top: 2rem;
     margin-bottom: -0.5rem;
@@ -448,7 +450,8 @@ em {
     padding: 3%;
     letter-spacing: -2px;
     border-top: 2px solid #f6e097;
-    border-bottom: 0.4rem solid #c8a942; }
+    border-bottom: 0.4rem solid #c8a942;
+    border-radius: 2rem 2rem 0 0; }
   #section_4 > .section_dark_bg {
     background: #30505c;
     border-top: 2px solid #4d4d4d;
@@ -499,10 +502,10 @@ em {
       font-weight: bold;
       padding-right: 0.5rem;
       color: #efc94c; }
-    #section_4 .s4_textblock footer {
+    #section_4 .s4_textblock .footer {
       margin-top: 2rem;
       color: #cccccc; }
-      #section_4 .s4_textblock footer strong {
+      #section_4 .s4_textblock .footer strong {
         color: #df4949; }
     #section_4 .s4_textblock .PENGUIN {
       margin-top: 2rem;
@@ -522,7 +525,8 @@ em {
     padding: 3%;
     letter-spacing: -2px;
     border-top: 2px solid #22c0ff;
-    border-bottom: 0.4rem solid #005a7d; }
+    border-bottom: 0.4rem solid #005a7d;
+    border-radius: 2rem 2rem 0 0; }
   #section_5 .s5_header {
     font-size: 2.2rem;
     letter-spacing: -1px;
