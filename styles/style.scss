@@ -22,6 +22,15 @@ em {
 .centered {
   text-align: center;
 }
+.justify {
+  text-align: justify;
+}
+.left {
+  text-align: left;
+}
+.right {
+  text-align: right;
+}
 
 .full_height {
   height: 100%;
@@ -713,7 +722,7 @@ em {
   .s5_header {
     font-size: 2.2rem;
     letter-spacing: -1px;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
     color: $green;
   }
 
@@ -835,37 +844,73 @@ em {
     border-bottom: none;
   }
 
-  #license {
+  #license_and_bugs {
     border-top: 1px solid #CCC;
     margin-top: -0.5rem;
+    line-height: 1.3em;
+    font-size: 1.1rem;
+
   }
 
-  .example_container {
-    margin: 1rem 0;
-    
+  li {
+    font-size: 1rem;
+    margin: 1rem 0.4rem;
+    text-align: justify;
+
+    strong {
+      color: $aqua;
+    }
   }
-  
-  .example {
+
+  li:before {
+    content: attr(data-number);
     position: relative;
-    border-radius: 3px;
+    top: 0.15rem;
+    font-size: 2em;
+    display: inline-block;
+    font-weight: bold;
+    padding-right: 0.4rem;
+    
+    color: $yellow;
   }
 
+  .license p {
+    margin-bottom: 2rem;
+  }
+}
 
-  .jungle {
-    background: #526d0b;
-    border: 6px solid #8f9e67;
+footer {
+  margin-top: 125px;
+  background: $darkgrey;
+  padding: 2rem;
+  border-top: 6px solid lighten($darkgrey, 10%);
+  border-bottom: 12px solid darken($darkgrey, 10%);
+  font-size: 0.9rem;
+  text-align: center;
+  color: $beige;
 
-    .line1{
-      position: absolute;
-      left: 17%;
-      top: 5%;
-      color: #e4d02a;
-    }
-    .line2 {
-      color: #98c420;
-    }
+  a {
+    color: $orange;
+  }
+  a:hover {
+    color: $yellow;
   }
 
+  .name {
+    font-size: 1.1em;
+    color: $red;
+  }
+
+  .line1 {
+    margin-bottom: 1rem;
+  }
+  .line2 {
+    font-size: 0.8rem;
+    margin-bottom: 1.5rem;
+  }
+  .to_my_github {
+    color: lighten($bbblue, 10%);
+  }
 }
 
 // Breakpoint for landscape devices < 1024px. Tablets, laptops.

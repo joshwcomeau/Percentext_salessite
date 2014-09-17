@@ -63,6 +63,15 @@ em {
 .centered {
   text-align: center; }
 
+.justify {
+  text-align: justify; }
+
+.left {
+  text-align: left; }
+
+.right {
+  text-align: right; }
+
 .full_height {
   height: 100%; }
 
@@ -517,7 +526,7 @@ em {
   #section_5 .s5_header {
     font-size: 2.2rem;
     letter-spacing: -1px;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
     color: #45b29d; }
   #section_5 > .section_light_bg {
     background: #efede7;
@@ -599,24 +608,52 @@ em {
     border-bottom: 1px solid #CCC; }
   #section_5 section:last-of-type {
     border-bottom: none; }
-  #section_5 #license {
+  #section_5 #license_and_bugs {
     border-top: 1px solid #CCC;
-    margin-top: -0.5rem; }
-  #section_5 .example_container {
-    margin: 1rem 0; }
-  #section_5 .example {
+    margin-top: -0.5rem;
+    line-height: 1.3em;
+    font-size: 1.1rem; }
+  #section_5 li {
+    font-size: 1rem;
+    margin: 1rem 0.4rem;
+    text-align: justify; }
+    #section_5 li strong {
+      color: #34bdbf; }
+  #section_5 li:before {
+    content: attr(data-number);
     position: relative;
-    border-radius: 3px; }
-  #section_5 .jungle {
-    background: #526d0b;
-    border: 6px solid #8f9e67; }
-    #section_5 .jungle .line1 {
-      position: absolute;
-      left: 17%;
-      top: 5%;
-      color: #e4d02a; }
-    #section_5 .jungle .line2 {
-      color: #98c420; }
+    top: 0.15rem;
+    font-size: 2em;
+    display: inline-block;
+    font-weight: bold;
+    padding-right: 0.4rem;
+    color: #efc94c; }
+  #section_5 .license p {
+    margin-bottom: 2rem; }
+
+footer {
+  margin-top: 125px;
+  background: #333333;
+  padding: 2rem;
+  border-top: 6px solid #4d4d4d;
+  border-bottom: 12px solid #1a1a1a;
+  font-size: 0.9rem;
+  text-align: center;
+  color: #efede7; }
+  footer a {
+    color: #e27a3f; }
+  footer a:hover {
+    color: #efc94c; }
+  footer .name {
+    font-size: 1.1em;
+    color: #df4949; }
+  footer .line1 {
+    margin-bottom: 1rem; }
+  footer .line2 {
+    font-size: 0.8rem;
+    margin-bottom: 1.5rem; }
+  footer .to_my_github {
+    color: #03b7ff; }
 
 @media screen and (max-width: 1024px) {
   #mathtools_column {

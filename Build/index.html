@@ -6845,33 +6845,48 @@
           </div>
         </div>
 
-        <section id="license">
-          <h3 class="s5_header">License</h3>
-          <p>
-            This plugin released under the <strong>MIT open-source license</strong>. You can read all about it <a href="http://opensource.org/licenses/MIT">here</a>, but the long and short of it is you can do pretty much whatever you want with this plugin, personal or commercial, as long as you give me credit and don't hold me liable for anything.
-          </p>
-        </section>
-
-        <section>
-          <h3 class="s5_header">Known Bugs</h3>
-          <p>All currently-unfixed known issues are listed here:</p>
-          <ul>
-            <li>
-              <strong>Elements inside hidden parents.</strong> Percentext crashes if it's called on an element whose parent has been hidden with <span class="code code-inline">display: none;</span>. This is a pretty big deal, for those who want to hide sections with media queries, and I'm working on finding a solution.
-            </li>
-          </ul>
+        <section id="license_and_bugs" class="grid">
+          <div class="c7">
+            <h3 class="s5_header">Known Bugs</h3>
+            <p>All currently-unfixed known issues are listed here:</p>
+            <ol>
+              <li data-number="1">
+                <strong>Elements inside hidden containers.</strong> Percentext crashes if it's called on an element whose parent has been hidden with <span class="mono">display: none;</span>. This is a pretty big deal, for those who want to hide sections with media queries, and I'm working on finding a solution.
+              </li>
+              <li data-number="2">
+                <strong>Inconsistent position at high negative <span class="mono">letter-spacing</span>.</strong> 
+                Really high (20px+) negative <span class="mono">letter-spacing</span> can cause the element to shift outside its container. I've tried to combat this situation with negative <span class="mono">text-indent</span>, but I haven't quite cracked it yet.
+              </li>
+            </ol>
+            
+          </div>          
+          <div class="c5 license">
+            <h3 class="s5_header">License</h3>
+            <p class="justify">
+              This plugin released under the <strong>MIT open-source license</strong>. You can read all about it <a href="http://opensource.org/licenses/MIT">here</a>, but the long and short of it is you can do pretty much whatever you want with this plugin, personal or commercial, as long as you give me credit and don't hold me liable for anything.
+            </p>
+            <p class="justify">
+              Are you using this plugin? I'd love to see what you've done with it! Please <a href="mailto:joshwcomeau@gmail.com">drop a line</a> and let me know =)
+            </p>
+            
+          </div>
         </section>
       </div>
     
     </section>
 
+    <footer>
+      <p class="line1">
+        &copy; <strong class="name">Percentext</strong>, 2014 and beyond. All rights, wrongs and grey areas reserved.
+      </p>
+      <p class="line2">
+        Thanks to <a href="http://fittextjs.com/">FitText.js</a> for the inspiration, and <a href="http://thenounproject.com/nebson/">Ben Johnson</a> and <a href="http://thenounproject.com/bashburn">Brad Ashburn</a> for the plug-in and penguin SVG icons, respectively.
+      </p>
+      <p class="line3">
+        Created by <a href="http://www.github.com/joshwcomeau" class="to_my_github">Joshua Comeau</a>.
+      </p>
+    </footer>
   </div>
-
-
-
-  <footer>
-    <a href="/credits">Credits</a>
-  </footer>
 </body>
 </html>
 
