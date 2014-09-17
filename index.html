@@ -20,75 +20,7 @@
 
   <script>
   $(document).ready(function() {
-
-    var PARALLAX_PADDING = 200;
-
-    var bg_color_classes = [ "bg_navy", "bg_blue", "bg_bbblue", "bg_aqua", "bg_green", "bg_grass", "bg_yellow", "bg_orange" ];
   
-    var bgCanvas = document.getElementById('bgCanvas');
-     
-    function render() {
-     
-      bgCanvas.patternizer(bgStripes);
-     
-    }
-     
-    // resize the canvas to the window size
-    function onResize() {
-     
-      // number of pixels of extra canvas drawn
-      var buffer = 100;
-   
-      // if extra canvas size is less than the buffer amount
-      if (bgCanvas.width - window.innerWidth < buffer ||
-        bgCanvas.height - window.innerHeight < buffer) {
- 
-        // resize the canvas to window plus double the buffer
-        bgCanvas.width = window.innerWidth + (buffer * 2);
-        bgCanvas.height = window.innerHeight + (buffer * 2);
- 
-        render();
-      }   
-   
-    }
-     
-    function init() {
-        onResize();
-        // create a listener for resize
-        // cowboy's throttle plugin keeps this event from running hog wild
-        window.addEventListener('resize', $.throttle(200, onResize), false);
-    }
-
-
-
-    // This simple scroller separates the sections by an ever-decreasing margin-top.
-    // Starts at 100px when it enters the frame, winds up at 0px by the time it reaches the top.
-    function parallax_scroller(boxes) {
-
-      _(boxes).forEach(function(container) {        
-        $(window).on("scroll load", function() {
-
-          var 
-          elem_top    = $(container).offset().top, 
-          scroll_top  = $(window).scrollTop(),
-          win_height  = $(window).height(),
-          win_top, new_padding, padding_multiplier;
-
-          // We only need to worry about calculations when the top of the container is inside the window.
-          if ( scroll_top < elem_top < (scroll_top + win_height) ) {
-            win_top = elem_top - scroll_top;
-            padding_multiplier = win_top / win_height;
-            new_padding = PARALLAX_PADDING * padding_multiplier;
-
-            $(container).css("padding-top", new_padding);
-          } else if (elem_top < scroll_top) {
-            $(container).css("padding-top", "0px");
-          }
-
-        })
-      });
-    }
-
     // Because we have that fancy parallax effect, an element's offset from the top changes as you scroll.
     // Supply the number of sections between the element and the current position, and this will take it into account.
     function anchor_scroll(target, num_of_sections) {
@@ -99,46 +31,15 @@
     $("#go_to_precise").on("click", function(ev) {
       anchor_scroll("#precise_mode_anchor", 2);
     });
-
     $("#button_1_learn_more").on("click", function() {
       anchor_scroll("#quick_start_anchor", 3);
     });
 
-    // Function to change the background color of an element depending on its scroll height.
-    // Essentially, I want the background color of selected elements to lighten as they move from the bottom of the
-    // screen to the top.
-    function silly_highlight_effect(lines) {
-      var
-      start_ratio   = 0.8,
-      end_ratio     = 0.1,
-      num_of_colors = bg_color_classes.length;
 
-      $(lines).each(function(index) {
-        var line = this;
-
-        $(window).on("scroll", function() {
-          var 
-          elem_top    = $(line).offset().top, 
-          scroll_top  = $(window).scrollTop(),
-          win_height  = $(window).height(),
-          win_top;
-
-          if ( scroll_top < elem_top < (scroll_top + win_height) ) {
-            win_top = elem_top - scroll_top;
-            progress_multiplier = win_top / win_height;
-
-            if ( end_ratio < progress_multiplier && progress_multiplier < start_ratio ) {
-              $(line).addClass('line_effect_highlight');
-            } else {
-              $(line).removeClass('line_effect_highlight');
-            }
-          }
-        });
-      });
-    }
      
+    var bgCanvas = document.getElementById('bgCanvas');
 
-    init();
+    init(bgCanvas);
 
 
     $("#title").percentext({letterSpacing: -4});
