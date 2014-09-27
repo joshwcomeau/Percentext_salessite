@@ -650,6 +650,7 @@ footer {
   footer a:hover {
     color: #efc94c; }
   footer .name {
+    font-weight: bold;
     font-size: 1.1em;
     color: #df4949; }
   footer .line1 {

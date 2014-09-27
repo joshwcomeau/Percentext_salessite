@@ -32,14 +32,12 @@
       // We need to get our left-right padding at the outset, to take that into account
       user_css.paddingLeft  = parseInt($elem.css("padding-left"));
       user_css.paddingRight = parseInt($elem.css("padding-right"));
-      user_css.marginLeft  = parseInt($elem.css("margin-left"));
-      user_css.marginRight = parseInt($elem.css("margin-right"));
+      user_css.marginLeft   = parseInt($elem.css("margin-left"));
+      user_css.marginRight  = parseInt($elem.css("margin-right"));
 
       // Immediately hide the text. 
       // This is to avoid the text being shown incorrectly before any relevant webfonts have loaded.
       $elem.css("visibility", "hidden");
-
-
 
       // Run our main function on load (after custom webfonts have been downloaded) and on resize.
       var debouncer;
@@ -51,12 +49,6 @@
       $(window).bind("load", function() {
         do_your_thang( $elem, settings, user_css );  
       });
-
-
-
-      
-
-
     });
   };
 
@@ -64,7 +56,6 @@
   // Performs setup, calculation, application and cleanup.
   function do_your_thang($elem, settings, user_css) {
     var starting_size = 80;
-
 
     // Preparation is key.
     setup( $elem, starting_size, settings );      
@@ -116,7 +107,6 @@
     final_font_size;
 
     // Figure out if we're going for a percentage or pixel width. Get the ratio and width
-
     var 
     width_string  = settings.width.toString(), 
     width_num     = parseInt(settings.width),
@@ -125,16 +115,10 @@
     max_width     = container_width * desired_ratio;
 
 
-    // console.log("-- Before Broad Strokes --");
-    // console.log("Text width is: " + $elem.width());
-    // console.log("Container width is: " + container_width);
-    
-
-    // Part I: Broad Strokes.
+    // Broad Strokes.
     // We do some math to get what ought to be the perfect font size. This will work most times.
     var broad_font_size = first_pass( starting_size, text_width_ratio, desired_ratio );
     $elem.css("font-size", broad_font_size);
-
 
     //// Take user-specified letter-spacing into account!
     // We're doing this AFTER Broad Strokes because initially we shrink the text to 6px.
@@ -142,15 +126,12 @@
     // It's better to reset letter-spacing to 0px at the start, and apply our custom value here.
 
     starting_letter_spacing = settings.relativeSpacing ? get_relative_spacing( user_css.letterSpacing, container_width, assumed_container_width ) : user_css.letterSpacing;
-    
     $elem.css("letter-spacing", starting_letter_spacing);  
-
 
     // Now, we either need to decrease the font size if we have positive letter-spacing,
     // or we need to increase it if it's negative or zero.
 
     if ( $elem.width() <= max_width ) {
-      
       var too_big_font_size = increase_to_excess( $elem, max_width, "font-size", broad_font_size, font_size_increment );  
       final_font_size = too_big_font_size - font_size_increment;
     } else {
@@ -165,14 +146,10 @@
       final_font_size = settings.maxFontSize;
     }
 
-
-
     $elem.css("font-size", final_font_size);
 
 
-
-
-    // Part III: Precise Mode (optional)
+    // Precise Mode (optional)
     // Uses letter-spacing to get as precise a width as possible. Generally not necessary, but can be useful
     // on headers with lots of letters (since the difference between 10px and 11px font size is significant).
     // Precise mode is automatically skipped if our font size was set to our set minimum or maximum.
@@ -192,8 +169,6 @@
     }
 
 
-
-
     return {
       fontSize:       final_font_size,
       letterSpacing:  precise_round(final_letter_spacing, 1) + "px",
@@ -211,8 +186,6 @@
       paddingLeft:  user_css.paddingLeft,
       marginRight:  user_css.marginRight,
       marginLeft:   user_css.marginLeft
-      
-
     });
   }
 
@@ -224,36 +197,20 @@
     } else {
       user_css.letterSpacing = parseFloat(settings.letterSpacing);
     }
-
     return user_css;
   }
 
   function first_pass( starting_size, text_width_ratio, desired_ratio ) {
-    // console.log( "starting size: " + starting_size );
-    // console.log( "Text width ratio: " + text_width_ratio );
-    // console.log( "Desired ratio: " + desired_ratio );
     return Math.floor( (starting_size * desired_ratio) / text_width_ratio );
-
-    // The way math works:
-
-    // current_size   =   desired_size
-    // current_ratio      set_ratio
-
-    // current_size * set_ratio = desired_size * current_ratio
-    // desired_size = ( current_size * set_ratio ) / current_ratio
   }
 
   function increase_to_excess( $elem, max_width, property, iterable, increment ) {
     var num_of_runs = 0;
     while ( $elem.width() < max_width ) {
-      // console.log(property + ": " + iterable);
-      // console.log("H2 width:" + $elem.width());
-      // console.log("Container width:" + max_width);
       iterable += increment;
       $elem.css(property, iterable);
       num_of_runs++;
     }
-    // console.log(num_of_runs)
 
     return iterable;
   } 
@@ -281,8 +238,6 @@
     return $container.width() - user_css.paddingLeft - user_css.paddingRight - user_css.marginLeft - user_css.marginRight;
   }  
 
-  
-
   $.fn.percentext.defaults = {
     width:            100,
     textAlign:        null,
@@ -292,6 +247,4 @@
     minFontSize:      null,     
     maxFontSize:      null,     
   };
-
-
 }( jQuery ));
