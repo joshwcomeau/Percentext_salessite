@@ -274,6 +274,10 @@ em {
         transition: 0.25s;
         box-shadow: 0.5px 0.5px 0px #378d7d, 1px 1px 0px #378d7d, 1.5px 1.5px 0px #378d7d, 2px 2px 0px #378d7d, 2.5px 2.5px 0px #378d7d, 3px 3px 0px #378d7d, 3.5px 3.5px 0px #378d7d, 4px 4px 0px #378d7d;
         text-shadow: 0.5px 0.5px 0px #378d7d, 1px 1px 0px #378d7d; }
+        #section_1 .title_area #main_button_holder #button_2_github a {
+          color: #FFF;
+          text-decoration: none;
+          display: block; }
       #section_1 .title_area #main_button_holder #button_2_github:hover {
         background: #34bf57;
         box-shadow: 0.5px 0.5px 0px #299745, 1px 1px 0px #299745, 1.5px 1.5px 0px #299745, 2px 2px 0px #299745, 2.5px 2.5px 0px #299745, 3px 3px 0px #299745, 3.5px 3.5px 0px #299745, 4px 4px 0px #299745;
@@ -650,7 +654,6 @@ footer {
   footer a:hover {
     color: #efc94c; }
   footer .name {
-    font-weight: bold;
     font-size: 1.1em;
     color: #df4949; }
   footer .line1 {

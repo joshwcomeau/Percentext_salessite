@@ -13,7 +13,5 @@ $(document).ready(function() {
   $("#button_1_learn_more").on("click", function() {
     anchor_scroll("#quick_start_anchor", 3);
   });
-  $("#button_2_github").on("click", function() {
-    window.location.href = "https://github.com/joshwcomeau/Percentext";
-  });
+
 });

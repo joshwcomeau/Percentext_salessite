@@ -326,6 +326,12 @@ em {
           0.5px 0.5px 0px darken($green, 10%),
           1px 1px 0px darken($green, 10%)
         ;
+
+        a {
+          color: #FFF;
+          text-decoration: none;
+          display: block;
+        }
       }
       #button_2_github:hover {
         background: $grass;
