@@ -77,7 +77,44 @@ em {
   color: $aqua;
 }
 
+.terminal-indicator {
+  opacity: 0.6;
+  padding-right: 10px;
+  cursor: default;
+}
 
+.new {
+  color: $grass;
+  vertical-align: super;
+  font-size: 0.5em;
+  font-weight: bold;
+}
+
+
+.bower_link {
+  margin: 2rem auto;
+  position: relative;
+  text-align: center;
+  
+
+  a {
+    display: inline-block;
+    padding: 0.3rem 2rem;
+
+    background: rgba(0,0,0,0.2);
+    color: $aqua !important;
+    text-decoration: none;
+    font-size: 0.9em;
+    line-height: 90px;
+    border-radius: 4px;
+  }
+  img {
+    margin-right: 1rem;
+    width: 90px; 
+    vertical-align: middle;
+  }
+  
+}
 .code {
   background: lighten($darkgrey, 12%);
   font-family: "Inconsolata", "Lucida Console", Monaco, monospace;

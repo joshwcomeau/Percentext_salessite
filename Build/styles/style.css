@@ -114,6 +114,35 @@ em {
 .aqua_text {
   color: #34bdbf; }
 
+.terminal-indicator {
+  opacity: 0.6;
+  padding-right: 10px;
+  cursor: default; }
+
+.new {
+  color: #34bf57;
+  vertical-align: super;
+  font-size: 0.5em;
+  font-weight: bold; }
+
+.bower_link {
+  margin: 2rem auto;
+  position: relative;
+  text-align: center; }
+  .bower_link a {
+    display: inline-block;
+    padding: 0.3rem 2rem;
+    background: rgba(0, 0, 0, 0.2);
+    color: #34bdbf !important;
+    text-decoration: none;
+    font-size: 0.9em;
+    line-height: 90px;
+    border-radius: 4px; }
+  .bower_link img {
+    margin-right: 1rem;
+    width: 90px;
+    vertical-align: middle; }
+
 .code {
   background: #525252;
   font-family: "Inconsolata", "Lucida Console", Monaco, monospace;

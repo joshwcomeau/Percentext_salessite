@@ -3,14 +3,40 @@
 <head>
   <title>Percentext playpen.</title>
   
-  <link rel='stylesheet' href='7b4d3cf36146f201339d97f631656bb0.css'>
+        <!-- Hammer reload -->
+          <script>
+            setInterval(function(){
+              try {
+                if(typeof ws != 'undefined' && ws.readyState == 1){return true;}
+                ws = new WebSocket('ws://'+(location.host || 'localhost').split(':')[0]+':35353')
+                ws.onopen = function(){ws.onclose = function(){document.location.reload()}}
+                ws.onmessage = function(){
+                  var links = document.getElementsByTagName('link'); 
+                    for (var i = 0; i < links.length;i++) { 
+                    var link = links[i]; 
+                    if (link.rel === 'stylesheet' && !link.href.match(/typekit/)) { 
+                      href = link.href.replace(/((&|\?)hammer=)[^&]+/,''); 
+                      link.href = href + (href.indexOf('?')>=0?'&':'?') + 'hammer='+(new Date().valueOf());
+                    }
+                  }
+                }
+              }catch(e){}
+            }, 1000)
+          </script>
+        <!-- /Hammer reload -->
+      
+  <link rel='stylesheet' href='styles/style.css'>
 
-  <script src='76da0f96d5cdc2bd9395fdce35511193.js'></script>
-  <script src='8ecad95d13efdbb805633ee7c3a39e90.js'></script>
-  <script src='57725ac359b4b6c6b75dd55e8b969680.js'></script>
-  <script src='76c02ed9df044deca3dc6ced4a87b11a.js'></script>
-  <script src='35bb0c3a623a667dc1e2e4a6cf8e315a.js'></script>
-  <script src='ee7e4f330d4b2450f244d5c539367a67.js'></script>
+  <script src='scripts/jquery_1.11.1.js'></script>
+  <script src='scripts/throttle-debounce_1.1.min.js'></script>
+  <script src='scripts/patternizr.min.js'></script>
+  <script src='scripts/patternizr_stripes.js'></script>
+  <script src='scripts/percentext_1.0.js'></script>
+  <script src='scripts/ze_misc.js'></script>
+<script src='scripts/lodash.min.js'></script>
+<script src='scripts/highlight_effect.js'></script>
+<script src='scripts/parallax_scroller.js'></script>
+<script src='scripts/patternizer_script.js'></script>
 
   <script>
   $(document).ready(function() {

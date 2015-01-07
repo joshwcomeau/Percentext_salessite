@@ -188,14 +188,29 @@
       <div class="section_dark_bg">
         <div class="grid padded_grid">
           <div class="c6">
+            
             <h4 class="s4_header">Installation</h4><div class="s4_header_edge"></div>
-            <div class="s4_textblock">
-              <h3 class="quickstart_header">Installation is a piece of cake! Here are some steps:</h3>
+            <div class="s4_textblock" style="position: relative;">
+              <h3 class="quickstart_header">With Bower <span class="new">new!</span></h3>
+              <p>Easy! CD into your project directory, and run:</p>
+              <p class="mono"><span class="terminal-indicator">$</span>bower install percentext</p>
+              <p>By default, bower installs packages into <span class="mono">bower_components</span>. If you haven't tinkered with the defaults, you can then include percentext like so:</p>
+              <div class="code code_block">
+                   <span class="tag">&lt;script</span> 
+                   <span class="attr">type</span>=<!--
+                --><span class="val">"text/javascript"</span> 
+                   <span class="attr">src</span>=<!--
+                --><span class="val">"bower_components/percentext/percentext.js"</span><!--
+                --><span class="tag">&gt;</span>
+              </div>
+              <div class="bower_link"><a href="http://bower.io/" target="_blank"><img src="<!-- @path bower-logo.png -->"> Learn more about awesome Bower!</a></div>
+
+              <h3 class="quickstart_header" style="margin-top: 3rem;">Without Bower</h3>
               <ol>
-                <li data-number="1.">First thing's first, make sure you have <a href="http://jquery.com/download/">jQuery</a> installed! Percentext depends on it.</li>
-                <li data-number="2.">Download percentext_1.0.js (or the minified version) <a href="https://github.com/joshwcomeau/Percentext" target="_blank">from GitHub</a> .</li>
-                <li data-number="3.">Throw your new download into your project folder. Right next to all the other scripts. It'll fit right in. 
-                <li data-number="4.">
+                <li data-number="A.">First thing's first, make sure you have <a href="http://jquery.com/download/">jQuery</a> installed! Percentext depends on it.</li>
+                <li data-number="B.">Download percentext.js (or the minified version) <a href="https://github.com/joshwcomeau/Percentext" target="_blank">from GitHub</a> .</li>
+                <li data-number="C.">Throw your new download into your project folder. Right next to all the other scripts. It'll fit right in. 
+                <li data-number="D.">
                   Include the following line of HTML into the 
                   <span class="code code_inline"><span class="tag">&lt;head&gt;</span></span> 
                   section of the page(s) you want to use Percentext in:
@@ -210,11 +225,8 @@
                   </div>
                 </li>
 
-                <li data-number="5.">That's it! You're loaded and ready to rock.</li>
-              </ol>
-              <div class="PENGUIN"><!-- @include penguin.html --></div>
-              <div class="footer tiny centered"><strong>Coming soon:</strong> npm package and rails gem for even easier installation!?</div>
-            
+                <li data-number="E.">That's it! You're loaded and ready to rock.</li>
+              </ol>            
             </div>
           </div>
           <div class="c6">
@@ -241,6 +253,8 @@
               <div class="code code_block">
                 <span class="val">$</span>(<span class="string">".some-class"</span>).percentext({ <span class="object">preciseMode: <span class="attr">false</span></span> });<br>
               </div>
+              <div class="PENGUIN" title="Good job, mister! You're ready to roll."><!-- @include penguin.html --></div>
+
             </div>
           </div>
       </div>
