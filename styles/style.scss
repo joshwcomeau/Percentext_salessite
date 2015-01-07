@@ -107,6 +107,12 @@ em {
     font-size: 0.9em;
     line-height: 90px;
     border-radius: 4px;
+    transition: 0.25s;
+    
+    &:hover {
+      background: rgba(255,255,255,0.1);
+      transition: 0.5s;
+    }
   }
   img {
     margin-right: 1rem;
