@@ -136,15 +136,16 @@ em {
     color: #34bdbf !important;
     text-decoration: none;
     font-size: 0.9em;
-    line-height: 90px;
+    line-height: 60px;
     border-radius: 4px;
     transition: 0.25s; }
     .bower_link a:hover {
       background: rgba(255, 255, 255, 0.1);
-      transition: 0.5s; }
+      transition: 0.5s;
+      color: #6fe7e9; }
   .bower_link img {
     margin-right: 1rem;
-    width: 90px;
+    width: 60px;
     vertical-align: middle; }
 
 .code {
